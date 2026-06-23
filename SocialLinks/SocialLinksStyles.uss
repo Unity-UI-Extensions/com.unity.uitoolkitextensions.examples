@@ -1,0 +1,87 @@
+.socialLinksDemo__screen {
+	flex-grow: 1;
+	align-items: center;
+	justify-content: flex-start;
+	padding-left: 28px;
+	padding-right: 28px;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background-color: rgba(9, 15, 27, 1);
+}
+
+.socialLinksDemo__card {
+	width: 100%;
+	max-width: 580px;
+	padding-left: 28px;
+	padding-right: 28px;
+	padding-top: 28px;
+	padding-bottom: 28px;
+	background-color: rgba(20, 28, 44, 0.94);
+	border-width: 1px;
+	border-color: rgba(255, 255, 255, 0.08);
+	border-radius: 28px;
+}
+
+.socialLinksDemo__eyebrow {
+	font-size: 13px;
+	color: rgba(132, 173, 255, 1);
+	-unity-font-style: bold;
+	margin-bottom: 12px;
+}
+
+.socialLinksDemo__title {
+	font-size: 30px;
+	color: rgba(255, 255, 255, 1);
+	-unity-font-style: bold;
+	margin-bottom: 10px;
+	white-space: normal;
+}
+
+.socialLinksDemo__instruction {
+	font-size: 15px;
+	color: rgba(202, 211, 232, 0.9);
+	margin-bottom: 22px;
+	white-space: normal;
+}
+
+.socialLinksDemo__container {
+	margin-bottom: 8px;
+}
+
+/* Make the container's text legible on the dark card */
+.socialLinksDemo__container .socialLinkContainer__label {
+	color: rgba(255, 255, 255, 1);
+}
+
+.socialLinksDemo__container .socialLinkContainer__addButton {
+	color: rgba(132, 173, 255, 1);
+}
+
+.socialLinksDemo__container .socialLinkContainer__containerChildRemoveButton {
+	color: rgba(255, 138, 138, 1);
+}
+
+.socialLinksDemo__container .unity-text-field__input {
+	color: rgba(236, 240, 252, 1);
+}
+
+.socialLinksDemo__container .unity-base-field__label {
+	color: rgba(202, 211, 232, 0.9);
+}
+
+.socialLinksDemo__bottomBar {
+	align-items: center;
+	margin-top: 4px;
+}
+
+.socialLinksDemo__showButton {
+	height: 52px;
+	align-self: stretch;
+}
+
+.socialLinksDemo__status {
+	margin-top: 16px;
+	font-size: 13px;
+	color: rgba(124, 230, 200, 1);
+	white-space: normal;
+}

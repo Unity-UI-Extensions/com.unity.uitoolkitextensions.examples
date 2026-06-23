@@ -1,0 +1,20 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:ext="UnityUIToolkit.Extensions" editor-extension-mode="False">
+    <Style src="project://database/Packages/com.unity.uitoolkitextensions/Runtime/Styles/UIToolkitExtensionsControlStyles.uss" />
+    <Style src="SocialLinksStyles.uss" />
+
+    <ui:VisualElement class="socialLinksDemo__screen">
+        <ui:VisualElement class="socialLinksDemo__card">
+            <ui:Label text="Toolkit Sample" class="socialLinksDemo__eyebrow" />
+            <ui:Label text="Social Links" class="socialLinksDemo__title" />
+            <ui:Label text="Add as many social links as you like. Tap &quot;+ Add Social&quot;, pick a platform from the wheel, then type your handle. Remove a row with its ✕ button." class="socialLinksDemo__instruction" />
+
+            <ext:SocialLinkContainer name="social-links" class="socialLinksDemo__container" label="Your Profiles" edit-mode="true" />
+
+            <ui:VisualElement class="socialLinksDemo__bottomBar">
+                <ext:PillButton name="show-button" class="socialLinksDemo__showButton" text="Show Entered Links" inner-color="#4A90E2" outer-color="#7B68EE" />
+            </ui:VisualElement>
+
+            <ui:Label name="status-label" text="Your entered links will be listed here." class="socialLinksDemo__status" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

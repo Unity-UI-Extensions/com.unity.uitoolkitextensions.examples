@@ -9,3 +9,6 @@
 @import url("/Assets/Samples/Unity UI Toolkit Extensions/1.0.0/UI Toolkit Extensions Samples/StepWizard/StepWizardStyles.uss");
 @import url("/Assets/Samples/Unity UI Toolkit Extensions/1.0.0/UI Toolkit Extensions Samples/ToastNotifications/ToastNotificationsStyles.uss");
 @import url("/Assets/Samples/Unity UI Toolkit Extensions/1.0.0/UI Toolkit Extensions Samples/ProfileEditor/ProfileEditorStyles.uss");
+@import url("/Assets/Samples/Unity UI Toolkit Extensions/1.0.0/UI Toolkit Extensions Samples/ScreenHeader/ScreenHeaderStyles.uss");
+@import url("/Assets/Samples/Unity UI Toolkit Extensions/1.0.0/UI Toolkit Extensions Samples/NotificationList/NotificationListStyles.uss");
+@import url("/Assets/Samples/Unity UI Toolkit Extensions/1.0.0/UI Toolkit Extensions Samples/SocialLinks/SocialLinksStyles.uss");
