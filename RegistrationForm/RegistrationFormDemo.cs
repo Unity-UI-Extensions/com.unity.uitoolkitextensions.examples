@@ -1,14 +1,3 @@
-// Examples~/RegistrationForm/RegistrationFormDemo.cs
-// Demonstrates: PillInputField, RoundedInputField, PillButton, PillSelector,
-//               VisualElementShakeUtility (validation shake)
-//
-// Scene setup:
-//   A companion scene already wires this component to a GameObject that carries a
-//   UIDocument. The demo resolves that UIDocument via GetComponent<UIDocument>()
-//   on the same GameObject, so no manual assignment is required.
-//   Press Play — fill in the form and tap "Create Account".
-//   Invalid fields shake and highlight. Valid submission shows a success screen.
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,7 +23,6 @@ namespace UnityUIToolkit.Extensions.Examples
     /// </summary>
     public class RegistrationFormDemo : MonoBehaviour
     {
-        // ── Category options ──────────────────────────────────────────────────────
         private static readonly string[] CategoryOptions =
         {
             "Fitness",
@@ -45,7 +33,6 @@ namespace UnityUIToolkit.Extensions.Examples
 
         private int currentCategoryIndex = 0;
 
-        // ── Runtime field references ───────────────────────────────────────────────
         private UIDocument uiDocument;
         private PillInputField nameField;
         private PillInputField emailField;
@@ -55,7 +42,6 @@ namespace UnityUIToolkit.Extensions.Examples
         private VisualElement formContainer;
         private VisualElement successContainer;
 
-        // ──────────────────────────────────────────────────────────────────────────
         private void Start()
         {
             uiDocument = GetComponent<UIDocument>();
@@ -70,30 +56,23 @@ namespace UnityUIToolkit.Extensions.Examples
             BuildUI(root);
         }
 
-        // ──────────────────────────────────────────────────────────────────────────
         private void BuildUI(VisualElement root)
         {
-            // Full-screen dark backdrop, centered
             VisualElement screen = UIToolkitExtensions.CreateVisualElement(root, "registrationForm__screen");
 
-            // ── Example card (shared rounded container) ────────────────────────────
             VisualElement card = UIToolkitExtensions.CreateVisualElement(screen, "registrationForm__card");
 
             Label eyebrow = UIToolkitExtensions.CreateVisualElement<Label>(card, "registrationForm__eyebrow");
             eyebrow.text = "Toolkit Sample";
 
-            // Title and subtitle live on the card itself so they stay visible when the
-            // form fades out and the success message takes its place.
             Label titleLabel = UIToolkitExtensions.CreateVisualElement<Label>(card, "registrationForm__title");
             titleLabel.text = "Registration Form";
 
             Label subtitleLabel = UIToolkitExtensions.CreateVisualElement<Label>(card, "registrationForm__subtitle");
             subtitleLabel.text = "Complete the sample form below to review the shared example card style in a more complex layout.";
 
-            // ── Form container ────────────────────────────────────────────────────
             formContainer = UIToolkitExtensions.CreateVisualElement(card, "registrationForm__formContainer");
 
-            // ── Full Name — PillInputField ─────────────────────────────────────────
             nameField = new PillInputField();
             nameField.Label = "Full Name";
             nameField.SetPlaceholder("Your full name");
@@ -102,7 +81,6 @@ namespace UnityUIToolkit.Extensions.Examples
             ApplyPillInputStyle(nameField);
             formContainer.Add(nameField);
 
-            // ── Email — PillInputField ────────────────────────────────────────────
             emailField = new PillInputField();
             emailField.Label = "Email Address";
             emailField.SetPlaceholder("you@example.com");
@@ -111,7 +89,6 @@ namespace UnityUIToolkit.Extensions.Examples
             ApplyPillInputStyle(emailField);
             formContainer.Add(emailField);
 
-            // ── Password — PillInputField (password mode) ─────────────────────────
             passwordField = new PillInputField();
             passwordField.Label = "Password";
             passwordField.SetPlaceholder("Min. 6 characters");
@@ -121,7 +98,6 @@ namespace UnityUIToolkit.Extensions.Examples
             ApplyPillInputStyle(passwordField);
             formContainer.Add(passwordField);
 
-            // ── Bio — RoundedInputField (multiline) ───────────────────────────────
             Label bioSectionLabel = UIToolkitExtensions.CreateVisualElement<Label>(formContainer, "registrationForm__sectionLabel");
             bioSectionLabel.text = "Bio (optional)";
 
@@ -129,14 +105,11 @@ namespace UnityUIToolkit.Extensions.Examples
             bioField.Placeholder = "Tell us a little about yourself…";
             bioField.Multiline = true;
             bioField.MaxLength = 280;
-            bioField.SetBackgroundColor(Color.white);
-            bioField.SetTextColor(new Color(0.15f, 0.15f, 0.2f, 1f));
-            bioField.SetPlaceholderColor(new Color(0.65f, 0.65f, 0.7f, 1f));
+            bioField.SetTextColor(Color.white);
             bioField.SetFontSize(14f);
             bioField.AddToClassList("registrationForm__bioField");
             formContainer.Add(bioField);
 
-            // ── Category — PillSelector ───────────────────────────────────────────
             categorySelector = new PillSelector();
             categorySelector.Label = "Category";
             categorySelector.Value = CategoryOptions[currentCategoryIndex];
@@ -144,7 +117,6 @@ namespace UnityUIToolkit.Extensions.Examples
             categorySelector.Clicked += OnCategorySelectorClicked;
             formContainer.Add(categorySelector);
 
-            // ── Submit button — PillButton ────────────────────────────────────────
             PillButton submitButton = new PillButton();
             submitButton.Text = "Create Account";
             submitButton.SetInnerColor("#4A90E2");
@@ -155,11 +127,9 @@ namespace UnityUIToolkit.Extensions.Examples
             submitButton.Clicked += OnSubmitClicked;
             formContainer.Add(submitButton);
 
-            // ── Success container (hidden until form submitted) ────────────────────
             BuildSuccessContainer(card);
         }
 
-        // ── Success screen ─────────────────────────────────────────────────────────
         private void BuildSuccessContainer(VisualElement card)
         {
             successContainer = UIToolkitExtensions.CreateVisualElement(card, "registrationForm__successContainer");
@@ -176,21 +146,16 @@ namespace UnityUIToolkit.Extensions.Examples
             successMessage.text = "Welcome aboard! Your account has been successfully created. You can now explore all features.";
         }
 
-        // ── Helpers ───────────────────────────────────────────────────────────────
-
-        /// <summary>Apply consistent control-API styles to a PillInputField.</summary>
         private static void ApplyPillInputStyle(PillInputField field)
         {
-            field.SetBackgroundColor(Color.white);
-            field.SetTextColor(new Color(0.15f, 0.15f, 0.2f, 1f));
+            // Field background, border and inner-input chrome come from the USS
+            // overrides; the runtime API only sets the typed-text colour and size.
+            field.SetTextColor(Color.white);
             field.SetFontSize(15f);
         }
 
-        // ── Event handlers ────────────────────────────────────────────────────────
-
         private void OnCategorySelectorClicked()
         {
-            // Advance through options in a cycle — simulates a picker result
             currentCategoryIndex = (currentCategoryIndex + 1) % CategoryOptions.Length;
             categorySelector.Value = CategoryOptions[currentCategoryIndex];
         }
@@ -199,11 +164,9 @@ namespace UnityUIToolkit.Extensions.Examples
         {
             if (!ValidateForm())
             {
-                // Validation failed — individual field shakes were applied inside ValidateForm
                 return;
             }
 
-            // All valid — transition to success
             StartCoroutine(ShowSuccessTransition());
         }
 
@@ -216,40 +179,37 @@ namespace UnityUIToolkit.Extensions.Examples
         {
             var isValid = true;
 
-            // Full Name — must not be empty
             if (string.IsNullOrWhiteSpace(nameField.Value))
             {
                 VisualElementShakeUtility.Shake(nameField, wobbleCount: 4, wobbleDurationMs: 65, amplitudePixels: 10f);
-                nameField.SetBackgroundColor(new Color(1f, 0.93f, 0.93f, 1f));
+                nameField.EnableInClassList("registrationForm__field--error", true);
                 isValid = false;
             }
             else
             {
-                nameField.SetBackgroundColor(Color.white);
+                nameField.EnableInClassList("registrationForm__field--error", false);
             }
 
-            // Email — must contain '@'
             if (!emailField.Value.Contains("@"))
             {
                 VisualElementShakeUtility.Shake(emailField, wobbleCount: 4, wobbleDurationMs: 65, amplitudePixels: 10f);
-                emailField.SetBackgroundColor(new Color(1f, 0.93f, 0.93f, 1f));
+                emailField.EnableInClassList("registrationForm__field--error", true);
                 isValid = false;
             }
             else
             {
-                emailField.SetBackgroundColor(Color.white);
+                emailField.EnableInClassList("registrationForm__field--error", false);
             }
 
-            // Password — minimum 6 characters
             if (passwordField.Value.Length < 6)
             {
                 VisualElementShakeUtility.Shake(passwordField, wobbleCount: 4, wobbleDurationMs: 65, amplitudePixels: 10f);
-                passwordField.SetBackgroundColor(new Color(1f, 0.93f, 0.93f, 1f));
+                passwordField.EnableInClassList("registrationForm__field--error", true);
                 isValid = false;
             }
             else
             {
-                passwordField.SetBackgroundColor(Color.white);
+                passwordField.EnableInClassList("registrationForm__field--error", false);
             }
 
             return isValid;
@@ -274,7 +234,6 @@ namespace UnityUIToolkit.Extensions.Examples
             formContainer.style.display = DisplayStyle.None;
             successContainer.style.display = DisplayStyle.Flex;
 
-            // Fade success container in
             successContainer.style.opacity = 0f;
             successContainer.style.transitionProperty = new StyleList<StylePropertyName>(
                 new List<StylePropertyName> { new("opacity") });
@@ -283,7 +242,6 @@ namespace UnityUIToolkit.Extensions.Examples
             successContainer.style.transitionTimingFunction = new StyleList<EasingFunction>(
                 new List<EasingFunction> { new(EasingMode.EaseOut) });
 
-            // Force a frame so the initial opacity=0 is applied before we set it to 1
             yield return null;
 
             successContainer.style.opacity = 1f;

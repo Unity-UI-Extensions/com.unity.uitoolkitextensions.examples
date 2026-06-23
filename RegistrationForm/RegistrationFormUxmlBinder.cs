@@ -1,7 +1,3 @@
-// Examples~/RegistrationForm/RegistrationFormUxmlBinder.cs
-// UXML counterpart of RegistrationFormDemo.cs. Layout lives in RegistrationFormUxmlView.uxml;
-// this binder wires validation (with shake feedback) and the success transition.
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +6,6 @@ using UnityUIToolkit.Extensions;
 
 namespace UnityUIToolkit.Extensions.Examples
 {
-    /// <summary>Behaviour binder for the UXML-authored RegistrationForm demo.</summary>
     public class RegistrationFormUxmlBinder : MonoBehaviour
     {
         private static readonly string[] CategoryOptions =
@@ -60,16 +55,13 @@ namespace UnityUIToolkit.Extensions.Examples
                 return;
             }
 
-            // Field appearance is configured through the controls' runtime API.
             ApplyPillInputStyle(nameField);
             ApplyPillInputStyle(emailField);
             ApplyPillInputStyle(passwordField);
 
             if (bioField != null)
             {
-                bioField.SetBackgroundColor(new Color(1f, 1f, 1f, 0.03f));
                 bioField.SetTextColor(Color.white);
-                bioField.SetPlaceholderColor(new Color(0.71f, 0.75f, 0.86f, 0.65f));
                 bioField.SetFontSize(14f);
             }
 
@@ -85,7 +77,6 @@ namespace UnityUIToolkit.Extensions.Examples
 
         private static void ApplyPillInputStyle(PillInputField field)
         {
-            field.SetBackgroundColor(new Color(1f, 1f, 1f, 0.03f));
             field.SetTextColor(Color.white);
             field.SetFontSize(15f);
         }
@@ -113,34 +104,34 @@ namespace UnityUIToolkit.Extensions.Examples
             if (string.IsNullOrWhiteSpace(nameField.Value))
             {
                 VisualElementShakeUtility.Shake(nameField, wobbleCount: 4, wobbleDurationMs: 65, amplitudePixels: 10f);
-                nameField.SetBackgroundColor(new Color(0.46f, 0.14f, 0.22f, 0.9f));
+                nameField.EnableInClassList("registrationForm__field--error", true);
                 isValid = false;
             }
             else
             {
-                nameField.SetBackgroundColor(new Color(1f, 1f, 1f, 0.03f));
+                nameField.EnableInClassList("registrationForm__field--error", false);
             }
 
             if (!emailField.Value.Contains("@"))
             {
                 VisualElementShakeUtility.Shake(emailField, wobbleCount: 4, wobbleDurationMs: 65, amplitudePixels: 10f);
-                emailField.SetBackgroundColor(new Color(0.46f, 0.14f, 0.22f, 0.9f));
+                emailField.EnableInClassList("registrationForm__field--error", true);
                 isValid = false;
             }
             else
             {
-                emailField.SetBackgroundColor(new Color(1f, 1f, 1f, 0.03f));
+                emailField.EnableInClassList("registrationForm__field--error", false);
             }
 
             if (passwordField.Value.Length < 6)
             {
                 VisualElementShakeUtility.Shake(passwordField, wobbleCount: 4, wobbleDurationMs: 65, amplitudePixels: 10f);
-                passwordField.SetBackgroundColor(new Color(0.46f, 0.14f, 0.22f, 0.9f));
+                passwordField.EnableInClassList("registrationForm__field--error", true);
                 isValid = false;
             }
             else
             {
-                passwordField.SetBackgroundColor(new Color(1f, 1f, 1f, 0.03f));
+                passwordField.EnableInClassList("registrationForm__field--error", false);
             }
 
             return isValid;
