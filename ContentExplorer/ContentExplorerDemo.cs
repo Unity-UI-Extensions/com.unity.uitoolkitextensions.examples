@@ -29,7 +29,6 @@ namespace UnityUIToolkit.Extensions.Examples
     /// </summary>
     public class ContentExplorerDemo : MonoBehaviour
     {
-        // ── Section data ──────────────────────────────────────────────────────────
         private static readonly (string section, string[] items)[] SectionData =
         {
             (
@@ -63,14 +62,12 @@ namespace UnityUIToolkit.Extensions.Examples
             ),
         };
 
-        // ── Runtime references ────────────────────────────────────────────────────
         private UIDocument uiDocument;
         private LoadingIcon loadingIcon;
         private VisualElement contentScroll;
         private Label statusLabel;
         private Texture2D spinnerTexture;
 
-        // ──────────────────────────────────────────────────────────────────────────
         private void Start()
         {
             uiDocument = GetComponent<UIDocument>();
@@ -91,14 +88,10 @@ namespace UnityUIToolkit.Extensions.Examples
                 Destroy(spinnerTexture);
         }
 
-        // ──────────────────────────────────────────────────────────────────────────
         private void BuildUI(VisualElement root)
         {
-            // ── Screen wrapper ────────────────────────────────────────────────────
-            // position: relative is needed for the absolute loading overlay
             var screen = UIToolkitExtensions.CreateVisualElement(root, "contentExplorer__screen");
 
-            // ── Example card (shared rounded container) ────────────────────────────
             var card = UIToolkitExtensions.CreateVisualElement(screen, "contentExplorer__card");
 
             var eyebrow = UIToolkitExtensions.CreateVisualElement<Label>(card, "contentExplorer__eyebrow");
@@ -110,29 +103,21 @@ namespace UnityUIToolkit.Extensions.Examples
             var subtitleLabel = UIToolkitExtensions.CreateVisualElement<Label>(card, "contentExplorer__subtitle");
             subtitleLabel.text = "Browse the demo content below, expand any section, and tap a row to inspect the current selection.";
 
-            // ── Scrollable content ────────────────────────────────────────────────
             contentScroll = UIToolkitExtensions.CreateVisualElement(card, "contentExplorer__contentScroll");
-            // Start invisible — revealed after load finishes (runtime state)
             contentScroll.style.opacity = 0f;
 
-            // Build collapsible sections
             foreach (var (sectionTitle, items) in SectionData)
             {
                 BuildSection(contentScroll, sectionTitle, items);
             }
 
-            // ── Status line ───────────────────────────────────────────────────────
             statusLabel = UIToolkitExtensions.CreateVisualElement<Label>(card, "contentExplorer__statusLabel");
             statusLabel.text = "Loading content…";
 
-            // ── Loading overlay (absolute, full-screen, on top) ───────────────────
             BuildLoadingOverlay(screen);
 
-            // ── Kick off async load simulation ────────────────────────────────────
             StartCoroutine(SimulateAsyncLoad());
         }
-
-        // ── Section builder ───────────────────────────────────────────────────────
 
         private void BuildSection(VisualElement parent, string sectionTitle, string[] items)
         {
@@ -142,7 +127,6 @@ namespace UnityUIToolkit.Extensions.Examples
 
             foreach (var itemText in items)
             {
-                // Capture loop variable for the lambda
                 var capturedText = itemText;
 
                 var btn = new IconLabelButton();
@@ -156,17 +140,10 @@ namespace UnityUIToolkit.Extensions.Examples
             parent.Add(section);
         }
 
-        // ── Loading overlay ───────────────────────────────────────────────────────
-
         private void BuildLoadingOverlay(VisualElement screen)
         {
-            // Semi-transparent backdrop positioned absolutely over the full screen
             var overlay = UIToolkitExtensions.CreateVisualElement(screen, "contentExplorer__loadingOverlay");
 
-            // LoadingIcon — centered inside the overlay.
-            // Uses ProceduralTextureUtility to generate a runtime spinner arc texture,
-            // demonstrating the utility. The package USS default (LoadingSpinner.svg) would
-            // also work if SetIcon is not called.
             loadingIcon = new LoadingIcon();
             loadingIcon.AddToClassList("contentExplorer__loadingIcon");
             spinnerTexture = ProceduralTextureUtility.CreateSpinnerArc(64, new Color(0.27f, 0.55f, 0.87f));
@@ -176,28 +153,21 @@ namespace UnityUIToolkit.Extensions.Examples
             var loadingLabel = UIToolkitExtensions.CreateVisualElement<Label>(overlay, "contentExplorer__loadingLabel");
             loadingLabel.text = "Loading content…";
 
-            // Start the spinner — block pointer events while loading
             loadingIcon.PlayLoading(customSpeed: 0.9f, blockInteraction: true);
         }
-
-        // ── Async load simulation ─────────────────────────────────────────────────
 
         private IEnumerator SimulateAsyncLoad()
         {
             yield return new WaitForSeconds(1.5f);
 
-            // Stop and hide the loading icon
             loadingIcon.StopLoading();
 
-            // Fade the loading overlay's parent — hide the overlay's parent visually
-            // by setting its display to none after the spinner fades
             var overlay = loadingIcon.parent;
             if (overlay != null)
             {
                 overlay.style.display = DisplayStyle.None;
             }
 
-            // Fade in the content scroll area (runtime-driven transition)
             contentScroll.style.transitionProperty = new StyleList<StylePropertyName>(
                 new System.Collections.Generic.List<StylePropertyName>
                 {
@@ -215,11 +185,8 @@ namespace UnityUIToolkit.Extensions.Examples
                 });
             contentScroll.style.opacity = 1f;
 
-            // Update status label
             statusLabel.text = "Tap any item to select it.";
         }
-
-        // ── Event handlers ────────────────────────────────────────────────────────
 
         private void OnItemClicked(string itemText)
         {

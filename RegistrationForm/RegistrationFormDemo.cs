@@ -1,3 +1,17 @@
+// Examples~/RegistrationForm/RegistrationFormDemo.cs
+// Demonstrates: PillInputField, RoundedInputField, PillSelector, PillButton, VisualElementShakeUtility
+//
+// Scene setup:
+//   A scene for this example is provided. The demo grabs the UIDocument from the same
+//   GameObject via GetComponent<UIDocument>(), so no manual assignment is needed.
+//      - A registration card holds Full Name / Email / Password PillInputFields, an
+//        optional multiline RoundedInputField bio, and a PillSelector that cycles
+//        categories each time it is tapped.
+//      - "Create Account" validates the fields (name not empty, email contains '@',
+//        password at least 6 characters); each invalid field shakes via
+//        VisualElementShakeUtility.
+//      - On success the form fades out and a confirmation message fades in.
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -148,8 +162,6 @@ namespace UnityUIToolkit.Extensions.Examples
 
         private static void ApplyPillInputStyle(PillInputField field)
         {
-            // Field background, border and inner-input chrome come from the USS
-            // overrides; the runtime API only sets the typed-text colour and size.
             field.SetTextColor(Color.white);
             field.SetFontSize(15f);
         }
@@ -220,7 +232,6 @@ namespace UnityUIToolkit.Extensions.Examples
         /// </summary>
         private IEnumerator ShowSuccessTransition()
         {
-            // Animate form opacity to 0 via inline style transitions
             formContainer.style.transitionProperty = new StyleList<StylePropertyName>(
                 new List<StylePropertyName> { new("opacity") });
             formContainer.style.transitionDuration = new StyleList<TimeValue>(

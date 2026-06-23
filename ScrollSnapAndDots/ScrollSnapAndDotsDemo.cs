@@ -28,39 +28,41 @@ namespace UnityUIToolkit.Extensions.Examples
     /// </summary>
     public class ScrollSnapAndDotsDemo : MonoBehaviour
     {
-        // ── Page configuration ────────────────────────────────────────────────────
-
-        /// <summary>Per-page background modifier classes (colors defined in the USS).</summary>
+        /// <summary>
+        /// Per-page background modifier classes (colors defined in the USS).
+        /// </summary>
         private static readonly string[] PageModifiers =
         {
             "scrollSnapDemo__page--one",
             "scrollSnapDemo__page--two",
             "scrollSnapDemo__page--three",
-            "scrollSnapDemo__page--four", // → ComingSoonMessage page
+            "scrollSnapDemo__page--four",
             "scrollSnapDemo__page--five",
         };
 
-        /// <summary>Labels shown on pages that are NOT the coming-soon page.</summary>
+        /// <summary>
+        /// Labels shown on pages that are NOT the coming-soon page.
+        /// </summary>
         private static readonly string[] PageLabels =
         {
             "Welcome",
             "Explore",
             "Discover",
-            "Coming Soon", // replaced at runtime — label is set but hidden under the widget
+            "Coming Soon",
             "Get Started",
         };
 
-        /// <summary>Index of the page that should show a <see cref="ComingSoonMessage"/>.</summary>
+        /// <summary>
+        /// Index of the page that should show a <see cref="ComingSoonMessage"/>.
+        /// </summary>
         private const int ComingSoonPageIndex = 3;
 
-        // ── Runtime references ────────────────────────────────────────────────────
         private UIDocument uiDocument;
         private ScrollSnap scrollSnap;
         private PageDotIndicator dotIndicator;
         private PillButton prevButton;
         private PillButton nextButton;
 
-        // ──────────────────────────────────────────────────────────────────────────
         private void Start()
         {
             uiDocument = GetComponent<UIDocument>();
@@ -75,13 +77,10 @@ namespace UnityUIToolkit.Extensions.Examples
             BuildUI(root);
         }
 
-        // ──────────────────────────────────────────────────────────────────────────
         private void BuildUI(VisualElement root)
         {
-            // ── Root container — full screen, dark background ─────────────────────
             VisualElement screen = UIToolkitExtensions.CreateVisualElement(root, "scrollSnapDemo__screen");
 
-            // ── Example card (shared rounded container) ────────────────────────────
             VisualElement card = UIToolkitExtensions.CreateVisualElement(screen, "scrollSnapDemo__card");
 
             Label eyebrow = UIToolkitExtensions.CreateVisualElement<Label>(card, "scrollSnapDemo__eyebrow");
@@ -93,26 +92,21 @@ namespace UnityUIToolkit.Extensions.Examples
             Label subtitleLabel = UIToolkitExtensions.CreateVisualElement<Label>(card, "scrollSnapDemo__subtitle");
             subtitleLabel.text = "Swipe through the sample pages below or use the controls to move through the demo content.";
 
-            // ── Carousel surface (frames the pager inside the card) ────────────────
             VisualElement carouselSurface = UIToolkitExtensions.CreateVisualElement(card, "scrollSnapDemo__carouselSurface");
 
-            // ── ScrollSnap ────────────────────────────────────────────────────────
             scrollSnap = new ScrollSnap();
             scrollSnap.AddToClassList("scrollSnapDemo__scrollSnap");
             scrollSnap.ManualMovementEnabled = true;
             carouselSurface.Add(scrollSnap);
 
-            // ── Build pages ───────────────────────────────────────────────────────
             for (var i = 0; i < PageModifiers.Length; i++)
             {
                 var page = BuildPage(i);
                 scrollSnap.Add(page);
             }
 
-            // ── Bottom bar ─────────────────────────────────────────────────────────
             VisualElement bottomBar = UIToolkitExtensions.CreateVisualElement(card, "scrollSnapDemo__bottomBar");
 
-            // Previous button
             prevButton = new PillButton();
             prevButton.AddToClassList("scrollSnapDemo__navButton");
             prevButton.Text = "←";
@@ -121,14 +115,12 @@ namespace UnityUIToolkit.Extensions.Examples
             prevButton.Clicked += OnPreviousClicked;
             bottomBar.Add(prevButton);
 
-            // Dot indicator
             dotIndicator = new PageDotIndicator();
             dotIndicator.AddToClassList("scrollSnapDemo__dotIndicator");
             dotIndicator.SetColors("#FFFFFF", "#44506A");
             dotIndicator.SetProgress(0, PageModifiers.Length);
             bottomBar.Add(dotIndicator);
 
-            // Next button
             nextButton = new PillButton();
             nextButton.AddToClassList("scrollSnapDemo__navButton");
             nextButton.Text = "→";
@@ -137,25 +129,19 @@ namespace UnityUIToolkit.Extensions.Examples
             nextButton.Clicked += OnNextClicked;
             bottomBar.Add(nextButton);
 
-            // ── Wire up PageChanged ────────────────────────────────────────────────
             scrollSnap.PageChanged += OnPageChanged;
 
-            // Seed the initial dot state
             UpdateNavButtons();
         }
 
-        // ── Page factory ──────────────────────────────────────────────────────────
         private VisualElement BuildPage(int index)
         {
-            // Outer container — fills the page slot assigned by ScrollSnap.
-            // Background color comes from the per-page modifier class (USS).
             var page = new VisualElement();
             page.AddToClassList("scrollSnapDemo__page");
             page.AddToClassList(PageModifiers[index]);
 
             if (index == ComingSoonPageIndex)
             {
-                // Replace page content with the ComingSoonMessage widget
                 var comingSoon = new ComingSoonMessage();
                 comingSoon.AddToClassList("scrollSnapDemo__comingSoon");
                 comingSoon.Title = "Coming Soon";
@@ -164,25 +150,20 @@ namespace UnityUIToolkit.Extensions.Examples
             }
             else
             {
-                // Page number badge
                 VisualElement badge = UIToolkitExtensions.CreateVisualElement(page, "scrollSnapDemo__badge");
 
                 Label badgeLabel = UIToolkitExtensions.CreateVisualElement<Label>(badge, "scrollSnapDemo__badgeLabel");
                 badgeLabel.text = (index + 1).ToString();
 
-                // Main label
                 Label pageLabel = UIToolkitExtensions.CreateVisualElement<Label>(page, "scrollSnapDemo__pageLabel");
                 pageLabel.text = PageLabels[index];
 
-                // Sub-label
                 Label subLabel = UIToolkitExtensions.CreateVisualElement<Label>(page, "scrollSnapDemo__pageSubLabel");
                 subLabel.text = $"Page {index + 1} of {PageModifiers.Length}";
             }
 
             return page;
         }
-
-        // ── Event handlers ────────────────────────────────────────────────────────
 
         private void OnPageChanged(int newIndex)
         {
@@ -200,7 +181,9 @@ namespace UnityUIToolkit.Extensions.Examples
             scrollSnap.MoveNext();
         }
 
-        /// <summary>Dim the prev/next arrow to hint at boundary conditions.</summary>
+        /// <summary>
+        /// Dim the prev/next arrow to hint at boundary conditions.
+        /// </summary>
         private void UpdateNavButtons()
         {
             bool atStart = scrollSnap.CurrentPageIndex <= 0;

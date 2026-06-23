@@ -30,7 +30,6 @@ namespace UnityUIToolkit.Extensions.Examples
     /// </summary>
     public class StepWizardDemo : MonoBehaviour
     {
-        // ── Step metadata ─────────────────────────────────────────────────────────
         private static readonly string[] StepNames = { "About", "Goals", "Settings", "Done" };
 
         private static readonly string[] StepDescriptions =
@@ -41,7 +40,6 @@ namespace UnityUIToolkit.Extensions.Examples
             "You're all set! Review your choices below before finishing.",
         };
 
-        // ── Runtime references ────────────────────────────────────────────────────
         private UIDocument uiDocument;
         private QuadrantStepper stepper;
         private StepProgressBar progressBar;
@@ -53,7 +51,6 @@ namespace UnityUIToolkit.Extensions.Examples
 
         private int currentStep = 0;
 
-        // ──────────────────────────────────────────────────────────────────────────
         private void Start()
         {
             uiDocument = GetComponent<UIDocument>();
@@ -68,13 +65,10 @@ namespace UnityUIToolkit.Extensions.Examples
             BuildUI(root);
         }
 
-        // ──────────────────────────────────────────────────────────────────────────
         private void BuildUI(VisualElement root)
         {
-            // ── Full-screen wrapper ───────────────────────────────────────────────
             var screen = UIToolkitExtensions.CreateVisualElement(root, "stepWizard__screen");
 
-            // ── Example card (shared rounded container) ────────────────────────────
             var card = UIToolkitExtensions.CreateVisualElement(screen, "stepWizard__card");
 
             var eyebrow = UIToolkitExtensions.CreateVisualElement<Label>(card, "stepWizard__eyebrow");
@@ -88,7 +82,6 @@ namespace UnityUIToolkit.Extensions.Examples
 
             stepCounterLabel = UIToolkitExtensions.CreateVisualElement<Label>(card, "stepWizard__counter");
 
-            // ── Stepper ───────────────────────────────────────────────────────────
             var stepperWrapper = UIToolkitExtensions.CreateVisualElement(card, "stepWizard__stepperWrapper");
 
             stepper = new QuadrantStepper(StepNames);
@@ -96,19 +89,15 @@ namespace UnityUIToolkit.Extensions.Examples
             stepper.SelectionChanged += OnStepperSelectionChanged;
             stepperWrapper.Add(stepper);
 
-            // ── Progress bar ──────────────────────────────────────────────────────
             var progressWrapper = UIToolkitExtensions.CreateVisualElement(card, "stepWizard__progressWrapper");
 
             progressBar = new StepProgressBar();
             progressBar.AddToClassList("stepWizard__progressBar");
-            // Gradient colours are part of the control's runtime API, not USS.
             progressBar.SetGradientColors("#4A90E2", "#7B68EE");
             progressWrapper.Add(progressBar);
 
-            // ── Content area ──────────────────────────────────────────────────────
             contentArea = UIToolkitExtensions.CreateVisualElement(card, "stepWizard__content");
 
-            // Build all four step panels (only one visible at a time)
             stepPanels = new VisualElement[StepNames.Length];
             stepPanels[0] = BuildAboutPanel();
             stepPanels[1] = BuildGoalsPanel();
@@ -117,12 +106,10 @@ namespace UnityUIToolkit.Extensions.Examples
 
             foreach (var panel in stepPanels)
             {
-                // Start hidden; GoToStep reveals the active panel (runtime state).
                 panel.style.display = DisplayStyle.None;
                 contentArea.Add(panel);
             }
 
-            // ── Navigation bar ────────────────────────────────────────────────────
             var navBar = UIToolkitExtensions.CreateVisualElement(card, "stepWizard__navBar");
 
             backButton = new PillButton();
@@ -143,12 +130,8 @@ namespace UnityUIToolkit.Extensions.Examples
             nextButton.Clicked += OnNextClicked;
             navBar.Add(nextButton);
 
-            // Navigate to the first step without notifying the stepper event
-            // (avoids double-navigation on init)
             GoToStep(0, notify: false);
         }
-
-        // ── Step panel builders ───────────────────────────────────────────────────
 
         private VisualElement BuildAboutPanel()
         {
@@ -209,8 +192,6 @@ namespace UnityUIToolkit.Extensions.Examples
             return panel;
         }
 
-        // ── Reusable sub-builders ─────────────────────────────────────────────────
-
         private VisualElement CreateStepPanel(string heading, string description)
         {
             var panel = UIToolkitExtensions.CreateVisualElement("stepWizard__panel");
@@ -233,7 +214,6 @@ namespace UnityUIToolkit.Extensions.Examples
 
             var field = new RoundedInputField();
             field.AddToClassList("stepWizard__field");
-            // Field appearance is configured through the control's runtime API.
             field.Placeholder = placeholder;
             field.SetBackgroundColor(Color.white);
             field.SetTextColor(new Color(0.15f, 0.15f, 0.2f, 1f));
@@ -264,7 +244,6 @@ namespace UnityUIToolkit.Extensions.Examples
             var detailLbl = UIToolkitExtensions.CreateVisualElement<Label>(textBlock, "stepWizard__toggleDetail");
             detailLbl.text = detail;
 
-            // Simple visual indicator for the "toggle" state (green pill)
             UIToolkitExtensions.CreateVisualElement(row, "stepWizard__toggleIndicator");
         }
 
@@ -278,8 +257,6 @@ namespace UnityUIToolkit.Extensions.Examples
             var valueLbl = UIToolkitExtensions.CreateVisualElement<Label>(row, "stepWizard__summaryValue");
             valueLbl.text = value;
         }
-
-        // ── Navigation ────────────────────────────────────────────────────────────
 
         private void OnStepperSelectionChanged(int index, string text)
         {
@@ -302,37 +279,32 @@ namespace UnityUIToolkit.Extensions.Examples
             }
             else
             {
-                // Finish — log and reset for demo purposes
                 Debug.Log("[StepWizardDemo] Wizard finished.");
                 GoToStep(0, notify: true);
             }
         }
 
-        /// <summary>Switch the active step panel and synchronise the stepper and progress bar.</summary>
+        /// <summary>
+        /// Switch the active step panel and synchronise the stepper and progress bar.
+        /// </summary>
         private void GoToStep(int index, bool notify)
         {
             index = Mathf.Clamp(index, 0, StepNames.Length - 1);
             currentStep = index;
 
-            // Show only the active panel (runtime state — stays in C#)
             for (var i = 0; i < stepPanels.Length; i++)
             {
                 stepPanels[i].style.display = i == currentStep ? DisplayStyle.Flex : DisplayStyle.None;
             }
 
-            // Sync stepper (animate when the user tapped a segment themselves)
             stepper.SetSelectedIndex(currentStep, notify: false, animate: notify);
 
-            // Progress = steps *completed* (i.e. index+1 out of total)
             progressBar.SetProgress(currentStep + 1, StepNames.Length);
 
-            // Update step counter label
             stepCounterLabel.text = $"Step {currentStep + 1} of {StepNames.Length}";
 
-            // Back button — hidden on first step (runtime state — stays in C#)
             backButton.style.display = currentStep == 0 ? DisplayStyle.None : DisplayStyle.Flex;
 
-            // Next button label changes on the last step (colour stays consistent).
             nextButton.Text = currentStep == StepNames.Length - 1 ? "Finish" : "Next";
         }
     }

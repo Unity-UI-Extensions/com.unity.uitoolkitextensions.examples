@@ -1,3 +1,16 @@
+// Examples~/ImageCropOverlay/ImageCropOverlayDemo.cs
+// Demonstrates: ImageCropOverlayControl, CircularImageButton, PillButton
+//
+// Scene setup:
+//   A scene for this example is provided. The demo grabs the UIDocument from the same
+//   GameObject via GetComponent<UIDocument>(), so no manual assignment is needed.
+//      - A generated default portrait is shown in a CircularImageButton, alongside a
+//        "Saved Preview" panel.
+//      - Tap the image or the "Edit Image" button to open the crop overlay; drag to move,
+//        pinch or mouse-wheel to zoom, then press Save.
+//      - The saved crop is applied back into both the button and the preview; "Reset"
+//        restores the original generated portrait.
+
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -72,7 +85,6 @@ namespace UnityUIToolkit.Extensions.Examples
             previewTitle.text = "Saved Preview";
 
             savedPreview = UIToolkitExtensions.CreateVisualElement(previewCard, "imageCropOverlayDemo__previewImage");
-            // Scale-and-crop to fill the preview box (unityBackgroundScaleMode is deprecated).
             savedPreview.style.backgroundSize = new BackgroundSize(BackgroundSizeType.Cover);
 
             VisualElement buttonRow = UIToolkitExtensions.CreateVisualElement(card, "imageCropOverlayDemo__buttonRow");

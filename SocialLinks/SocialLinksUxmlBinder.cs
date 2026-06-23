@@ -27,7 +27,6 @@ namespace UnityUIToolkit.Extensions.Examples
             socialLinks = root.Q<SocialLinkContainer>("social-links");
             socialLinks.PlatformPlaceholderResolver = platform => $"Enter your {platform} handle or URL";
 
-            // Edit mode is enabled in the UXML, so seeded rows also get their remove buttons.
             socialLinks.CreateSocial(SocialLinkContainer.SocialPlatform.Instagram, "@uitoolkit.extensions");
             socialLinks.CreateSocial(SocialLinkContainer.SocialPlatform.YouTube, "UnityUIExtensions");
 

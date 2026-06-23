@@ -24,44 +24,37 @@ namespace UnityUIToolkit.Extensions.Examples
     /// </summary>
     public class ScrollSnapSplitCSharpView : MonoBehaviour
     {
-        // ── Inspector ─────────────────────────────────────────────────────────────
         [SerializeField] private UIDocument uiDocument;
 
-        // ── Page configuration (shared, intentionally, with the UXML view) ─────────
         private static readonly string[] PageColors =
         {
-            "#E74C3C", // red
-            "#3498DB", // blue
-            "#2ECC71", // green
-            "#9B59B6", // purple
-            "#F39C12", // orange
+            "#E74C3C",
+            "#3498DB",
+            "#2ECC71",
+            "#9B59B6",
+            "#F39C12",
         };
 
         private ScrollSnap scrollSnap;
         private Label readoutLabel;
 
-        // ──────────────────────────────────────────────────────────────────────────
         private void Start()
         {
             var root = uiDocument.rootVisualElement;
             root.Clear();
 
-            // Occupy the LEFT half of the shared panel.
             ScrollSnapSplitLayout.OccupyHalf(root, leftHalf: true);
 
             BuildUI(root);
         }
 
-        // ──────────────────────────────────────────────────────────────────────────
         private void BuildUI(VisualElement root)
         {
-            // ── Screen ────────────────────────────────────────────────────────────
             var screen = UIToolkitExtensions.CreateVisualElement(root, "screen");
             screen.style.flexGrow = 1;
             screen.style.flexDirection = FlexDirection.Column;
             screen.style.backgroundColor = new Color(0.13f, 0.13f, 0.16f, 1f);
 
-            // ── Header ────────────────────────────────────────────────────────────
             var header = UIToolkitExtensions.CreateVisualElement(screen, "header");
             header.style.paddingTop = 28;
             header.style.paddingBottom = 12;
@@ -80,10 +73,9 @@ namespace UnityUIToolkit.Extensions.Examples
             readoutLabel.style.color = new Color(0.7f, 0.7f, 0.78f, 1f);
             readoutLabel.style.marginTop = 4;
 
-            // ── ScrollSnap ────────────────────────────────────────────────────────
             scrollSnap = new ScrollSnap();
             scrollSnap.style.flexGrow = 1;
-            scrollSnap.ManualMovementEnabled = true; // enable swipe paging
+            scrollSnap.ManualMovementEnabled = true;
             screen.Add(scrollSnap);
 
             for (var i = 0; i < PageColors.Length; i++)
@@ -91,7 +83,6 @@ namespace UnityUIToolkit.Extensions.Examples
                 scrollSnap.Add(BuildPage(i, PageColors.Length));
             }
 
-            // ── Footer hint ───────────────────────────────────────────────────────
             var hint = UIToolkitExtensions.CreateVisualElement<Label>(screen, "footer__hint");
             hint.text = "Swipe ← / →";
             hint.style.unityTextAlign = TextAnchor.MiddleCenter;
@@ -100,16 +91,13 @@ namespace UnityUIToolkit.Extensions.Examples
             hint.style.paddingTop = 8;
             hint.style.paddingBottom = 20;
 
-            // ── Live readout ──────────────────────────────────────────────────────
             scrollSnap.PageChanged += UpdateReadout;
             UpdateReadout(scrollSnap.CurrentPageIndex);
         }
 
-        // ── Page factory ──────────────────────────────────────────────────────────
         private static VisualElement BuildPage(int index, int total)
         {
             var page = new VisualElement();
-            // ScrollSnap sizes and class-tags each child page itself; we only style content.
             page.style.justifyContent = Justify.Center;
             page.style.alignItems = Align.Center;
 
@@ -132,7 +120,6 @@ namespace UnityUIToolkit.Extensions.Examples
             return page;
         }
 
-        // ──────────────────────────────────────────────────────────────────────────
         private void UpdateReadout(int pageIndex)
         {
             readoutLabel.text = $"Showing page {pageIndex + 1} of {scrollSnap.PageCount}";

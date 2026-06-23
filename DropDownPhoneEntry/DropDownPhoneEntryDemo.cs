@@ -1,3 +1,16 @@
+// Examples~/DropDownPhoneEntry/DropDownPhoneEntryDemo.cs
+// Demonstrates: DropDownControl, PillInputField, PillButton
+//
+// Scene setup:
+//   A scene for this example is provided. The demo grabs the UIDocument from the same
+//   GameObject via GetComponent<UIDocument>(), so no manual assignment is needed.
+//      - A dial-code DropDownControl and a PillInputField sit side by side in a single
+//        composite input row.
+//      - Pick a dial code from the dropdown, then type a phone number (the digits are
+//        grouped and formatted as you type).
+//      - The "Send code" PillButton stays disabled until at least 10 digits are entered;
+//        the status line reports readiness and confirms the simulated send.
+
 using System;
 using System.Text;
 using UnityEngine;

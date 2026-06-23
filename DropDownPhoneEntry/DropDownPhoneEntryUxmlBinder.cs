@@ -12,7 +12,9 @@ using UnityUIToolkit.Extensions;
 
 namespace UnityUIToolkit.Extensions.Examples
 {
-    /// <summary>Behaviour binder for the UXML-authored DropDownPhoneEntry demo.</summary>
+    /// <summary>
+    /// Behaviour binder for the UXML-authored DropDownPhoneEntry demo.
+    /// </summary>
     public class DropDownPhoneEntryUxmlBinder : MonoBehaviour
     {
         private const string WaitingStatusText = "Enter at least 10 digits to enable the button.";
@@ -34,7 +36,6 @@ namespace UnityUIToolkit.Extensions.Examples
 
             VisualElement root = uiDocument.rootVisualElement;
 
-            // Robust dark backdrop even if the stylesheet fails to resolve.
             root.style.backgroundColor = new Color(0.035f, 0.059f, 0.106f, 1f);
 
             dialCodePicker = root.Q<DropDownControl>("dial-code-picker");
@@ -48,7 +49,6 @@ namespace UnityUIToolkit.Extensions.Examples
                 return;
             }
 
-            // Items are declared in UXML; just pick a sensible default and subscribe.
             dialCodePicker.SetDefault("+44");
             dialCodePicker.OpenStateChanged += HandlePickerOpenStateChanged;
             dialCodePicker.ValueChanged += HandleDialCodeChanged;

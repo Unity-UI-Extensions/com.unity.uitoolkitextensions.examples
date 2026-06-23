@@ -116,7 +116,6 @@ namespace UnityUIToolkit.Extensions.Examples
             Label description = UIToolkitExtensions.CreateVisualElement<Label>(card, "profileEditor__description");
             description.text = "Avatar display, image processing, and theme color selection working together in one screen.";
 
-            // ── Avatar row ────────────────────────────────────────────────────────
             VisualElement avatarRow = UIToolkitExtensions.CreateVisualElement(card, "profileEditor__avatarRow");
 
             avatarButton = UIToolkitExtensions.CreateVisualElement<CircularImageButton>(avatarRow, "profileEditor__avatar");
@@ -126,7 +125,6 @@ namespace UnityUIToolkit.Extensions.Examples
             Label avatarHelp = UIToolkitExtensions.CreateVisualElement<Label>(avatarRow, "profileEditor__avatarHelp");
             avatarHelp.text = "Tap the avatar to change your profile picture. In this demo it logs to the Console.";
 
-            // ── Sample image + B&W toggle ─────────────────────────────────────────
             Label imageLabel = UIToolkitExtensions.CreateVisualElement<Label>(card, "profileEditor__sectionLabel");
             imageLabel.text = "Sample Image";
 
@@ -145,7 +143,6 @@ namespace UnityUIToolkit.Extensions.Examples
             blackWhiteToggle = UIToolkitExtensions.CreateVisualElement<ToggleButton>(bwBlock, "profileEditor__bwToggle");
             blackWhiteToggle.OnClicked += OnBlackWhiteToggled;
 
-            // ── Theme color group ─────────────────────────────────────────────────
             Label colorLabel = UIToolkitExtensions.CreateVisualElement<Label>(card, "profileEditor__sectionLabel");
             colorLabel.text = "Theme Color";
 
@@ -159,8 +156,6 @@ namespace UnityUIToolkit.Extensions.Examples
             }
             colorGroup.Colors = colorValues;
 
-            // ColorToggleButton tints a background image; the package ships none, so supply a
-            // white circle for each generated swatch to tint.
             colorGroup.Query(className: "toggleButton__icon")
                 .ForEach(icon => icon.style.backgroundImage = new StyleBackground(circleTexture));
 
@@ -176,7 +171,6 @@ namespace UnityUIToolkit.Extensions.Examples
             statusLabel = UIToolkitExtensions.CreateVisualElement<Label>(card, "profileEditor__status");
             statusLabel.text = "Pick a theme color, toggle B&W, or tap the avatar.";
 
-            // Preselect the first theme color so the swatch starts populated.
             colorGroup.SelectColor(ThemeColors[0].Value);
         }
 

@@ -8,7 +8,9 @@ using UnityUIToolkit.Extensions;
 
 namespace UnityUIToolkit.Extensions.Examples
 {
-    /// <summary>Behaviour binder for the UXML-authored StepWizard demo.</summary>
+    /// <summary>
+    /// Behaviour binder for the UXML-authored StepWizard demo.
+    /// </summary>
     public class StepWizardUxmlBinder : MonoBehaviour
     {
         private const int StepCount = 4;
@@ -51,7 +53,6 @@ namespace UnityUIToolkit.Extensions.Examples
                 return;
             }
 
-            // Field appearance is part of the control's runtime API (kept out of UXML/USS here).
             root.Query<RoundedInputField>().ForEach(field =>
             {
                 field.SetBackgroundColor(new Color(1f, 1f, 1f, 0.03f));

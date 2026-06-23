@@ -10,7 +10,9 @@ using UnityUIToolkit.Extensions;
 
 namespace UnityUIToolkit.Extensions.Examples
 {
-    /// <summary>Behaviour binder for the UXML-authored ContentExplorer demo.</summary>
+    /// <summary>
+    /// Behaviour binder for the UXML-authored ContentExplorer demo.
+    /// </summary>
     public class ContentExplorerUxmlBinder : MonoBehaviour
     {
         private UIDocument uiDocument;
@@ -36,13 +38,11 @@ namespace UnityUIToolkit.Extensions.Examples
             contentScroll = root.Q<VisualElement>("content-scroll");
             statusLabel = root.Q<Label>("status-label");
 
-            // Wire every authored row's click to the status label.
             root.Query<IconLabelButton>().ForEach(button =>
             {
                 button.Clicked += () => OnItemClicked(button.Text);
             });
 
-            // Block interaction and spin while "loading", then reveal content.
             loadingIcon?.PlayLoading(customSpeed: 0.9f, blockInteraction: true);
             StartCoroutine(SimulateAsyncLoad());
         }

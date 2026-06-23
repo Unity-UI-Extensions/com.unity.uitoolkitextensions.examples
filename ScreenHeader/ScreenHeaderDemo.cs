@@ -51,7 +51,6 @@ namespace UnityUIToolkit.Extensions.Examples
         {
             VisualElement screen = UIToolkitExtensions.CreateVisualElement(root, "screenHeaderDemo__screen");
 
-            // ── Header bar: back (left), title, info + sound toggle (right) ─────────
             header = UIToolkitExtensions.CreateVisualElement<ScreenHeader>(screen, "screenHeaderDemo__header");
             header.Title = "header";
             header.Configure(showAction1: true, showTitle: true, showAction2: false,
@@ -61,7 +60,6 @@ namespace UnityUIToolkit.Extensions.Examples
             header.Action3Clicked += () => SetStatus("Info tapped — show help or an about panel here.");
             header.Action4Toggled += isMuted => SetStatus(isMuted ? "Sound muted." : "Sound on.");
 
-            // ── Body card explaining the control ───────────────────────────────────
             VisualElement body = UIToolkitExtensions.CreateVisualElement(screen, "screenHeaderDemo__body");
             VisualElement card = UIToolkitExtensions.CreateVisualElement(body, "screenHeaderDemo__card");
 

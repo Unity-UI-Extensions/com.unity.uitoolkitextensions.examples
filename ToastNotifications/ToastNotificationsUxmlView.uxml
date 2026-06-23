@@ -13,8 +13,6 @@
             </ui:VisualElement>
         </ui:VisualElement>
 
-        <!-- Notifications render full screen, above the card. The overlay ignores
-             picking so the card's button stays clickable; each toast handles its own. -->
         <ui:VisualElement name="toast-overlay" class="toastDemo__overlay" picking-mode="Ignore">
             <ui:VisualElement name="toast-container" class="toastDemo__container" picking-mode="Ignore" />
         </ui:VisualElement>

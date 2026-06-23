@@ -24,23 +24,17 @@ namespace UnityUIToolkit.Extensions.Examples
     /// </summary>
     public class ScrollSnapSplitUxmlView : MonoBehaviour
     {
-        // ── Inspector ─────────────────────────────────────────────────────────────
         [SerializeField] private UIDocument uiDocument;
 
         private ScrollSnap scrollSnap;
         private Label readoutLabel;
 
-        // ──────────────────────────────────────────────────────────────────────────
-        // Use Start (not OnEnable): it runs after every component's OnEnable, so the
-        // UIDocument has already cloned its source UXML into rootVisualElement by now.
         private void Start()
         {
             var root = uiDocument.rootVisualElement;
 
-            // Occupy the RIGHT half of the shared panel.
             ScrollSnapSplitLayout.OccupyHalf(root, leftHalf: false);
 
-            // Query the UXML-authored elements by type / name.
             scrollSnap = root.Q<ScrollSnap>();
             readoutLabel = root.Q<Label>("page-readout");
 
@@ -62,7 +56,6 @@ namespace UnityUIToolkit.Extensions.Examples
             }
         }
 
-        // ──────────────────────────────────────────────────────────────────────────
         private void UpdateReadout(int pageIndex)
         {
             if (readoutLabel != null)

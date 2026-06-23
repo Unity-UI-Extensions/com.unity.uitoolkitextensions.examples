@@ -60,11 +60,9 @@ namespace UnityUIToolkit.Extensions.Examples
 
             socialLinks = UIToolkitExtensions.CreateVisualElement<SocialLinkContainer>(card, "socialLinksDemo__container");
             socialLinks.Label = "Your Profiles";
-            socialLinks.IsInEditMode = true; // show the add button and per-row remove buttons
+            socialLinks.IsInEditMode = true;
             socialLinks.PlatformPlaceholderResolver = platform => $"Enter your {platform} handle or URL";
 
-            // Seed a couple of rows so the list starts with multiple lines. Edit mode is on first,
-            // so these seeded rows also get their remove buttons.
             socialLinks.CreateSocial(SocialLinkContainer.SocialPlatform.Instagram, "@uitoolkit.extensions");
             socialLinks.CreateSocial(SocialLinkContainer.SocialPlatform.YouTube, "UnityUIExtensions");
 

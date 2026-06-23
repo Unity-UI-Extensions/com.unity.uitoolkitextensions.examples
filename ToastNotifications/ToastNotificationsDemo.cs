@@ -35,14 +35,11 @@ namespace UnityUIToolkit.Extensions.Examples
     /// </summary>
     public class ToastNotificationsDemo : MonoBehaviour
     {
-        // ── Constants ─────────────────────────────────────────────────────────────
         private const int MaxToasts = 5;
         private const int FadeDurationMs = 260;
 
-        // Toasts left untouched fade away after this many seconds.
         private const float AutoDismissSeconds = 4f;
 
-        // ── Toast content templates ───────────────────────────────────────────────
         private static readonly (string title, string subtitle)[] ToastTemplates =
         {
             ("Workout Complete",      "You finished your 30-min run. Great job!"),
@@ -55,24 +52,24 @@ namespace UnityUIToolkit.Extensions.Examples
             ("Low Water Intake",      "You've only had 2 of your 8 glasses today."),
         };
 
-        // Soft pastel background colors cycling per toast
         private static readonly Color[] ToastColors =
         {
-            new Color(0.96f, 0.95f, 1.00f, 1f), // lavender
-            new Color(0.95f, 1.00f, 0.97f, 1f), // mint
-            new Color(1.00f, 0.97f, 0.93f, 1f), // peach
-            new Color(0.93f, 0.97f, 1.00f, 1f), // sky
-            new Color(1.00f, 0.95f, 0.95f, 1f), // rose
+            new Color(0.96f, 0.95f, 1.00f, 1f),
+            new Color(0.95f, 1.00f, 0.97f, 1f),
+            new Color(1.00f, 0.97f, 0.93f, 1f),
+            new Color(0.93f, 0.97f, 1.00f, 1f),
+            new Color(1.00f, 0.95f, 0.95f, 1f),
         };
 
-        // ── Internal state ────────────────────────────────────────────────────────
         private UIDocument uiDocument;
         private VisualElement toastContainer;
         private int toastCounter = 0;
         private int templateIndex = 0;
         private int colorIndex = 0;
 
-        /// <summary>Tracks each active toast alongside its manipulator.</summary>
+        /// <summary>
+        /// Tracks each active toast alongside its manipulator.
+        /// </summary>
         private sealed class ToastData
         {
             public VisualElement Root;
@@ -83,7 +80,6 @@ namespace UnityUIToolkit.Extensions.Examples
 
         private readonly List<ToastData> activeToasts = new();
 
-        // ──────────────────────────────────────────────────────────────────────────
         private void Start()
         {
             uiDocument = GetComponent<UIDocument>();
@@ -98,13 +94,10 @@ namespace UnityUIToolkit.Extensions.Examples
             BuildUI(root);
         }
 
-        // ──────────────────────────────────────────────────────────────────────────
         private void BuildUI(VisualElement root)
         {
-            // ── Screen ────────────────────────────────────────────────────────────
             VisualElement screen = UIToolkitExtensions.CreateVisualElement(root, "toastDemo__screen");
 
-            // ── Example card (shared rounded container): title, description, button ─
             VisualElement card = UIToolkitExtensions.CreateVisualElement(screen, "toastDemo__card");
 
             Label eyebrow = UIToolkitExtensions.CreateVisualElement<Label>(card, "toastDemo__eyebrow");
@@ -126,9 +119,6 @@ namespace UnityUIToolkit.Extensions.Examples
             addButton.SetFontSize(15f);
             addButton.Clicked += OnAddToastClicked;
 
-            // ── Full-screen overlay the toasts stack into (drawn above the card) ────
-            // The overlay and its container ignore picking so the card's button stays
-            // clickable; each toast re-enables picking for its own swipe/tap input.
             VisualElement overlay = UIToolkitExtensions.CreateVisualElement(screen, "toastDemo__overlay");
             overlay.pickingMode = PickingMode.Ignore;
 
@@ -136,11 +126,8 @@ namespace UnityUIToolkit.Extensions.Examples
             toastContainer.pickingMode = PickingMode.Ignore;
         }
 
-        // ── Toast creation ────────────────────────────────────────────────────────
-
         private void OnAddToastClicked()
         {
-            // Enforce maximum: remove oldest toast if at cap
             if (activeToasts.Count >= MaxToasts)
             {
                 RemoveOldestToast();
@@ -157,18 +144,13 @@ namespace UnityUIToolkit.Extensions.Examples
             var bgColor = ToastColors[colorIndex % ToastColors.Length];
             colorIndex++;
 
-            // ── Toast root element ────────────────────────────────────────────────
             var toast = UIToolkitExtensions.CreateVisualElement(toastContainer, "toastDemo__toast");
-            // Runtime/data-driven: background color comes from the ToastColors array
             toast.style.backgroundColor = bgColor;
 
-            // Color accent bar on the left
             var accentBar = UIToolkitExtensions.CreateVisualElement(toast, "toastDemo__accent");
-            // Runtime/data-driven: accent is computed complementary to the background
             Color.RGBToHSV(bgColor, out var h, out var s, out var v);
             accentBar.style.backgroundColor = Color.HSVToRGB((h + 0.5f) % 1f, 0.65f, 0.65f);
 
-            // Text block
             var textBlock = UIToolkitExtensions.CreateVisualElement(toast, "toastDemo__textBlock");
 
             var titleLbl = UIToolkitExtensions.CreateVisualElement<Label>(textBlock, "toastDemo__title");
@@ -177,19 +159,15 @@ namespace UnityUIToolkit.Extensions.Examples
             var subtitleLbl = UIToolkitExtensions.CreateVisualElement<Label>(textBlock, "toastDemo__subtitle");
             subtitleLbl.text = subtitle;
 
-            // Dismiss "×" button (visual only — tap also handled by manipulator)
             var dismissIcon = UIToolkitExtensions.CreateVisualElement<Label>(toast, "toastDemo__dismiss");
             dismissIcon.text = "×";
             dismissIcon.pickingMode = PickingMode.Ignore;
 
-            // Slide-in entrance animation (translate from below)
             toast.style.translate = new Translate(0, 40, 0);
             toast.style.opacity = 0f;
 
-            // ── Attach manipulator ─────────────────────────────────────────────────
             var toastData = new ToastData { Root = toast };
 
-            // Apply entrance on next frame, then arm the auto-dismiss timer
             toast.schedule.Execute(() =>
             {
                 AnimateToastEntrance(toast);
@@ -217,11 +195,8 @@ namespace UnityUIToolkit.Extensions.Examples
             activeToasts.Add(toastData);
         }
 
-        // ── Entrance animation ────────────────────────────────────────────────────
-
         private static void AnimateToastEntrance(VisualElement toast)
         {
-            // Slide up from 40 px below and fade in using inline CSS transitions
             var propNames = new List<StylePropertyName>
             {
                 new("opacity"),
@@ -248,9 +223,9 @@ namespace UnityUIToolkit.Extensions.Examples
             toast.style.translate = new Translate(0, 0, 0);
         }
 
-        // ── Auto-dismiss after default time ────────────────────────────────────────
-
-        /// <summary>Arm the timer that fades the toast away after the default time.</summary>
+        /// <summary>
+        /// Arm the timer that fades the toast away after the default time.
+        /// </summary>
         private void ScheduleAutoDismiss(ToastData toastData)
         {
             toastData.AutoDismissTimer = toastData.Root.schedule
@@ -260,21 +235,19 @@ namespace UnityUIToolkit.Extensions.Examples
 
         private void AutoDismiss(ToastData toastData)
         {
-            // Skip if the user already tapped or swiped this toast away.
             if (toastData.IsDismissing) return;
 
-            // Reuse the tap fade-out path so behaviour matches "fades away after the default time".
             OnToastTapped(toastData);
         }
 
-        /// <summary>Stop a pending auto-dismiss timer so it never fires after removal.</summary>
+        /// <summary>
+        /// Stop a pending auto-dismiss timer so it never fires after removal.
+        /// </summary>
         private static void CancelAutoDismiss(ToastData toastData)
         {
             toastData.AutoDismissTimer?.Pause();
             toastData.AutoDismissTimer = null;
         }
-
-        // ── Dismiss: tap (fade out) ───────────────────────────────────────────────
 
         private void OnToastTapped(ToastData toastData)
         {
@@ -289,7 +262,6 @@ namespace UnityUIToolkit.Extensions.Examples
         {
             var toast = toastData.Root;
 
-            // Fade to transparent
             toast.style.transitionProperty = new StyleList<StylePropertyName>(
                 new List<StylePropertyName> { new("opacity") });
             toast.style.transitionDuration = new StyleList<TimeValue>(
@@ -303,12 +275,8 @@ namespace UnityUIToolkit.Extensions.Examples
             RemoveToastFromHierarchy(toastData);
         }
 
-        // ── Dismiss: swipe (manipulator calls back after animation) ───────────────
-
         private void OnToastDismissedBySwipe(ToastData toastData)
         {
-            // The manipulator has already played the slide-out animation.
-            // Fade the element to zero then remove it so there is no pop.
             if (toastData.IsDismissing) return;
             toastData.IsDismissing = true;
 
@@ -326,8 +294,6 @@ namespace UnityUIToolkit.Extensions.Examples
             };
         }
 
-        // ── Shared removal logic ──────────────────────────────────────────────────
-
         private void RemoveToastFromHierarchy(ToastData toastData)
         {
             activeToasts.Remove(toastData);
@@ -338,7 +304,9 @@ namespace UnityUIToolkit.Extensions.Examples
             }
         }
 
-        /// <summary>Remove the oldest toast immediately (when cap is exceeded).</summary>
+        /// <summary>
+        /// Remove the oldest toast immediately (when cap is exceeded).
+        /// </summary>
         private void RemoveOldestToast()
         {
             if (activeToasts.Count == 0) return;
