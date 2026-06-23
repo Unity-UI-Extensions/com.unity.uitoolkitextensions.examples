@@ -1,0 +1,22 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:ext="UnityUIToolkit.Extensions" editor-extension-mode="False">
+    <Style src="project://database/Packages/com.unity.uitoolkitextensions/Runtime/Styles/UIToolkitExtensionsControlStyles.uss" />
+    <Style src="ToastNotificationsStyles.uss" />
+
+    <ui:VisualElement class="toastDemo__screen">
+        <ui:VisualElement class="toastDemo__card">
+            <ui:Label text="Toolkit Sample" class="toastDemo__eyebrow" />
+            <ui:Label text="Toast Notifications" class="toastDemo__headerTitle" />
+            <ui:Label text="Add sample notifications below, dismiss them with a swipe, or tap a toast to clear it instantly." class="toastDemo__instruction" />
+
+            <ui:VisualElement class="toastDemo__bottomBar">
+                <ext:PillButton name="add-button" class="toastDemo__addButton" text="Add Toast" inner-color="#4A90E2" outer-color="#7B68EE" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- Notifications render full screen, above the card. The overlay ignores
+             picking so the card's button stays clickable; each toast handles its own. -->
+        <ui:VisualElement name="toast-overlay" class="toastDemo__overlay" picking-mode="Ignore">
+            <ui:VisualElement name="toast-container" class="toastDemo__container" picking-mode="Ignore" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

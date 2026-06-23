@@ -67,9 +67,9 @@ namespace UnityUIToolkit.Extensions.Examples
 
             if (bioField != null)
             {
-                bioField.SetBackgroundColor(Color.white);
-                bioField.SetTextColor(new Color(0.15f, 0.15f, 0.2f, 1f));
-                bioField.SetPlaceholderColor(new Color(0.65f, 0.65f, 0.7f, 1f));
+                bioField.SetBackgroundColor(new Color(1f, 1f, 1f, 0.03f));
+                bioField.SetTextColor(Color.white);
+                bioField.SetPlaceholderColor(new Color(0.71f, 0.75f, 0.86f, 0.65f));
                 bioField.SetFontSize(14f);
             }
 
@@ -85,8 +85,8 @@ namespace UnityUIToolkit.Extensions.Examples
 
         private static void ApplyPillInputStyle(PillInputField field)
         {
-            field.SetBackgroundColor(Color.white);
-            field.SetTextColor(new Color(0.15f, 0.15f, 0.2f, 1f));
+            field.SetBackgroundColor(new Color(1f, 1f, 1f, 0.03f));
+            field.SetTextColor(Color.white);
             field.SetFontSize(15f);
         }
 
@@ -113,34 +113,34 @@ namespace UnityUIToolkit.Extensions.Examples
             if (string.IsNullOrWhiteSpace(nameField.Value))
             {
                 VisualElementShakeUtility.Shake(nameField, wobbleCount: 4, wobbleDurationMs: 65, amplitudePixels: 10f);
-                nameField.SetBackgroundColor(new Color(1f, 0.93f, 0.93f, 1f));
+                nameField.SetBackgroundColor(new Color(0.46f, 0.14f, 0.22f, 0.9f));
                 isValid = false;
             }
             else
             {
-                nameField.SetBackgroundColor(Color.white);
+                nameField.SetBackgroundColor(new Color(1f, 1f, 1f, 0.03f));
             }
 
             if (!emailField.Value.Contains("@"))
             {
                 VisualElementShakeUtility.Shake(emailField, wobbleCount: 4, wobbleDurationMs: 65, amplitudePixels: 10f);
-                emailField.SetBackgroundColor(new Color(1f, 0.93f, 0.93f, 1f));
+                emailField.SetBackgroundColor(new Color(0.46f, 0.14f, 0.22f, 0.9f));
                 isValid = false;
             }
             else
             {
-                emailField.SetBackgroundColor(Color.white);
+                emailField.SetBackgroundColor(new Color(1f, 1f, 1f, 0.03f));
             }
 
             if (passwordField.Value.Length < 6)
             {
                 VisualElementShakeUtility.Shake(passwordField, wobbleCount: 4, wobbleDurationMs: 65, amplitudePixels: 10f);
-                passwordField.SetBackgroundColor(new Color(1f, 0.93f, 0.93f, 1f));
+                passwordField.SetBackgroundColor(new Color(0.46f, 0.14f, 0.22f, 0.9f));
                 isValid = false;
             }
             else
             {
-                passwordField.SetBackgroundColor(Color.white);
+                passwordField.SetBackgroundColor(new Color(1f, 1f, 1f, 0.03f));
             }
 
             return isValid;

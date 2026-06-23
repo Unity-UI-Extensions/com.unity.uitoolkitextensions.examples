@@ -1,27 +1,23 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:ext="UnityUIToolkit.Extensions" editor-extension-mode="False">
-    <!--
-      UXML version of the StepWizard demo. QuadrantStepper, StepProgressBar and PillButton are
-      declared here with their UXML attributes (options, inner-color/outer-color, text…).
-      StepWizardUxmlBinder.cs drives navigation, panel visibility and progress.
-    -->
     <Style src="project://database/Packages/com.unity.uitoolkitextensions/Runtime/Styles/UIToolkitExtensionsControlStyles.uss" />
     <Style src="StepWizardStyles.uss" />
 
     <ui:VisualElement name="screen" class="stepWizard__screen">
-        <ui:VisualElement name="header" class="stepWizard__header">
-            <ui:Label text="Quick Setup" class="stepWizard__title" />
+        <ui:VisualElement name="card" class="stepWizard__card">
+            <ui:Label text="Toolkit Sample" class="stepWizard__eyebrow" />
+            <ui:Label text="Step Wizard Demo" class="stepWizard__title" />
+            <ui:Label text="Move through the sample steps below, adjust your preferences, and finish with a compact summary." class="stepWizard__subtitle" />
             <ui:Label name="step-counter" class="stepWizard__counter" />
-        </ui:VisualElement>
 
-        <ui:VisualElement name="stepper-wrapper" class="stepWizard__stepperWrapper">
-            <ext:QuadrantStepper name="stepper" class="stepWizard__stepper" options="About,Goals,Settings,Done" />
-        </ui:VisualElement>
+            <ui:VisualElement name="stepper-wrapper" class="stepWizard__stepperWrapper">
+                <ext:QuadrantStepper name="stepper" class="stepWizard__stepper" options="About,Goals,Settings,Done" />
+            </ui:VisualElement>
 
-        <ui:VisualElement name="progress-wrapper" class="stepWizard__progressWrapper">
-            <ext:StepProgressBar name="progress-bar" class="stepWizard__progressBar" inner-color="#4CAF50" outer-color="#8BC34A" />
-        </ui:VisualElement>
+            <ui:VisualElement name="progress-wrapper" class="stepWizard__progressWrapper">
+                <ext:StepProgressBar name="progress-bar" class="stepWizard__progressBar" inner-color="#4A90E2" outer-color="#7B68EE" />
+            </ui:VisualElement>
 
-        <ui:VisualElement name="content-area" class="stepWizard__content">
+            <ui:VisualElement name="content-area" class="stepWizard__content">
             <ui:VisualElement name="panel-0" class="stepWizard__panel" style="display: none;">
                 <ui:Label text="About You" class="stepWizard__panelHeading" />
                 <ui:Label text="Tell us a bit about yourself so we can personalise your experience." class="stepWizard__panelDescription" />
@@ -112,11 +108,12 @@
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
-        </ui:VisualElement>
+            </ui:VisualElement>
 
-        <ui:VisualElement name="nav-bar" class="stepWizard__navBar">
-            <ext:PillButton name="back-button" class="stepWizard__navButton" text="Back" inner-color="#777777" outer-color="#999999" />
-            <ext:PillButton name="next-button" class="stepWizard__navButton" text="Next" inner-color="#4CAF50" outer-color="#8BC34A" />
+            <ui:VisualElement name="nav-bar" class="stepWizard__navBar">
+                <ext:PillButton name="back-button" class="stepWizard__navButton" text="Back" inner-color="#465062" outer-color="#5C667A" />
+                <ext:PillButton name="next-button" class="stepWizard__navButton" text="Next" inner-color="#4A90E2" outer-color="#7B68EE" />
+            </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

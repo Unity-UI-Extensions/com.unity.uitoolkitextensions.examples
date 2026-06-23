@@ -2,35 +2,66 @@
 
 .stepWizard__screen {
 	flex-grow: 1;
-	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding-left: 28px;
+	padding-right: 28px;
+	padding-top: 48px;
+	padding-bottom: 48px;
 	background-color: rgba(9, 15, 27, 1);
 }
 
-.stepWizard__header {
-	padding-top: 48px;
-	padding-bottom: 12px;
-	padding-left: 20px;
-	padding-right: 20px;
-	align-items: center;
+.stepWizard__card {
+	width: 100%;
+	max-width: 620px;
+	padding-left: 28px;
+	padding-right: 28px;
+	padding-top: 34px;
+	padding-bottom: 32px;
+	background-color: rgba(20, 28, 44, 0.94);
+	border-width: 1px;
+	border-color: rgba(255, 255, 255, 0.08);
+	border-radius: 28px;
+}
+
+.stepWizard__eyebrow {
+	font-size: 13px;
+	color: rgba(132, 173, 255, 1);
+	-unity-font-style: bold;
+	margin-bottom: 12px;
 }
 
 .stepWizard__title {
-	font-size: 22px;
+	font-size: 30px;
 	color: rgba(255, 255, 255, 1);
 	-unity-font-style: bold;
-	margin-bottom: 4px;
+	margin-bottom: 10px;
+	white-space: normal;
+}
+
+.stepWizard__subtitle {
+	font-size: 15px;
+	color: rgba(202, 211, 232, 0.9);
+	margin-bottom: 20px;
+	white-space: normal;
 }
 
 .stepWizard__counter {
 	font-size: 13px;
-	color: rgba(173, 183, 210, 0.85);
+	color: rgba(132, 173, 255, 0.95);
+	margin-bottom: 16px;
 }
 
 .stepWizard__stepperWrapper {
-	padding-left: 20px;
-	padding-right: 20px;
-	padding-top: 8px;
-	padding-bottom: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	background-color: rgba(255, 255, 255, 0.045);
+	border-width: 1px;
+	border-color: rgba(255, 255, 255, 0.12);
+	border-radius: 22px;
 }
 
 .stepWizard__stepper {
@@ -39,14 +70,12 @@
 	border-top-right-radius: 21px;
 	border-bottom-left-radius: 21px;
 	border-bottom-right-radius: 21px;
-	background-color: rgba(255, 255, 255, 0.08);
+	background-color: rgba(255, 255, 255, 0.07);
 }
 
 .stepWizard__progressWrapper {
-	padding-left: 20px;
-	padding-right: 20px;
 	padding-top: 4px;
-	padding-bottom: 4px;
+	padding-bottom: 10px;
 }
 
 .stepWizard__progressBar {
@@ -59,19 +88,15 @@
 
 .stepWizard__content {
 	flex-grow: 1;
-	padding-left: 20px;
-	padding-right: 20px;
-	padding-top: 16px;
-	padding-bottom: 16px;
+	padding-top: 12px;
+	padding-bottom: 18px;
 }
 
 .stepWizard__navBar {
 	flex-direction: row;
 	justify-content: space-between;
-	padding-left: 20px;
-	padding-right: 20px;
 	padding-top: 12px;
-	padding-bottom: 32px;
+	padding-bottom: 0;
 }
 
 .stepWizard__navButton {
@@ -82,6 +107,14 @@
 .stepWizard__panel {
 	flex-grow: 1;
 	flex-direction: column;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 18px;
+	padding-right: 18px;
+	background-color: rgba(255, 255, 255, 0.07);
+	border-width: 1px;
+	border-color: rgba(255, 255, 255, 0.12);
+	border-radius: 22px;
 }
 
 .stepWizard__panelHeading {
@@ -111,7 +144,7 @@
 
 .stepWizard__fieldLabel {
 	font-size: 12px;
-	color: rgba(132, 173, 255, 0.9);
+	color: rgba(173, 183, 210, 0.85);
 	margin-bottom: 4px;
 }
 
@@ -207,7 +240,9 @@
 }
 
 .stepWizard__summaryBox {
-	background-color: rgba(46, 204, 112, 0.12);
+	background-color: rgba(255, 255, 255, 0.045);
+	border-width: 1px;
+	border-color: rgba(255, 255, 255, 0.12);
 	border-top-left-radius: 12px;
 	border-top-right-radius: 12px;
 	border-bottom-left-radius: 12px;
@@ -232,6 +267,6 @@
 
 .stepWizard__summaryValue {
 	font-size: 14px;
-	color: rgba(86, 222, 150, 1);
+	color: rgba(132, 173, 255, 0.95);
 	-unity-font-style: bold;
 }

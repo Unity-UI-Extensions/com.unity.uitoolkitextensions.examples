@@ -68,7 +68,6 @@ namespace UnityUIToolkit.Extensions.Examples
         // ── Internal state ────────────────────────────────────────────────────────
         private UIDocument uiDocument;
         private VisualElement toastContainer;
-        private Label emptyLabel;
         private int toastCounter = 0;
         private int templateIndex = 0;
         private int colorIndex = 0;
@@ -105,26 +104,19 @@ namespace UnityUIToolkit.Extensions.Examples
             // ── Screen ────────────────────────────────────────────────────────────
             VisualElement screen = UIToolkitExtensions.CreateVisualElement(root, "toastDemo__screen");
 
-            // ── Header ────────────────────────────────────────────────────────────
-            VisualElement header = UIToolkitExtensions.CreateVisualElement(screen, "toastDemo__header");
+            // ── Example card (shared rounded container): title, description, button ─
+            VisualElement card = UIToolkitExtensions.CreateVisualElement(screen, "toastDemo__card");
 
-            Label titleLabel = UIToolkitExtensions.CreateVisualElement<Label>(header, "toastDemo__headerTitle");
+            Label eyebrow = UIToolkitExtensions.CreateVisualElement<Label>(card, "toastDemo__eyebrow");
+            eyebrow.text = "Toolkit Sample";
+
+            Label titleLabel = UIToolkitExtensions.CreateVisualElement<Label>(card, "toastDemo__headerTitle");
             titleLabel.text = "Toast Notifications";
 
-            Label instructionLabel = UIToolkitExtensions.CreateVisualElement<Label>(header, "toastDemo__instruction");
-            instructionLabel.text = "Swipe left or right to dismiss, or tap a toast.";
+            Label instructionLabel = UIToolkitExtensions.CreateVisualElement<Label>(card, "toastDemo__instruction");
+            instructionLabel.text = "Add sample notifications below, dismiss them with a swipe, or tap a toast to clear it instantly.";
 
-            // ── Toast container ───────────────────────────────────────────────────
-            VisualElement scrollWrapper = UIToolkitExtensions.CreateVisualElement(screen, "toastDemo__scrollWrapper");
-
-            toastContainer = UIToolkitExtensions.CreateVisualElement(scrollWrapper, "toastDemo__container");
-
-            // Placeholder shown when no toasts exist
-            emptyLabel = UIToolkitExtensions.CreateVisualElement<Label>(toastContainer, "toastDemo__empty");
-            emptyLabel.text = "No notifications yet.\nTap \"Add Toast\" to create one.";
-
-            // ── Bottom bar ────────────────────────────────────────────────────────
-            VisualElement bottomBar = UIToolkitExtensions.CreateVisualElement(screen, "toastDemo__bottomBar");
+            VisualElement bottomBar = UIToolkitExtensions.CreateVisualElement(card, "toastDemo__bottomBar");
 
             PillButton addButton = UIToolkitExtensions.CreateVisualElement<PillButton>(bottomBar, "toastDemo__addButton");
             addButton.Text = "Add Toast";
@@ -133,6 +125,15 @@ namespace UnityUIToolkit.Extensions.Examples
             addButton.SetTextColor(Color.white);
             addButton.SetFontSize(15f);
             addButton.Clicked += OnAddToastClicked;
+
+            // ── Full-screen overlay the toasts stack into (drawn above the card) ────
+            // The overlay and its container ignore picking so the card's button stays
+            // clickable; each toast re-enables picking for its own swipe/tap input.
+            VisualElement overlay = UIToolkitExtensions.CreateVisualElement(screen, "toastDemo__overlay");
+            overlay.pickingMode = PickingMode.Ignore;
+
+            toastContainer = UIToolkitExtensions.CreateVisualElement(overlay, "toastDemo__container");
+            toastContainer.pickingMode = PickingMode.Ignore;
         }
 
         // ── Toast creation ────────────────────────────────────────────────────────
@@ -155,9 +156,6 @@ namespace UnityUIToolkit.Extensions.Examples
             templateIndex++;
             var bgColor = ToastColors[colorIndex % ToastColors.Length];
             colorIndex++;
-
-            // Hide the empty-state label once the first toast appears
-            emptyLabel.style.display = DisplayStyle.None;
 
             // ── Toast root element ────────────────────────────────────────────────
             var toast = UIToolkitExtensions.CreateVisualElement(toastContainer, "toastDemo__toast");
@@ -337,12 +335,6 @@ namespace UnityUIToolkit.Extensions.Examples
             if (toastData.Root.parent != null)
             {
                 toastData.Root.RemoveFromHierarchy();
-            }
-
-            // Show the empty-state label again when all toasts are gone
-            if (activeToasts.Count == 0)
-            {
-                emptyLabel.style.display = DisplayStyle.Flex;
             }
         }
 

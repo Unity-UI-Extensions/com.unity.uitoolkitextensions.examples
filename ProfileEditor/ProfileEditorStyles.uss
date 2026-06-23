@@ -20,7 +20,6 @@
 	border-width: 1px;
 	border-color: rgba(255, 255, 255, 0.08);
 	border-radius: 28px;
-	box-shadow: 0 28px 64px rgba(0, 0, 0, 0.34);
 }
 
 .profileEditor__eyebrow {
@@ -42,7 +41,6 @@
 
 .profileEditor__description {
 	font-size: 15px;
-	line-height: 22px;
 	color: rgba(202, 211, 232, 0.9);
 	-unity-text-align: upper-left;
 	white-space: normal;
@@ -66,7 +64,6 @@
 	flex-grow: 1;
 	flex-shrink: 1;
 	font-size: 14px;
-	line-height: 20px;
 	color: rgba(173, 183, 210, 0.85);
 	-unity-text-align: upper-left;
 	white-space: normal;
@@ -175,7 +172,6 @@
 
 .profileEditor__status {
 	font-size: 13px;
-	line-height: 18px;
 	color: rgba(132, 173, 255, 0.95);
 	-unity-text-align: upper-left;
 	white-space: normal;

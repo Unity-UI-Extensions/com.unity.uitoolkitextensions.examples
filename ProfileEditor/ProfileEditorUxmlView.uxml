@@ -1,0 +1,35 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:ext="UnityUIToolkit.Extensions" editor-extension-mode="False">
+    <Style src="project://database/Packages/com.unity.uitoolkitextensions/Runtime/Styles/UIToolkitExtensionsControlStyles.uss" />
+    <Style src="ProfileEditorStyles.uss" />
+
+    <ui:VisualElement class="profileEditor__screen">
+        <ui:VisualElement class="profileEditor__card">
+            <ui:Label text="Toolkit Sample" class="profileEditor__eyebrow" />
+            <ui:Label text="EDIT PROFILE" class="profileEditor__title" />
+            <ui:Label text="Tap the photo, toggle the sample banner, and pick a theme color from the palette below." class="profileEditor__description" />
+
+            <ui:VisualElement class="profileEditor__avatarRow">
+                <ext:CircularImageButton name="avatar-button" class="profileEditor__avatar" />
+                <ui:Label text="Tap to change the profile photo in a real app. This sample keeps the control focused on layout and state." class="profileEditor__avatarHelp" />
+            </ui:VisualElement>
+
+            <ui:Label text="Sample Image" class="profileEditor__sectionLabel" />
+            <ui:VisualElement class="profileEditor__imageRow">
+                <ext:GrayscaleImage name="sample-image" class="profileEditor__sampleImage" />
+                <ui:VisualElement class="profileEditor__bwBlock">
+                    <ui:Label text="B&amp;W Mode" class="profileEditor__bwLabel" />
+                    <ext:ToggleButton name="bw-toggle" class="profileEditor__bwToggle" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:Label text="Theme Color" class="profileEditor__sectionLabel" />
+            <ext:ColorToggleGroup name="color-group" class="profileEditor__colorGroup" />
+            <ui:VisualElement class="profileEditor__swatchRow">
+                <ui:VisualElement name="color-swatch" class="profileEditor__swatch" />
+                <ui:Label name="color-label" text="None" class="profileEditor__colorName" />
+            </ui:VisualElement>
+
+            <ui:Label name="status-label" class="profileEditor__status" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,27 +1,57 @@
 .scrollSnapDemo__screen {
 	flex-grow: 1;
-	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding-left: 28px;
+	padding-right: 28px;
+	padding-top: 48px;
+	padding-bottom: 48px;
 	background-color: rgba(9, 15, 27, 1);
 }
 
-.scrollSnapDemo__header {
-	padding-top: 48px;
-	padding-bottom: 16px;
-	padding-left: 24px;
-	padding-right: 24px;
-	align-items: center;
+.scrollSnapDemo__card {
+	width: 100%;
+	max-width: 620px;
+	padding-left: 28px;
+	padding-right: 28px;
+	padding-top: 34px;
+	padding-bottom: 32px;
+	background-color: rgba(20, 28, 44, 0.94);
+	border-width: 1px;
+	border-color: rgba(255, 255, 255, 0.08);
+	border-radius: 28px;
+}
+
+.scrollSnapDemo__eyebrow {
+	font-size: 13px;
+	color: rgba(132, 173, 255, 1);
+	-unity-font-style: bold;
+	margin-bottom: 12px;
 }
 
 .scrollSnapDemo__title {
-	font-size: 22px;
+	font-size: 30px;
 	color: rgba(255, 255, 255, 1);
 	-unity-font-style: bold;
+	margin-bottom: 10px;
+	white-space: normal;
 }
 
 .scrollSnapDemo__subtitle {
-	font-size: 13px;
-	color: rgba(179, 179, 179, 1);
-	margin-top: 4px;
+	font-size: 15px;
+	color: rgba(202, 211, 232, 0.9);
+	margin-bottom: 24px;
+	white-space: normal;
+}
+
+.scrollSnapDemo__carouselSurface {
+	height: 420px;
+	margin-bottom: 18px;
+	overflow: hidden;
+	background-color: rgba(255, 255, 255, 0.045);
+	border-width: 1px;
+	border-color: rgba(255, 255, 255, 0.12);
+	border-radius: 24px;
 }
 
 .scrollSnapDemo__scrollSnap {
@@ -33,11 +63,20 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	border-top-left-radius: 16px;
-	border-top-right-radius: 16px;
-	border-bottom-left-radius: 16px;
-	border-bottom-right-radius: 16px;
+	margin-left: 14px;
+	margin-right: 14px;
+	margin-top: 14px;
+	margin-bottom: 14px;
+	border-radius: 22px;
+	border-width: 1px;
+	border-color: rgba(255, 255, 255, 0.08);
 }
+
+.scrollSnapDemo__page--one { background-color: rgba(87, 128, 188, 0.42); }
+.scrollSnapDemo__page--two { background-color: rgba(68, 160, 189, 0.38); }
+.scrollSnapDemo__page--three { background-color: rgba(92, 141, 114, 0.42); }
+.scrollSnapDemo__page--four { background-color: rgba(101, 89, 166, 0.42); }
+.scrollSnapDemo__page--five { background-color: rgba(187, 134, 69, 0.42); }
 
 .scrollSnapDemo__comingSoon {
 	flex-grow: 1;
@@ -81,15 +120,12 @@
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	padding-left: 16px;
-	padding-right: 16px;
-	padding-top: 12px;
-	padding-bottom: 32px;
+	padding-top: 4px;
 }
 
 .scrollSnapDemo__navButton {
 	width: 56px;
-	height: 40px;
+	height: 46px;
 }
 
 .scrollSnapDemo__dotIndicator {

@@ -74,16 +74,22 @@ namespace UnityUIToolkit.Extensions.Examples
             // ── Full-screen wrapper ───────────────────────────────────────────────
             var screen = UIToolkitExtensions.CreateVisualElement(root, "stepWizard__screen");
 
-            // ── Header ────────────────────────────────────────────────────────────
-            var header = UIToolkitExtensions.CreateVisualElement(screen, "stepWizard__header");
+            // ── Example card (shared rounded container) ────────────────────────────
+            var card = UIToolkitExtensions.CreateVisualElement(screen, "stepWizard__card");
 
-            var titleLabel = UIToolkitExtensions.CreateVisualElement<Label>(header, "stepWizard__title");
-            titleLabel.text = "Quick Setup";
+            var eyebrow = UIToolkitExtensions.CreateVisualElement<Label>(card, "stepWizard__eyebrow");
+            eyebrow.text = "Toolkit Sample";
 
-            stepCounterLabel = UIToolkitExtensions.CreateVisualElement<Label>(header, "stepWizard__counter");
+            var titleLabel = UIToolkitExtensions.CreateVisualElement<Label>(card, "stepWizard__title");
+            titleLabel.text = "Step Wizard Demo";
+
+            var subtitleLabel = UIToolkitExtensions.CreateVisualElement<Label>(card, "stepWizard__subtitle");
+            subtitleLabel.text = "Move through the sample steps below, adjust your preferences, and finish with a compact summary.";
+
+            stepCounterLabel = UIToolkitExtensions.CreateVisualElement<Label>(card, "stepWizard__counter");
 
             // ── Stepper ───────────────────────────────────────────────────────────
-            var stepperWrapper = UIToolkitExtensions.CreateVisualElement(screen, "stepWizard__stepperWrapper");
+            var stepperWrapper = UIToolkitExtensions.CreateVisualElement(card, "stepWizard__stepperWrapper");
 
             stepper = new QuadrantStepper(StepNames);
             stepper.AddToClassList("stepWizard__stepper");
@@ -91,16 +97,16 @@ namespace UnityUIToolkit.Extensions.Examples
             stepperWrapper.Add(stepper);
 
             // ── Progress bar ──────────────────────────────────────────────────────
-            var progressWrapper = UIToolkitExtensions.CreateVisualElement(screen, "stepWizard__progressWrapper");
+            var progressWrapper = UIToolkitExtensions.CreateVisualElement(card, "stepWizard__progressWrapper");
 
             progressBar = new StepProgressBar();
             progressBar.AddToClassList("stepWizard__progressBar");
             // Gradient colours are part of the control's runtime API, not USS.
-            progressBar.SetGradientColors("#4CAF50", "#8BC34A");
+            progressBar.SetGradientColors("#4A90E2", "#7B68EE");
             progressWrapper.Add(progressBar);
 
             // ── Content area ──────────────────────────────────────────────────────
-            contentArea = UIToolkitExtensions.CreateVisualElement(screen, "stepWizard__content");
+            contentArea = UIToolkitExtensions.CreateVisualElement(card, "stepWizard__content");
 
             // Build all four step panels (only one visible at a time)
             stepPanels = new VisualElement[StepNames.Length];
@@ -117,13 +123,13 @@ namespace UnityUIToolkit.Extensions.Examples
             }
 
             // ── Navigation bar ────────────────────────────────────────────────────
-            var navBar = UIToolkitExtensions.CreateVisualElement(screen, "stepWizard__navBar");
+            var navBar = UIToolkitExtensions.CreateVisualElement(card, "stepWizard__navBar");
 
             backButton = new PillButton();
             backButton.AddToClassList("stepWizard__navButton");
             backButton.Text = "Back";
-            backButton.SetInnerColor("#777777");
-            backButton.SetOuterColor("#999999");
+            backButton.SetInnerColor("#465062");
+            backButton.SetOuterColor("#5C667A");
             backButton.SetTextColor(Color.white);
             backButton.Clicked += OnBackClicked;
             navBar.Add(backButton);
@@ -131,13 +137,11 @@ namespace UnityUIToolkit.Extensions.Examples
             nextButton = new PillButton();
             nextButton.AddToClassList("stepWizard__navButton");
             nextButton.Text = "Next";
-            nextButton.SetInnerColor("#4CAF50");
-            nextButton.SetOuterColor("#8BC34A");
+            nextButton.SetInnerColor("#4A90E2");
+            nextButton.SetOuterColor("#7B68EE");
             nextButton.SetTextColor(Color.white);
             nextButton.Clicked += OnNextClicked;
             navBar.Add(nextButton);
-
-            screen.Add(navBar);
 
             // Navigate to the first step without notifying the stepper event
             // (avoids double-navigation on init)
@@ -328,18 +332,8 @@ namespace UnityUIToolkit.Extensions.Examples
             // Back button — hidden on first step (runtime state — stays in C#)
             backButton.style.display = currentStep == 0 ? DisplayStyle.None : DisplayStyle.Flex;
 
-            // Next button label changes on the last step
+            // Next button label changes on the last step (colour stays consistent).
             nextButton.Text = currentStep == StepNames.Length - 1 ? "Finish" : "Next";
-            if (currentStep == StepNames.Length - 1)
-            {
-                nextButton.SetInnerColor("#4A90E2");
-                nextButton.SetOuterColor("#7B68EE");
-            }
-            else
-            {
-                nextButton.SetInnerColor("#4CAF50");
-                nextButton.SetOuterColor("#8BC34A");
-            }
         }
     }
 }

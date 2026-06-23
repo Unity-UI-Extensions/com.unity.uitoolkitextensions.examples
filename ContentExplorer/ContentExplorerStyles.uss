@@ -1,80 +1,94 @@
-/* Dark theme — matches the DropDownPhoneEntry demo (screen rgba(9,15,27,1)). */
-
 .contentExplorer__screen {
 	flex-grow: 1;
-	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding-left: 28px;
+	padding-right: 28px;
+	padding-top: 48px;
+	padding-bottom: 48px;
 	position: relative;
 	background-color: rgba(9, 15, 27, 1);
 }
 
-.contentExplorer__header {
-	padding-top: 48px;
-	padding-bottom: 16px;
-	padding-left: 20px;
-	padding-right: 20px;
+.contentExplorer__card {
+	width: 100%;
+	max-width: 620px;
+	padding-left: 28px;
+	padding-right: 28px;
+	padding-top: 34px;
+	padding-bottom: 32px;
+	background-color: rgba(20, 28, 44, 0.94);
+	border-width: 1px;
+	border-color: rgba(255, 255, 255, 0.08);
+	border-radius: 28px;
+}
+
+.contentExplorer__eyebrow {
+	font-size: 13px;
+	color: rgba(132, 173, 255, 1);
+	-unity-font-style: bold;
+	margin-bottom: 12px;
 }
 
 .contentExplorer__title {
-	font-size: 24px;
+	font-size: 30px;
 	color: rgba(255, 255, 255, 1);
 	-unity-font-style: bold;
+	margin-bottom: 10px;
+	white-space: normal;
 }
 
 .contentExplorer__subtitle {
-	font-size: 13px;
-	color: rgba(173, 183, 210, 0.85);
-	margin-top: 4px;
+	font-size: 15px;
+	color: rgba(202, 211, 232, 0.9);
+	margin-bottom: 24px;
 	white-space: normal;
 }
 
 .contentExplorer__contentScroll {
-	flex-grow: 1;
 	flex-direction: column;
-	padding-left: 16px;
-	padding-right: 16px;
-	padding-top: 8px;
-	padding-bottom: 8px;
+	margin-bottom: 18px;
 }
 
 .contentExplorer__section {
-	margin-bottom: 10px;
+	margin-bottom: 12px;
+	padding-bottom: 6px;
 	overflow: hidden;
-	background-color: rgba(255, 255, 255, 0.05);
-	border-top-left-radius: 12px;
-	border-top-right-radius: 12px;
-	border-bottom-left-radius: 12px;
-	border-bottom-right-radius: 12px;
+	background-color: rgba(255, 255, 255, 0.07);
+	border-width: 1px;
+	border-color: rgba(255, 255, 255, 0.12);
+	border-radius: 20px;
 }
 
-/* Keep the collapsible header/title readable on the dark section card. */
+.contentExplorer__section > .collapsibleSection__header {
+	min-height: 58px;
+	padding-left: 18px;
+	padding-right: 18px;
+	background-color: rgba(255, 255, 255, 0.07);
+}
+
 .contentExplorer__section .collapsibleSection__title {
 	color: rgba(235, 238, 245, 1);
 }
 
 .contentExplorer__itemButton {
-	margin-top: 2px;
-	margin-bottom: 2px;
+	margin-left: 12px;
+	margin-right: 12px;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	height: 48px;
+	background-color: rgba(255, 255, 255, 0.045);
+	border-radius: 14px;
 }
 
-/* Keep the icon-label rows readable on the dark section card. */
 .contentExplorer__itemButton .iconLabelButton__label {
 	color: rgba(210, 216, 230, 1);
 }
 
-.contentExplorer__statusBar {
-	padding-left: 20px;
-	padding-right: 20px;
-	padding-top: 12px;
-	padding-bottom: 24px;
-	background-color: rgba(20, 28, 44, 0.94);
-	border-top-width: 1px;
-	border-top-color: rgba(255, 255, 255, 0.08);
-}
-
 .contentExplorer__statusLabel {
 	font-size: 13px;
-	color: rgba(173, 183, 210, 0.9);
-	-unity-text-align: middle-center;
+	color: rgba(132, 173, 255, 0.95);
+	white-space: normal;
 }
 
 .contentExplorer__loadingOverlay {
@@ -86,7 +100,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: rgba(9, 15, 27, 0.92);
+	background-color: rgba(9, 15, 27, 0.94);
 }
 
 .contentExplorer__loadingIcon {
@@ -96,6 +110,6 @@
 
 .contentExplorer__loadingLabel {
 	font-size: 14px;
-	color: rgba(173, 183, 210, 0.9);
+	color: rgba(202, 211, 232, 0.9);
 	margin-top: 12px;
 }

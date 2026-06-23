@@ -54,9 +54,9 @@ namespace UnityUIToolkit.Extensions.Examples
             // Field appearance is part of the control's runtime API (kept out of UXML/USS here).
             root.Query<RoundedInputField>().ForEach(field =>
             {
-                field.SetBackgroundColor(Color.white);
-                field.SetTextColor(new Color(0.15f, 0.15f, 0.2f, 1f));
-                field.SetPlaceholderColor(new Color(0.65f, 0.65f, 0.7f, 1f));
+                field.SetBackgroundColor(new Color(1f, 1f, 1f, 0.03f));
+                field.SetTextColor(Color.white);
+                field.SetPlaceholderColor(new Color(0.71f, 0.75f, 0.86f, 0.65f));
                 field.SetFontSize(14f);
             });
 
@@ -121,8 +121,8 @@ namespace UnityUIToolkit.Extensions.Examples
 
             bool isLast = currentStep == StepCount - 1;
             nextButton.Text = isLast ? "Finish" : "Next";
-            nextButton.SetInnerColor(isLast ? "#4A90E2" : "#4CAF50");
-            nextButton.SetOuterColor(isLast ? "#7B68EE" : "#8BC34A");
+            nextButton.SetInnerColor("#4A90E2");
+            nextButton.SetOuterColor("#7B68EE");
         }
     }
 }

@@ -1,0 +1,28 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:ext="UnityUIToolkit.Extensions" editor-extension-mode="False">
+    <Style src="project://database/Packages/com.unity.uitoolkitextensions/Runtime/Styles/UIToolkitExtensionsControlStyles.uss" />
+    <Style src="ImageCropOverlayDemoStyles.uss" />
+
+    <ui:VisualElement class="imageCropOverlayDemo__screen">
+        <ui:VisualElement class="imageCropOverlayDemo__card">
+            <ui:Label text="Toolkit Sample" class="imageCropOverlayDemo__eyebrow" />
+            <ui:Label text="PROFILE IMAGE CROP" class="imageCropOverlayDemo__title" />
+            <ui:Label text="Start from a default portrait, move and scale the image, then save the crop directly back into the screen preview." class="imageCropOverlayDemo__description" />
+
+            <ui:VisualElement class="imageCropOverlayDemo__stage">
+                <ext:CircularImageButton name="image-button" class="imageCropOverlayDemo__imageButton" />
+                <ui:Label text="Tap the image or the button below to edit the crop." class="imageCropOverlayDemo__helper" />
+                <ui:VisualElement class="imageCropOverlayDemo__previewCard">
+                    <ui:Label text="Saved Preview" class="imageCropOverlayDemo__previewTitle" />
+                    <ui:VisualElement name="preview-image" class="imageCropOverlayDemo__previewImage" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="imageCropOverlayDemo__buttonRow">
+                <ext:PillButton name="edit-button" class="imageCropOverlayDemo__actionButton" text="Edit Image" inner-color="#4A90E2" outer-color="#7B68EE" />
+                <ext:PillButton name="reset-button" class="imageCropOverlayDemo__actionButton imageCropOverlayDemo__actionButton--secondary" text="Reset" inner-color="#465062" outer-color="#5C667A" />
+            </ui:VisualElement>
+
+            <ui:Label name="status-label" class="imageCropOverlayDemo__status" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

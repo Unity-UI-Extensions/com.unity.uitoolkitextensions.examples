@@ -2,30 +2,52 @@
 
 .registrationForm__screen {
 	flex-grow: 1;
-	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding-left: 28px;
+	padding-right: 28px;
+	padding-top: 48px;
+	padding-bottom: 48px;
 	background-color: rgba(9, 15, 27, 1);
 }
 
-.registrationForm__formContainer {
-	flex-grow: 1;
-	flex-direction: column;
-	padding-left: 24px;
-	padding-right: 24px;
-	padding-top: 48px;
+.registrationForm__card {
+	width: 100%;
+	max-width: 580px;
+	padding-left: 28px;
+	padding-right: 28px;
+	padding-top: 34px;
 	padding-bottom: 32px;
+	background-color: rgba(20, 28, 44, 0.94);
+	border-width: 1px;
+	border-color: rgba(255, 255, 255, 0.08);
+	border-radius: 28px;
+}
+
+.registrationForm__eyebrow {
+	font-size: 13px;
+	color: rgba(132, 173, 255, 1);
+	-unity-font-style: bold;
+	margin-bottom: 12px;
+}
+
+.registrationForm__formContainer {
+	flex-direction: column;
 }
 
 .registrationForm__title {
-	font-size: 28px;
+	font-size: 30px;
 	color: rgba(255, 255, 255, 1);
 	-unity-font-style: bold;
-	margin-bottom: 8px;
+	margin-bottom: 10px;
+	white-space: normal;
 }
 
 .registrationForm__subtitle {
-	font-size: 14px;
-	color: rgba(173, 183, 210, 0.85);
-	margin-bottom: 32px;
+	font-size: 15px;
+	color: rgba(202, 211, 232, 0.9);
+	margin-bottom: 28px;
+	white-space: normal;
 }
 
 .registrationForm__nameField {
@@ -54,8 +76,7 @@
 
 .registrationForm__sectionLabel {
 	font-size: 12px;
-	color: rgba(132, 173, 255, 0.9);
-	-unity-font-style: bold;
+	color: rgba(173, 183, 210, 0.85);
 	margin-bottom: 6px;
 }
 
@@ -79,12 +100,13 @@
 
 .registrationForm__successContainer {
 	display: none;
-	flex-grow: 1;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	padding-left: 32px;
-	padding-right: 32px;
+	padding-top: 20px;
+	padding-bottom: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
 }
 
 .registrationForm__successIcon {

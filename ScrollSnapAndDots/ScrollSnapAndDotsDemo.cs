@@ -30,14 +30,14 @@ namespace UnityUIToolkit.Extensions.Examples
     {
         // ── Page configuration ────────────────────────────────────────────────────
 
-        /// <summary>Background colors for each page (hex strings).</summary>
-        private static readonly string[] PageColors =
+        /// <summary>Per-page background modifier classes (colors defined in the USS).</summary>
+        private static readonly string[] PageModifiers =
         {
-            "#E74C3C", // red
-            "#3498DB", // blue
-            "#2ECC71", // green
-            "#9B59B6", // purple  → ComingSoonMessage page
-            "#F39C12", // orange
+            "scrollSnapDemo__page--one",
+            "scrollSnapDemo__page--two",
+            "scrollSnapDemo__page--three",
+            "scrollSnapDemo__page--four", // → ComingSoonMessage page
+            "scrollSnapDemo__page--five",
         };
 
         /// <summary>Labels shown on pages that are NOT the coming-soon page.</summary>
@@ -81,45 +81,51 @@ namespace UnityUIToolkit.Extensions.Examples
             // ── Root container — full screen, dark background ─────────────────────
             VisualElement screen = UIToolkitExtensions.CreateVisualElement(root, "scrollSnapDemo__screen");
 
-            // ── Header ────────────────────────────────────────────────────────────
-            VisualElement header = UIToolkitExtensions.CreateVisualElement(screen, "scrollSnapDemo__header");
+            // ── Example card (shared rounded container) ────────────────────────────
+            VisualElement card = UIToolkitExtensions.CreateVisualElement(screen, "scrollSnapDemo__card");
 
-            Label titleLabel = UIToolkitExtensions.CreateVisualElement<Label>(header, "scrollSnapDemo__title");
-            titleLabel.text = "ScrollSnap Demo";
+            Label eyebrow = UIToolkitExtensions.CreateVisualElement<Label>(card, "scrollSnapDemo__eyebrow");
+            eyebrow.text = "Toolkit Sample";
 
-            Label subtitleLabel = UIToolkitExtensions.CreateVisualElement<Label>(header, "scrollSnapDemo__subtitle");
-            subtitleLabel.text = "Swipe left/right or use the arrows below";
+            Label titleLabel = UIToolkitExtensions.CreateVisualElement<Label>(card, "scrollSnapDemo__title");
+            titleLabel.text = "Scroll Snap And Dots";
+
+            Label subtitleLabel = UIToolkitExtensions.CreateVisualElement<Label>(card, "scrollSnapDemo__subtitle");
+            subtitleLabel.text = "Swipe through the sample pages below or use the controls to move through the demo content.";
+
+            // ── Carousel surface (frames the pager inside the card) ────────────────
+            VisualElement carouselSurface = UIToolkitExtensions.CreateVisualElement(card, "scrollSnapDemo__carouselSurface");
 
             // ── ScrollSnap ────────────────────────────────────────────────────────
             scrollSnap = new ScrollSnap();
             scrollSnap.AddToClassList("scrollSnapDemo__scrollSnap");
             scrollSnap.ManualMovementEnabled = true;
-            screen.Add(scrollSnap);
+            carouselSurface.Add(scrollSnap);
 
             // ── Build pages ───────────────────────────────────────────────────────
-            for (var i = 0; i < PageColors.Length; i++)
+            for (var i = 0; i < PageModifiers.Length; i++)
             {
                 var page = BuildPage(i);
                 scrollSnap.Add(page);
             }
 
             // ── Bottom bar ─────────────────────────────────────────────────────────
-            VisualElement bottomBar = UIToolkitExtensions.CreateVisualElement(screen, "scrollSnapDemo__bottomBar");
+            VisualElement bottomBar = UIToolkitExtensions.CreateVisualElement(card, "scrollSnapDemo__bottomBar");
 
             // Previous button
             prevButton = new PillButton();
             prevButton.AddToClassList("scrollSnapDemo__navButton");
             prevButton.Text = "←";
-            prevButton.SetInnerColor("#555566");
-            prevButton.SetOuterColor("#777788");
+            prevButton.SetInnerColor("#465062");
+            prevButton.SetOuterColor("#5C667A");
             prevButton.Clicked += OnPreviousClicked;
             bottomBar.Add(prevButton);
 
             // Dot indicator
             dotIndicator = new PageDotIndicator();
             dotIndicator.AddToClassList("scrollSnapDemo__dotIndicator");
-            dotIndicator.SetColors("#FFFFFF", "#555566");
-            dotIndicator.SetProgress(0, PageColors.Length);
+            dotIndicator.SetColors("#FFFFFF", "#44506A");
+            dotIndicator.SetProgress(0, PageModifiers.Length);
             bottomBar.Add(dotIndicator);
 
             // Next button
@@ -141,14 +147,11 @@ namespace UnityUIToolkit.Extensions.Examples
         // ── Page factory ──────────────────────────────────────────────────────────
         private VisualElement BuildPage(int index)
         {
-            // Outer container — fills the page slot assigned by ScrollSnap
+            // Outer container — fills the page slot assigned by ScrollSnap.
+            // Background color comes from the per-page modifier class (USS).
             var page = new VisualElement();
             page.AddToClassList("scrollSnapDemo__page");
-
-            // Parse the page background color (data-driven — stays in C#)
-            Color bg = Color.gray;
-            ColorUtility.TryParseHtmlString(PageColors[index], out bg);
-            page.style.backgroundColor = bg;
+            page.AddToClassList(PageModifiers[index]);
 
             if (index == ComingSoonPageIndex)
             {
@@ -173,7 +176,7 @@ namespace UnityUIToolkit.Extensions.Examples
 
                 // Sub-label
                 Label subLabel = UIToolkitExtensions.CreateVisualElement<Label>(page, "scrollSnapDemo__pageSubLabel");
-                subLabel.text = $"Page {index + 1} of {PageColors.Length}";
+                subLabel.text = $"Page {index + 1} of {PageModifiers.Length}";
             }
 
             return page;
@@ -183,7 +186,7 @@ namespace UnityUIToolkit.Extensions.Examples
 
         private void OnPageChanged(int newIndex)
         {
-            dotIndicator.SetProgress(newIndex, PageColors.Length);
+            dotIndicator.SetProgress(newIndex, PageModifiers.Length);
             UpdateNavButtons();
         }
 

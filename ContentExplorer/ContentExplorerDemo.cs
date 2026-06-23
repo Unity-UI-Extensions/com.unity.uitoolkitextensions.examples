@@ -98,17 +98,20 @@ namespace UnityUIToolkit.Extensions.Examples
             // position: relative is needed for the absolute loading overlay
             var screen = UIToolkitExtensions.CreateVisualElement(root, "contentExplorer__screen");
 
-            // ── Header ────────────────────────────────────────────────────────────
-            var header = UIToolkitExtensions.CreateVisualElement(screen, "contentExplorer__header");
+            // ── Example card (shared rounded container) ────────────────────────────
+            var card = UIToolkitExtensions.CreateVisualElement(screen, "contentExplorer__card");
 
-            var titleLabel = UIToolkitExtensions.CreateVisualElement<Label>(header, "contentExplorer__title");
+            var eyebrow = UIToolkitExtensions.CreateVisualElement<Label>(card, "contentExplorer__eyebrow");
+            eyebrow.text = "Toolkit Sample";
+
+            var titleLabel = UIToolkitExtensions.CreateVisualElement<Label>(card, "contentExplorer__title");
             titleLabel.text = "Content Explorer";
 
-            var subtitleLabel = UIToolkitExtensions.CreateVisualElement<Label>(header, "contentExplorer__subtitle");
-            subtitleLabel.text = "Tap a section to expand it, then tap an item to select it.";
+            var subtitleLabel = UIToolkitExtensions.CreateVisualElement<Label>(card, "contentExplorer__subtitle");
+            subtitleLabel.text = "Browse the demo content below, expand any section, and tap a row to inspect the current selection.";
 
             // ── Scrollable content ────────────────────────────────────────────────
-            contentScroll = UIToolkitExtensions.CreateVisualElement(screen, "contentExplorer__contentScroll");
+            contentScroll = UIToolkitExtensions.CreateVisualElement(card, "contentExplorer__contentScroll");
             // Start invisible — revealed after load finishes (runtime state)
             contentScroll.style.opacity = 0f;
 
@@ -118,10 +121,8 @@ namespace UnityUIToolkit.Extensions.Examples
                 BuildSection(contentScroll, sectionTitle, items);
             }
 
-            // ── Status bar ────────────────────────────────────────────────────────
-            var statusBar = UIToolkitExtensions.CreateVisualElement(screen, "contentExplorer__statusBar");
-
-            statusLabel = UIToolkitExtensions.CreateVisualElement<Label>(statusBar, "contentExplorer__statusLabel");
+            // ── Status line ───────────────────────────────────────────────────────
+            statusLabel = UIToolkitExtensions.CreateVisualElement<Label>(card, "contentExplorer__statusLabel");
             statusLabel.text = "Loading content…";
 
             // ── Loading overlay (absolute, full-screen, on top) ───────────────────

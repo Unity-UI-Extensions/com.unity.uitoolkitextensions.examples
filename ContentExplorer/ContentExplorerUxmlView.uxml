@@ -1,42 +1,35 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:ext="UnityUIToolkit.Extensions" editor-extension-mode="False">
-    <!--
-      UXML version of the ContentExplorer demo. The CollapsibleSection control routes its
-      authored children into the collapsible body (contentContainer override), so the
-      IconLabelButton rows below sit inside each section. ContentExplorerUxmlBinder.cs wires
-      the loading sequence and item-selection behaviour.
-    -->
     <Style src="project://database/Packages/com.unity.uitoolkitextensions/Runtime/Styles/UIToolkitExtensionsControlStyles.uss" />
     <Style src="ContentExplorerStyles.uss" />
 
     <ui:VisualElement name="screen" class="contentExplorer__screen">
-        <ui:VisualElement name="header" class="contentExplorer__header">
+        <ui:VisualElement name="card" class="contentExplorer__card">
+            <ui:Label text="Toolkit Sample" class="contentExplorer__eyebrow" />
             <ui:Label text="Content Explorer" class="contentExplorer__title" />
-            <ui:Label text="Tap a section to expand it, then tap an item to select it." class="contentExplorer__subtitle" />
-        </ui:VisualElement>
+            <ui:Label text="Browse the demo content below, expand any section, and tap a row to inspect the current selection." class="contentExplorer__subtitle" />
 
-        <ui:VisualElement name="content-scroll" class="contentExplorer__contentScroll" style="opacity: 0;">
-            <ext:CollapsibleSection title-text="Getting Started" class="contentExplorer__section">
-                <ext:IconLabelButton text="Introduction to UI Toolkit" class="contentExplorer__itemButton" />
-                <ext:IconLabelButton text="Your first VisualElement" class="contentExplorer__itemButton" />
-                <ext:IconLabelButton text="Styling with USS classes" class="contentExplorer__itemButton" />
-                <ext:IconLabelButton text="Working with events" class="contentExplorer__itemButton" />
-            </ext:CollapsibleSection>
+            <ui:VisualElement name="content-scroll" class="contentExplorer__contentScroll" style="opacity: 0;">
+                <ext:CollapsibleSection title-text="Getting Started" class="contentExplorer__section">
+                    <ext:IconLabelButton text="Introduction to UI Toolkit" class="contentExplorer__itemButton" />
+                    <ext:IconLabelButton text="Your first VisualElement" class="contentExplorer__itemButton" />
+                    <ext:IconLabelButton text="Styling with USS classes" class="contentExplorer__itemButton" />
+                    <ext:IconLabelButton text="Working with events" class="contentExplorer__itemButton" />
+                </ext:CollapsibleSection>
 
-            <ext:CollapsibleSection title-text="Controls" class="contentExplorer__section">
-                <ext:IconLabelButton text="PillButton — gradient actions" class="contentExplorer__itemButton" />
-                <ext:IconLabelButton text="PillInputField — mobile-ready input" class="contentExplorer__itemButton" />
-                <ext:IconLabelButton text="ScrollSnap — paging container" class="contentExplorer__itemButton" />
-                <ext:IconLabelButton text="QuadrantStepper — segmented navigation" class="contentExplorer__itemButton" />
-            </ext:CollapsibleSection>
+                <ext:CollapsibleSection title-text="Controls" class="contentExplorer__section">
+                    <ext:IconLabelButton text="PillButton — gradient actions" class="contentExplorer__itemButton" />
+                    <ext:IconLabelButton text="PillInputField — mobile-ready input" class="contentExplorer__itemButton" />
+                    <ext:IconLabelButton text="ScrollSnap — paging container" class="contentExplorer__itemButton" />
+                    <ext:IconLabelButton text="QuadrantStepper — segmented navigation" class="contentExplorer__itemButton" />
+                </ext:CollapsibleSection>
 
-            <ext:CollapsibleSection title-text="Utilities" class="contentExplorer__section">
-                <ext:IconLabelButton text="VisualElementShakeUtility" class="contentExplorer__itemButton" />
-                <ext:IconLabelButton text="UIToolkitExtensions helpers" class="contentExplorer__itemButton" />
-                <ext:IconLabelButton text="ToastSwipeDismissManipulator" class="contentExplorer__itemButton" />
-            </ext:CollapsibleSection>
-        </ui:VisualElement>
+                <ext:CollapsibleSection title-text="Utilities" class="contentExplorer__section">
+                    <ext:IconLabelButton text="VisualElementShakeUtility" class="contentExplorer__itemButton" />
+                    <ext:IconLabelButton text="UIToolkitExtensions helpers" class="contentExplorer__itemButton" />
+                    <ext:IconLabelButton text="ToastSwipeDismissManipulator" class="contentExplorer__itemButton" />
+                </ext:CollapsibleSection>
+            </ui:VisualElement>
 
-        <ui:VisualElement name="status-bar" class="contentExplorer__statusBar">
             <ui:Label name="status-label" text="Loading content…" class="contentExplorer__statusLabel" />
         </ui:VisualElement>
 

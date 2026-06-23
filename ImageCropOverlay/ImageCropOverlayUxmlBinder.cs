@@ -1,14 +1,10 @@
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityUIToolkit.Extensions;
 
 namespace UnityUIToolkit.Extensions.Examples
 {
-    /// <summary>
-    /// Demonstrates <see cref="ImageCropOverlayControl"/> with a reusable profile image flow.
-    /// The demo starts with a generated portrait, opens the crop overlay from the image or button,
-    /// and applies the saved crop back into the on-screen preview.
-    /// </summary>
-    public class ImageCropOverlayDemo : MonoBehaviour
+    public class ImageCropOverlayUxmlBinder : MonoBehaviour
     {
         private UIDocument uiDocument;
         private CircularImageButton imageButton;
@@ -26,15 +22,34 @@ namespace UnityUIToolkit.Extensions.Examples
             uiDocument = GetComponent<UIDocument>();
             if (uiDocument == null)
             {
-                Debug.LogError("ImageCropOverlayDemo requires a UIDocument on the same GameObject.", this);
+                Debug.LogError("ImageCropOverlayUxmlBinder requires a UIDocument on the same GameObject.", this);
                 return;
             }
 
             defaultTexture = CreateDefaultPortraitTexture(512);
 
             VisualElement root = uiDocument.rootVisualElement;
-            root.Clear();
-            BuildUI(root);
+            root.style.backgroundColor = new Color(0.035f, 0.059f, 0.106f, 1f);
+
+            imageButton = root.Q<CircularImageButton>("image-button");
+            savedPreview = root.Q<VisualElement>("preview-image");
+            statusLabel = root.Q<Label>("status-label");
+            resetButton = root.Q<PillButton>("reset-button");
+            PillButton editButton = root.Q<PillButton>("edit-button");
+
+            imageButton.Clicked += OpenCropOverlay;
+            if (editButton != null)
+            {
+                editButton.SetTextColor(Color.white);
+                editButton.Clicked += OpenCropOverlay;
+            }
+
+            if (resetButton != null)
+            {
+                resetButton.SetTextColor(Color.white);
+                resetButton.Clicked += ResetImage;
+            }
+
             RefreshPreview("Default image loaded. Tap Edit Image to crop and save.");
         }
 
@@ -42,56 +57,6 @@ namespace UnityUIToolkit.Extensions.Examples
         {
             DestroyRuntimeTexture(croppedTexture);
             DestroyRuntimeTexture(defaultTexture);
-        }
-
-        private void BuildUI(VisualElement root)
-        {
-            VisualElement screen = UIToolkitExtensions.CreateVisualElement(root, "imageCropOverlayDemo__screen");
-            VisualElement card = UIToolkitExtensions.CreateVisualElement(screen, "imageCropOverlayDemo__card");
-
-            Label eyebrow = UIToolkitExtensions.CreateVisualElement<Label>(card, "imageCropOverlayDemo__eyebrow");
-            eyebrow.text = "Toolkit Sample";
-
-            Label title = UIToolkitExtensions.CreateVisualElement<Label>(card, "imageCropOverlayDemo__title");
-            title.text = "PROFILE IMAGE CROP";
-
-            Label description = UIToolkitExtensions.CreateVisualElement<Label>(card, "imageCropOverlayDemo__description");
-            description.text = "Start from a default portrait, move and scale the image, then save the crop directly back into the screen preview.";
-
-            VisualElement stage = UIToolkitExtensions.CreateVisualElement(card, "imageCropOverlayDemo__stage");
-
-            imageButton = UIToolkitExtensions.CreateVisualElement<CircularImageButton>(stage, "imageCropOverlayDemo__imageButton");
-            imageButton.Clicked += OpenCropOverlay;
-
-            Label helper = UIToolkitExtensions.CreateVisualElement<Label>(stage, "imageCropOverlayDemo__helper");
-            helper.text = "Tap the image or the button below to edit the crop.";
-
-            VisualElement previewCard = UIToolkitExtensions.CreateVisualElement(stage, "imageCropOverlayDemo__previewCard");
-
-            Label previewTitle = UIToolkitExtensions.CreateVisualElement<Label>(previewCard, "imageCropOverlayDemo__previewTitle");
-            previewTitle.text = "Saved Preview";
-
-            savedPreview = UIToolkitExtensions.CreateVisualElement(previewCard, "imageCropOverlayDemo__previewImage");
-            // Scale-and-crop to fill the preview box (unityBackgroundScaleMode is deprecated).
-            savedPreview.style.backgroundSize = new BackgroundSize(BackgroundSizeType.Cover);
-
-            VisualElement buttonRow = UIToolkitExtensions.CreateVisualElement(card, "imageCropOverlayDemo__buttonRow");
-
-            PillButton editButton = UIToolkitExtensions.CreateVisualElement<PillButton>(buttonRow, "imageCropOverlayDemo__actionButton");
-            editButton.Text = "Edit Image";
-            editButton.SetInnerColor("#4A90E2");
-            editButton.SetOuterColor("#7B68EE");
-            editButton.SetTextColor(Color.white);
-            editButton.Clicked += OpenCropOverlay;
-
-            resetButton = UIToolkitExtensions.CreateVisualElement<PillButton>(buttonRow, "imageCropOverlayDemo__actionButton", "imageCropOverlayDemo__actionButton--secondary");
-            resetButton.Text = "Reset";
-            resetButton.SetInnerColor("#465062");
-            resetButton.SetOuterColor("#5C667A");
-            resetButton.SetTextColor(Color.white);
-            resetButton.Clicked += ResetImage;
-
-            statusLabel = UIToolkitExtensions.CreateVisualElement<Label>(card, "imageCropOverlayDemo__status");
         }
 
         private void OpenCropOverlay()

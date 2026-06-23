@@ -1,56 +1,77 @@
 .toastDemo__screen {
 	flex-grow: 1;
-	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding-left: 28px;
+	padding-right: 28px;
+	padding-top: 48px;
+	padding-bottom: 48px;
 	background-color: rgba(9, 15, 27, 1);
+	position: relative;
 }
 
-.toastDemo__header {
-	padding-top: 48px;
-	padding-bottom: 12px;
-	padding-left: 20px;
-	padding-right: 20px;
+.toastDemo__card {
+	width: 100%;
+	max-width: 580px;
+	padding-left: 28px;
+	padding-right: 28px;
+	padding-top: 34px;
+	padding-bottom: 32px;
+	background-color: rgba(20, 28, 44, 0.94);
+	border-width: 1px;
+	border-color: rgba(255, 255, 255, 0.08);
+	border-radius: 28px;
+}
+
+.toastDemo__eyebrow {
+	font-size: 13px;
+	color: rgba(132, 173, 255, 1);
+	-unity-font-style: bold;
+	margin-bottom: 12px;
 }
 
 .toastDemo__headerTitle {
-	font-size: 22px;
+	font-size: 30px;
 	color: rgba(255, 255, 255, 1);
 	-unity-font-style: bold;
-	margin-bottom: 4px;
+	margin-bottom: 10px;
+	white-space: normal;
 }
 
 .toastDemo__instruction {
-	font-size: 13px;
-	color: rgba(166, 166, 179, 1);
+	font-size: 15px;
+	color: rgba(202, 211, 232, 0.9);
+	margin-bottom: 22px;
 	white-space: normal;
 }
 
-.toastDemo__scrollWrapper {
-	flex-grow: 1;
-	padding-left: 16px;
-	padding-right: 16px;
-	padding-top: 12px;
-	padding-bottom: 12px;
-	overflow: hidden;
+/* Full-screen layer the notifications stack into. It sits above the card but is
+   non-interactive itself (picking ignored in the demo/binder) so the card's
+   "Add Toast" button stays clickable — only the toasts capture pointer input. */
+.toastDemo__overlay {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	padding-top: 40px;
+	padding-left: 20px;
+	padding-right: 20px;
 }
 
 .toastDemo__container {
-	flex-grow: 1;
+	width: 100%;
+	max-width: 440px;
 	flex-direction: column;
-}
-
-.toastDemo__empty {
-	flex-grow: 1;
-	-unity-text-align: middle-center;
-	font-size: 14px;
-	color: rgba(102, 102, 115, 1);
-	white-space: normal;
+	align-items: stretch;
 }
 
 .toastDemo__bottomBar {
-	padding-left: 20px;
-	padding-right: 20px;
-	padding-top: 12px;
-	padding-bottom: 32px;
+	margin-top: 6px;
+	padding-top: 0;
 	align-items: center;
 }
 

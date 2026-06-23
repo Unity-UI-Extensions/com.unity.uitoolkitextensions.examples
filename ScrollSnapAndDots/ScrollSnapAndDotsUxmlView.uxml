@@ -1,0 +1,46 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:ext="UnityUIToolkit.Extensions" editor-extension-mode="False">
+    <Style src="project://database/Packages/com.unity.uitoolkitextensions/Runtime/Styles/UIToolkitExtensionsControlStyles.uss" />
+    <Style src="ScrollSnapAndDotsStyles.uss" />
+
+    <ui:VisualElement class="scrollSnapDemo__screen">
+        <ui:VisualElement class="scrollSnapDemo__card">
+            <ui:Label text="Toolkit Sample" class="scrollSnapDemo__eyebrow" />
+            <ui:Label text="Scroll Snap And Dots" class="scrollSnapDemo__title" />
+            <ui:Label text="Swipe through the sample pages below or use the controls to move through the demo content." class="scrollSnapDemo__subtitle" />
+
+            <ui:VisualElement class="scrollSnapDemo__carouselSurface">
+                <ext:ScrollSnap name="scroll-snap" class="scrollSnapDemo__scrollSnap" manual-movement-enabled="true">
+                    <ui:VisualElement class="scrollSnapDemo__page scrollSnapDemo__page--one">
+                        <ui:VisualElement class="scrollSnapDemo__badge"><ui:Label text="1" class="scrollSnapDemo__badgeLabel" /></ui:VisualElement>
+                        <ui:Label text="Welcome" class="scrollSnapDemo__pageLabel" />
+                        <ui:Label text="Page 1 of 5" class="scrollSnapDemo__pageSubLabel" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="scrollSnapDemo__page scrollSnapDemo__page--two">
+                        <ui:VisualElement class="scrollSnapDemo__badge"><ui:Label text="2" class="scrollSnapDemo__badgeLabel" /></ui:VisualElement>
+                        <ui:Label text="Explore" class="scrollSnapDemo__pageLabel" />
+                        <ui:Label text="Page 2 of 5" class="scrollSnapDemo__pageSubLabel" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="scrollSnapDemo__page scrollSnapDemo__page--three">
+                        <ui:VisualElement class="scrollSnapDemo__badge"><ui:Label text="3" class="scrollSnapDemo__badgeLabel" /></ui:VisualElement>
+                        <ui:Label text="Discover" class="scrollSnapDemo__pageLabel" />
+                        <ui:Label text="Page 3 of 5" class="scrollSnapDemo__pageSubLabel" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="scrollSnapDemo__page scrollSnapDemo__page--four">
+                        <ext:ComingSoonMessage class="scrollSnapDemo__comingSoon" title="Coming Soon" message="More controls are on their way! Stay tuned for the next update." />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="scrollSnapDemo__page scrollSnapDemo__page--five">
+                        <ui:VisualElement class="scrollSnapDemo__badge"><ui:Label text="5" class="scrollSnapDemo__badgeLabel" /></ui:VisualElement>
+                        <ui:Label text="Get Started" class="scrollSnapDemo__pageLabel" />
+                        <ui:Label text="Page 5 of 5" class="scrollSnapDemo__pageSubLabel" />
+                    </ui:VisualElement>
+                </ext:ScrollSnap>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="scrollSnapDemo__bottomBar">
+                <ext:PillButton name="prev-button" class="scrollSnapDemo__navButton" text="←" inner-color="#465062" outer-color="#5C667A" />
+                <ext:PageDotIndicator name="dot-indicator" class="scrollSnapDemo__dotIndicator" current-page="0" total-pages="5" completed-color="#FFFFFF" pending-color="#44506A" />
+                <ext:PillButton name="next-button" class="scrollSnapDemo__navButton" text="→" inner-color="#4A90E2" outer-color="#7B68EE" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

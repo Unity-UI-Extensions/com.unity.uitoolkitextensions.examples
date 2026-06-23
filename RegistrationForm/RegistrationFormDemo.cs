@@ -73,18 +73,25 @@ namespace UnityUIToolkit.Extensions.Examples
         // ──────────────────────────────────────────────────────────────────────────
         private void BuildUI(VisualElement root)
         {
-            // Full-screen scroll container
+            // Full-screen dark backdrop, centered
             VisualElement screen = UIToolkitExtensions.CreateVisualElement(root, "registrationForm__screen");
 
+            // ── Example card (shared rounded container) ────────────────────────────
+            VisualElement card = UIToolkitExtensions.CreateVisualElement(screen, "registrationForm__card");
+
+            Label eyebrow = UIToolkitExtensions.CreateVisualElement<Label>(card, "registrationForm__eyebrow");
+            eyebrow.text = "Toolkit Sample";
+
+            // Title and subtitle live on the card itself so they stay visible when the
+            // form fades out and the success message takes its place.
+            Label titleLabel = UIToolkitExtensions.CreateVisualElement<Label>(card, "registrationForm__title");
+            titleLabel.text = "Registration Form";
+
+            Label subtitleLabel = UIToolkitExtensions.CreateVisualElement<Label>(card, "registrationForm__subtitle");
+            subtitleLabel.text = "Complete the sample form below to review the shared example card style in a more complex layout.";
+
             // ── Form container ────────────────────────────────────────────────────
-            formContainer = UIToolkitExtensions.CreateVisualElement(screen, "registrationForm__formContainer");
-
-            // Title
-            Label titleLabel = UIToolkitExtensions.CreateVisualElement<Label>(formContainer, "registrationForm__title");
-            titleLabel.text = "Create Account";
-
-            Label subtitleLabel = UIToolkitExtensions.CreateVisualElement<Label>(formContainer, "registrationForm__subtitle");
-            subtitleLabel.text = "Join us today — it only takes a moment.";
+            formContainer = UIToolkitExtensions.CreateVisualElement(card, "registrationForm__formContainer");
 
             // ── Full Name — PillInputField ─────────────────────────────────────────
             nameField = new PillInputField();
@@ -149,13 +156,13 @@ namespace UnityUIToolkit.Extensions.Examples
             formContainer.Add(submitButton);
 
             // ── Success container (hidden until form submitted) ────────────────────
-            BuildSuccessContainer(screen);
+            BuildSuccessContainer(card);
         }
 
         // ── Success screen ─────────────────────────────────────────────────────────
-        private void BuildSuccessContainer(VisualElement screen)
+        private void BuildSuccessContainer(VisualElement card)
         {
-            successContainer = UIToolkitExtensions.CreateVisualElement(screen, "registrationForm__successContainer");
+            successContainer = UIToolkitExtensions.CreateVisualElement(card, "registrationForm__successContainer");
 
             VisualElement icon = UIToolkitExtensions.CreateVisualElement(successContainer, "registrationForm__successIcon");
 
