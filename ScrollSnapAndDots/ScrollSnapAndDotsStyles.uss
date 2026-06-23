@@ -1,0 +1,101 @@
+.scrollSnapDemo__screen {
+	flex-grow: 1;
+	flex-direction: column;
+	background-color: rgba(9, 15, 27, 1);
+}
+
+.scrollSnapDemo__header {
+	padding-top: 48px;
+	padding-bottom: 16px;
+	padding-left: 24px;
+	padding-right: 24px;
+	align-items: center;
+}
+
+.scrollSnapDemo__title {
+	font-size: 22px;
+	color: rgba(255, 255, 255, 1);
+	-unity-font-style: bold;
+}
+
+.scrollSnapDemo__subtitle {
+	font-size: 13px;
+	color: rgba(179, 179, 179, 1);
+	margin-top: 4px;
+}
+
+.scrollSnapDemo__scrollSnap {
+	flex-grow: 1;
+}
+
+.scrollSnapDemo__page {
+	flex-grow: 1;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-top-left-radius: 16px;
+	border-top-right-radius: 16px;
+	border-bottom-left-radius: 16px;
+	border-bottom-right-radius: 16px;
+}
+
+.scrollSnapDemo__comingSoon {
+	flex-grow: 1;
+	align-self: stretch;
+}
+
+.scrollSnapDemo__badge {
+	width: 48px;
+	height: 48px;
+	border-top-left-radius: 24px;
+	border-top-right-radius: 24px;
+	border-bottom-left-radius: 24px;
+	border-bottom-right-radius: 24px;
+	background-color: rgba(0, 0, 0, 0.25);
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 16px;
+}
+
+.scrollSnapDemo__badgeLabel {
+	font-size: 20px;
+	color: rgba(255, 255, 255, 1);
+	-unity-font-style: bold;
+}
+
+.scrollSnapDemo__pageLabel {
+	font-size: 32px;
+	color: rgba(255, 255, 255, 1);
+	-unity-font-style: bold;
+	-unity-text-align: middle-center;
+}
+
+.scrollSnapDemo__pageSubLabel {
+	font-size: 15px;
+	color: rgba(255, 255, 255, 0.75);
+	margin-top: 8px;
+	-unity-text-align: middle-center;
+}
+
+.scrollSnapDemo__bottomBar {
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding-left: 16px;
+	padding-right: 16px;
+	padding-top: 12px;
+	padding-bottom: 32px;
+}
+
+.scrollSnapDemo__navButton {
+	width: 56px;
+	height: 40px;
+}
+
+.scrollSnapDemo__dotIndicator {
+	flex-grow: 1;
+	margin-left: 8px;
+	margin-right: 8px;
+	height: 12px;
+	align-items: center;
+}

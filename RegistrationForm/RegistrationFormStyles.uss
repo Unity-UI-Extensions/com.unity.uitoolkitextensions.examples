@@ -1,0 +1,122 @@
+/* Dark theme — matches the DropDownPhoneEntry demo (screen rgba(9,15,27,1)). */
+
+.registrationForm__screen {
+	flex-grow: 1;
+	flex-direction: column;
+	background-color: rgba(9, 15, 27, 1);
+}
+
+.registrationForm__formContainer {
+	flex-grow: 1;
+	flex-direction: column;
+	padding-left: 24px;
+	padding-right: 24px;
+	padding-top: 48px;
+	padding-bottom: 32px;
+}
+
+.registrationForm__title {
+	font-size: 28px;
+	color: rgba(255, 255, 255, 1);
+	-unity-font-style: bold;
+	margin-bottom: 8px;
+}
+
+.registrationForm__subtitle {
+	font-size: 14px;
+	color: rgba(173, 183, 210, 0.85);
+	margin-bottom: 32px;
+}
+
+.registrationForm__nameField {
+	margin-bottom: 16px;
+	border-top-left-radius: 24px;
+	border-top-right-radius: 24px;
+	border-bottom-left-radius: 24px;
+	border-bottom-right-radius: 24px;
+}
+
+.registrationForm__emailField {
+	margin-bottom: 16px;
+	border-top-left-radius: 24px;
+	border-top-right-radius: 24px;
+	border-bottom-left-radius: 24px;
+	border-bottom-right-radius: 24px;
+}
+
+.registrationForm__passwordField {
+	margin-bottom: 16px;
+	border-top-left-radius: 24px;
+	border-top-right-radius: 24px;
+	border-bottom-left-radius: 24px;
+	border-bottom-right-radius: 24px;
+}
+
+.registrationForm__sectionLabel {
+	font-size: 12px;
+	color: rgba(132, 173, 255, 0.9);
+	-unity-font-style: bold;
+	margin-bottom: 6px;
+}
+
+.registrationForm__bioField {
+	height: 96px;
+	margin-bottom: 16px;
+	border-top-left-radius: 12px;
+	border-top-right-radius: 12px;
+	border-bottom-left-radius: 12px;
+	border-bottom-right-radius: 12px;
+}
+
+.registrationForm__categorySelector {
+	margin-bottom: 32px;
+}
+
+.registrationForm__submitButton {
+	height: 52px;
+	margin-bottom: 16px;
+}
+
+.registrationForm__successContainer {
+	display: none;
+	flex-grow: 1;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-left: 32px;
+	padding-right: 32px;
+}
+
+.registrationForm__successIcon {
+	width: 72px;
+	height: 72px;
+	border-top-left-radius: 36px;
+	border-top-right-radius: 36px;
+	border-bottom-left-radius: 36px;
+	border-bottom-right-radius: 36px;
+	background-color: rgba(46, 204, 112, 1);
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 24px;
+}
+
+.registrationForm__successCheck {
+	font-size: 36px;
+	color: rgba(255, 255, 255, 1);
+	-unity-font-style: bold;
+}
+
+.registrationForm__successTitle {
+	font-size: 26px;
+	color: rgba(255, 255, 255, 1);
+	-unity-font-style: bold;
+	margin-bottom: 12px;
+	-unity-text-align: middle-center;
+}
+
+.registrationForm__successMessage {
+	font-size: 15px;
+	color: rgba(173, 183, 210, 0.85);
+	-unity-text-align: middle-center;
+	white-space: normal;
+}

@@ -1,0 +1,30 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:ext="UnityUIToolkit.Extensions" editor-extension-mode="False">
+    <!--
+      UXML version of the DropDownPhoneEntry demo. Mirrors DropDownPhoneEntryDemo.cs
+      but declares the layout here; DropDownPhoneEntryUxmlBinder.cs only wires behaviour.
+      Controls (DropDownControl, PillInputField, PillButton) are [UxmlElement] types from
+      the UnityUIToolkit.Extensions namespace (the xmlns:ext prefix above).
+    -->
+    <Style src="project://database/Packages/com.unity.uitoolkitextensions/Runtime/Styles/UIToolkitExtensionsControlStyles.uss" />
+    <Style src="DropDownPhoneEntryStyles.uss" />
+
+    <ui:VisualElement name="screen" class="phoneVerificationExample__screen">
+        <ui:VisualElement name="card" class="phoneVerificationExample__card">
+            <ui:Label text="Toolkit Sample" class="phoneVerificationExample__eyebrow" />
+            <ui:Label text="YOUR PHONE NUMBER" class="phoneVerificationExample__title" />
+            <ui:Label text="To protect this space, we verify each person once. We'll send a verification code by text message." class="phoneVerificationExample__description" />
+
+            <ui:VisualElement name="composite-input" class="phoneVerificationExample__phoneCompositeInput">
+                <ext:DropDownControl name="dial-code-picker" class="phoneVerificationExample__dialCodePicker" items="+1,+33,+34,+44,+49,+61,+81,+91" />
+                <ui:VisualElement class="phoneVerificationExample__inputDivider" />
+                <ext:PillInputField name="phone-input" class="phoneVerificationExample__phoneInput" placeholder="Type your number here" keyboard-type="PhonePad" />
+            </ui:VisualElement>
+
+            <ui:Label text="Your phone number is used only for verification and connection, never shared." class="phoneVerificationExample__info" />
+
+            <ext:PillButton name="send-button" class="phoneVerificationExample__sendButton" text="Send code" inner-color="#4A90E2" outer-color="#7B68EE" />
+
+            <ui:Label name="status-label" text="Enter at least 10 digits to enable the button." class="phoneVerificationExample__status" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

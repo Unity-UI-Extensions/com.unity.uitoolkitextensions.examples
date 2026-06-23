@@ -1,0 +1,47 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:ext="UnityUIToolkit.Extensions" editor-extension-mode="False">
+    <!--
+      The RIGHT half of the ScrollSnapSplitDemo.
+
+      The ScrollSnap control is declared with the <ext:ScrollSnap> tag (mapped to the
+      C# namespace UnityUIToolkit.Extensions via the xmlns:ext prefix above). Because
+      ScrollSnap is decorated with [UxmlElement] and exposes [UxmlAttribute] properties,
+      it is fully authorable here — no C# layout code required.
+
+      Each child VisualElement of <ext:ScrollSnap> automatically becomes a page:
+      ScrollSnap class-tags and page-sizes its children at layout time, so we only
+      style their background colour and centre the label.
+    -->
+    <ui:VisualElement name="screen" style="flex-grow: 1; flex-direction: column; background-color: rgb(33, 33, 41);">
+
+        <ui:VisualElement name="header" style="padding-top: 28px; padding-bottom: 12px; padding-left: 20px; padding-right: 20px; align-items: center;">
+            <ui:Label text="Built in UXML" style="font-size: 22px; color: rgb(255, 255, 255); -unity-font-style: bold;" />
+            <ui:Label name="page-readout" text="Showing page 1 of 5" style="font-size: 13px; color: rgb(178, 178, 199); margin-top: 4px;" />
+        </ui:VisualElement>
+
+        <ext:ScrollSnap manual-movement-enabled="true" style="flex-grow: 1;">
+            <ui:VisualElement style="background-color: #E74C3C; justify-content: center; align-items: center;">
+                <ui:Label text="Page 1" style="font-size: 40px; color: rgb(255, 255, 255); -unity-font-style: bold;" />
+                <ui:Label text="1 of 5" style="font-size: 14px; color: rgba(255, 255, 255, 0.8); margin-top: 6px;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="background-color: #3498DB; justify-content: center; align-items: center;">
+                <ui:Label text="Page 2" style="font-size: 40px; color: rgb(255, 255, 255); -unity-font-style: bold;" />
+                <ui:Label text="2 of 5" style="font-size: 14px; color: rgba(255, 255, 255, 0.8); margin-top: 6px;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="background-color: #2ECC71; justify-content: center; align-items: center;">
+                <ui:Label text="Page 3" style="font-size: 40px; color: rgb(255, 255, 255); -unity-font-style: bold;" />
+                <ui:Label text="3 of 5" style="font-size: 14px; color: rgba(255, 255, 255, 0.8); margin-top: 6px;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="background-color: #9B59B6; justify-content: center; align-items: center;">
+                <ui:Label text="Page 4" style="font-size: 40px; color: rgb(255, 255, 255); -unity-font-style: bold;" />
+                <ui:Label text="4 of 5" style="font-size: 14px; color: rgba(255, 255, 255, 0.8); margin-top: 6px;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="background-color: #F39C12; justify-content: center; align-items: center;">
+                <ui:Label text="Page 5" style="font-size: 40px; color: rgb(255, 255, 255); -unity-font-style: bold;" />
+                <ui:Label text="5 of 5" style="font-size: 14px; color: rgba(255, 255, 255, 0.8); margin-top: 6px;" />
+            </ui:VisualElement>
+        </ext:ScrollSnap>
+
+        <ui:Label text="Swipe &#8592; / &#8594;" style="-unity-text-align: middle-center; font-size: 12px; color: rgb(128, 128, 143); padding-top: 8px; padding-bottom: 20px;" />
+
+    </ui:VisualElement>
+</ui:UXML>

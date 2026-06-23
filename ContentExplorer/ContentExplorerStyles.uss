@@ -1,0 +1,101 @@
+/* Dark theme — matches the DropDownPhoneEntry demo (screen rgba(9,15,27,1)). */
+
+.contentExplorer__screen {
+	flex-grow: 1;
+	flex-direction: column;
+	position: relative;
+	background-color: rgba(9, 15, 27, 1);
+}
+
+.contentExplorer__header {
+	padding-top: 48px;
+	padding-bottom: 16px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.contentExplorer__title {
+	font-size: 24px;
+	color: rgba(255, 255, 255, 1);
+	-unity-font-style: bold;
+}
+
+.contentExplorer__subtitle {
+	font-size: 13px;
+	color: rgba(173, 183, 210, 0.85);
+	margin-top: 4px;
+	white-space: normal;
+}
+
+.contentExplorer__contentScroll {
+	flex-grow: 1;
+	flex-direction: column;
+	padding-left: 16px;
+	padding-right: 16px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+.contentExplorer__section {
+	margin-bottom: 10px;
+	overflow: hidden;
+	background-color: rgba(255, 255, 255, 0.05);
+	border-top-left-radius: 12px;
+	border-top-right-radius: 12px;
+	border-bottom-left-radius: 12px;
+	border-bottom-right-radius: 12px;
+}
+
+/* Keep the collapsible header/title readable on the dark section card. */
+.contentExplorer__section .collapsibleSection__title {
+	color: rgba(235, 238, 245, 1);
+}
+
+.contentExplorer__itemButton {
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+/* Keep the icon-label rows readable on the dark section card. */
+.contentExplorer__itemButton .iconLabelButton__label {
+	color: rgba(210, 216, 230, 1);
+}
+
+.contentExplorer__statusBar {
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 12px;
+	padding-bottom: 24px;
+	background-color: rgba(20, 28, 44, 0.94);
+	border-top-width: 1px;
+	border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+.contentExplorer__statusLabel {
+	font-size: 13px;
+	color: rgba(173, 183, 210, 0.9);
+	-unity-text-align: middle-center;
+}
+
+.contentExplorer__loadingOverlay {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(9, 15, 27, 0.92);
+}
+
+.contentExplorer__loadingIcon {
+	width: 64px;
+	height: 64px;
+}
+
+.contentExplorer__loadingLabel {
+	font-size: 14px;
+	color: rgba(173, 183, 210, 0.9);
+	margin-top: 12px;
+}

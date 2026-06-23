@@ -1,0 +1,182 @@
+.profileEditor__screen {
+	flex-grow: 1;
+	align-items: center;
+	justify-content: center;
+	padding-left: 28px;
+	padding-right: 28px;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background-color: rgba(9, 15, 27, 1);
+}
+
+.profileEditor__card {
+	width: 100%;
+	max-width: 560px;
+	padding-left: 32px;
+	padding-right: 32px;
+	padding-top: 34px;
+	padding-bottom: 32px;
+	background-color: rgba(20, 27, 41, 0.96);
+	border-width: 1px;
+	border-color: rgba(255, 255, 255, 0.08);
+	border-radius: 28px;
+	box-shadow: 0 28px 64px rgba(0, 0, 0, 0.34);
+}
+
+.profileEditor__eyebrow {
+	font-size: 13px;
+	color: rgba(132, 173, 255, 1);
+	-unity-font-style: bold;
+	-unity-text-align: upper-left;
+	margin-bottom: 12px;
+}
+
+.profileEditor__title {
+	font-size: 30px;
+	color: rgba(255, 255, 255, 1);
+	-unity-font-style: bold;
+	-unity-text-align: upper-left;
+	margin-bottom: 10px;
+	white-space: normal;
+}
+
+.profileEditor__description {
+	font-size: 15px;
+	line-height: 22px;
+	color: rgba(202, 211, 232, 0.9);
+	-unity-text-align: upper-left;
+	white-space: normal;
+	margin-bottom: 24px;
+}
+
+.profileEditor__avatarRow {
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: 24px;
+}
+
+.profileEditor__avatar {
+	width: 96px;
+	height: 96px;
+	flex-shrink: 0;
+	margin-right: 18px;
+}
+
+.profileEditor__avatarHelp {
+	flex-grow: 1;
+	flex-shrink: 1;
+	font-size: 14px;
+	line-height: 20px;
+	color: rgba(173, 183, 210, 0.85);
+	-unity-text-align: upper-left;
+	white-space: normal;
+}
+
+.profileEditor__sectionLabel {
+	font-size: 13px;
+	color: rgba(150, 162, 194, 0.95);
+	-unity-font-style: bold;
+	-unity-text-align: upper-left;
+	margin-top: 8px;
+	margin-bottom: 12px;
+}
+
+.profileEditor__imageRow {
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: 24px;
+}
+
+.profileEditor__sampleImage {
+	width: 240px;
+	height: 150px;
+	flex-shrink: 0;
+	border-radius: 18px;
+	border-width: 1px;
+	border-color: rgba(255, 255, 255, 0.08);
+	background-color: rgba(255, 255, 255, 0.04);
+	overflow: hidden;
+	margin-right: 20px;
+}
+
+.profileEditor__bwBlock {
+	align-items: center;
+	justify-content: center;
+}
+
+.profileEditor__bwLabel {
+	font-size: 14px;
+	color: rgba(226, 232, 245, 0.9);
+	-unity-font-style: bold;
+	-unity-text-align: middle-center;
+	margin-bottom: 8px;
+}
+
+.profileEditor__bwToggle {
+	width: 58px;
+	height: 32px;
+	border-radius: 16px;
+	background-color: rgba(255, 255, 255, 0.12);
+	border-width: 1px;
+	border-color: rgba(255, 255, 255, 0.16);
+	transition-property: background-color;
+	transition-duration: 160ms;
+}
+
+.profileEditor__bwToggle.toggleButton--selected {
+	background-color: rgba(46, 204, 113, 1);
+	border-color: rgba(46, 204, 113, 1);
+}
+
+.profileEditor__colorGroup {
+	flex-grow: 0;
+	margin-bottom: 18px;
+}
+
+.profileEditor__colorGroup .colorToggleGroup__container {
+	flex-direction: row;
+	flex-grow: 0;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.profileEditor__colorGroup .toggleButton {
+	width: 44px;
+	height: 44px;
+	margin-left: 6px;
+	margin-right: 6px;
+	border-radius: 50%;
+}
+
+.profileEditor__swatchRow {
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: 18px;
+}
+
+.profileEditor__swatch {
+	width: 34px;
+	height: 34px;
+	border-radius: 17px;
+	background-color: rgba(255, 255, 255, 0.08);
+	border-width: 1px;
+	border-color: rgba(255, 255, 255, 0.16);
+	margin-right: 14px;
+	flex-shrink: 0;
+}
+
+.profileEditor__colorName {
+	flex-grow: 1;
+	font-size: 15px;
+	color: rgba(226, 232, 245, 0.9);
+	-unity-text-align: middle-left;
+	white-space: normal;
+}
+
+.profileEditor__status {
+	font-size: 13px;
+	line-height: 18px;
+	color: rgba(132, 173, 255, 0.95);
+	-unity-text-align: upper-left;
+	white-space: normal;
+}
