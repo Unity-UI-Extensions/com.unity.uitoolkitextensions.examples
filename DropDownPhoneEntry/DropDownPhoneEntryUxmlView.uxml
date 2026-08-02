@@ -5,7 +5,7 @@
       Controls (DropDownControl, PillInputField, PillButton) are [UxmlElement] types from
       the UnityUIToolkit.Extensions namespace (the xmlns:ext prefix above).
     -->
-    <Style src="project://database/Packages/com.unity.uitoolkitextensions/Runtime/Styles/UIToolkitExtensionsControlStyles.uss" />
+    <Style src="project://database/Packages/com.unity.uitoolkitextensions/Runtime/Resources/UIToolkitExtensions/UIToolkitExtensionsControlStyles.uss" />
     <Style src="DropDownPhoneEntryStyles.uss" />
 
     <ui:VisualElement name="screen" class="phoneVerificationExample__screen">

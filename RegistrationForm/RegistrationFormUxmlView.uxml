@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:ext="UnityUIToolkit.Extensions" editor-extension-mode="False">
-    <Style src="project://database/Packages/com.unity.uitoolkitextensions/Runtime/Styles/UIToolkitExtensionsControlStyles.uss" />
+    <Style src="project://database/Packages/com.unity.uitoolkitextensions/Runtime/Resources/UIToolkitExtensions/UIToolkitExtensionsControlStyles.uss" />
     <Style src="RegistrationFormStyles.uss" />
 
     <ui:VisualElement name="screen" class="registrationForm__screen">
