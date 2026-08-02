@@ -1,6 +1,6 @@
 @import url("unity-theme://default");
 
-@import url("/Packages/com.unity.uitoolkitextensions/Runtime/Resources/UIToolkitExtensions/UIToolkitExtensionsControlStyles.uss");
+@import url("/Packages/com.unity.uitoolkitextensions/Runtime/Styles/UIToolkitExtensionsControlStyles.uss");
 @import url("/Assets/Samples/Unity UI Toolkit Extensions/1.0.0/UI Toolkit Extensions Samples/DropDownPhoneEntry/DropDownPhoneEntryStyles.uss");
 @import url("/Assets/Samples/Unity UI Toolkit Extensions/1.0.0/UI Toolkit Extensions Samples/ImageCropOverlay/ImageCropOverlayDemoStyles.uss");
 @import url("/Assets/Samples/Unity UI Toolkit Extensions/1.0.0/UI Toolkit Extensions Samples/ContentExplorer/ContentExplorerStyles.uss");
@@ -12,3 +12,4 @@
 @import url("/Assets/Samples/Unity UI Toolkit Extensions/1.0.0/UI Toolkit Extensions Samples/ScreenHeader/ScreenHeaderStyles.uss");
 @import url("/Assets/Samples/Unity UI Toolkit Extensions/1.0.0/UI Toolkit Extensions Samples/NotificationList/NotificationListStyles.uss");
 @import url("/Assets/Samples/Unity UI Toolkit Extensions/1.0.0/UI Toolkit Extensions Samples/SocialLinks/SocialLinksStyles.uss");
+
