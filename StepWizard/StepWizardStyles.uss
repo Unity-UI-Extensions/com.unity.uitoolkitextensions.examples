@@ -1,12 +1,15 @@
 /* Dark theme — matches the DropDownPhoneEntry demo (screen rgba(9,15,27,1)). */
 
+/* Top-anchored (not centered): the card's top edge stays fixed across steps, so the
+   header/stepper/progress bar hold their position and taller step panels only expand
+   the card downward. */
 .stepWizard__screen {
 	flex-grow: 1;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
 	padding-left: 28px;
 	padding-right: 28px;
-	padding-top: 48px;
+	padding-top: 72px;
 	padding-bottom: 48px;
 	background-color: rgba(9, 15, 27, 1);
 }
@@ -22,6 +25,12 @@
 	border-width: 1px;
 	border-color: rgba(255, 255, 255, 0.08);
 	border-radius: 28px;
+}
+
+/* The header (everything down to the progress bar) never shrinks — when a tall step
+   makes the card exceed the viewport, only the content area gives way. */
+.stepWizard__header {
+	flex-shrink: 0;
 }
 
 .stepWizard__eyebrow {
@@ -88,11 +97,15 @@
 
 .stepWizard__content {
 	flex-grow: 1;
+	flex-shrink: 1;
+	min-height: 0;
+	overflow: hidden;
 	padding-top: 12px;
 	padding-bottom: 18px;
 }
 
 .stepWizard__navBar {
+	flex-shrink: 0;
 	flex-direction: row;
 	justify-content: space-between;
 	padding-top: 12px;

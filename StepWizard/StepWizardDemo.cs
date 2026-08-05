@@ -71,25 +71,29 @@ namespace UnityUIToolkit.Extensions.Examples
 
             var card = UIToolkitExtensions.CreateVisualElement(screen, "stepWizard__card");
 
-            var eyebrow = UIToolkitExtensions.CreateVisualElement<Label>(card, "stepWizard__eyebrow");
+            // Everything down to the progress bar lives in a non-shrinking header so tall
+            // step panels can never compress the stepper or progress bar.
+            var header = UIToolkitExtensions.CreateVisualElement(card, "stepWizard__header");
+
+            var eyebrow = UIToolkitExtensions.CreateVisualElement<Label>(header, "stepWizard__eyebrow");
             eyebrow.text = "Toolkit Sample";
 
-            var titleLabel = UIToolkitExtensions.CreateVisualElement<Label>(card, "stepWizard__title");
+            var titleLabel = UIToolkitExtensions.CreateVisualElement<Label>(header, "stepWizard__title");
             titleLabel.text = "Step Wizard Demo";
 
-            var subtitleLabel = UIToolkitExtensions.CreateVisualElement<Label>(card, "stepWizard__subtitle");
+            var subtitleLabel = UIToolkitExtensions.CreateVisualElement<Label>(header, "stepWizard__subtitle");
             subtitleLabel.text = "Move through the sample steps below, adjust your preferences, and finish with a compact summary.";
 
-            stepCounterLabel = UIToolkitExtensions.CreateVisualElement<Label>(card, "stepWizard__counter");
+            stepCounterLabel = UIToolkitExtensions.CreateVisualElement<Label>(header, "stepWizard__counter");
 
-            var stepperWrapper = UIToolkitExtensions.CreateVisualElement(card, "stepWizard__stepperWrapper");
+            var stepperWrapper = UIToolkitExtensions.CreateVisualElement(header, "stepWizard__stepperWrapper");
 
             stepper = new QuadrantStepper(StepNames);
             stepper.AddToClassList("stepWizard__stepper");
             stepper.SelectionChanged += OnStepperSelectionChanged;
             stepperWrapper.Add(stepper);
 
-            var progressWrapper = UIToolkitExtensions.CreateVisualElement(card, "stepWizard__progressWrapper");
+            var progressWrapper = UIToolkitExtensions.CreateVisualElement(header, "stepWizard__progressWrapper");
 
             progressBar = new StepProgressBar();
             progressBar.AddToClassList("stepWizard__progressBar");

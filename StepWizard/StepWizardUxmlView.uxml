@@ -4,17 +4,20 @@
 
     <ui:VisualElement name="screen" class="stepWizard__screen">
         <ui:VisualElement name="card" class="stepWizard__card">
-            <ui:Label text="Toolkit Sample" class="stepWizard__eyebrow" />
-            <ui:Label text="Step Wizard Demo" class="stepWizard__title" />
-            <ui:Label text="Move through the sample steps below, adjust your preferences, and finish with a compact summary." class="stepWizard__subtitle" />
-            <ui:Label name="step-counter" class="stepWizard__counter" />
+            <!-- Non-shrinking header: tall step panels can never compress the stepper or progress bar. -->
+            <ui:VisualElement name="header" class="stepWizard__header">
+                <ui:Label text="Toolkit Sample" class="stepWizard__eyebrow" />
+                <ui:Label text="Step Wizard Demo" class="stepWizard__title" />
+                <ui:Label text="Move through the sample steps below, adjust your preferences, and finish with a compact summary." class="stepWizard__subtitle" />
+                <ui:Label name="step-counter" class="stepWizard__counter" />
 
-            <ui:VisualElement name="stepper-wrapper" class="stepWizard__stepperWrapper">
-                <ext:QuadrantStepper name="stepper" class="stepWizard__stepper" options="About,Goals,Settings,Done" />
-            </ui:VisualElement>
+                <ui:VisualElement name="stepper-wrapper" class="stepWizard__stepperWrapper">
+                    <ext:QuadrantStepper name="stepper" class="stepWizard__stepper" options="About,Goals,Settings,Done" />
+                </ui:VisualElement>
 
-            <ui:VisualElement name="progress-wrapper" class="stepWizard__progressWrapper">
-                <ext:StepProgressBar name="progress-bar" class="stepWizard__progressBar" inner-color="#4A90E2" outer-color="#7B68EE" />
+                <ui:VisualElement name="progress-wrapper" class="stepWizard__progressWrapper">
+                    <ext:StepProgressBar name="progress-bar" class="stepWizard__progressBar" inner-color="#4A90E2" outer-color="#7B68EE" />
+                </ui:VisualElement>
             </ui:VisualElement>
 
             <ui:VisualElement name="content-area" class="stepWizard__content">

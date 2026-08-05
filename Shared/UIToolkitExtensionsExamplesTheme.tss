@@ -12,4 +12,5 @@
 @import url("/Assets/Samples/Unity UI Toolkit Extensions/1.0.0/UI Toolkit Extensions Samples/ScreenHeader/ScreenHeaderStyles.uss");
 @import url("/Assets/Samples/Unity UI Toolkit Extensions/1.0.0/UI Toolkit Extensions Samples/NotificationList/NotificationListStyles.uss");
 @import url("/Assets/Samples/Unity UI Toolkit Extensions/1.0.0/UI Toolkit Extensions Samples/SocialLinks/SocialLinksStyles.uss");
+@import url("/Assets/Samples/Unity UI Toolkit Extensions/1.0.0/UI Toolkit Extensions Samples/ActionMenu/ActionMenuStyles.uss");
 

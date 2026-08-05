@@ -21,6 +21,7 @@ The examples are included with the package as the **UI Toolkit Extensions Sample
 
 ## Examples
 
+- **Action Menu** — Anchored overflow menus using DropDownMenuControl: per-row ··· triggers and a centered card menu.
 - **ScrollSnap + PageDotIndicator** — Horizontal paging with dot indicator and a ComingSoonMessage page.
 - **Registration Form** — Full form using PillInputField, RoundedInputField, PillButton, PillSelector, and shake validation.
 - **Step Wizard** — Multi-step flow using QuadrantStepper and StepProgressBar.
