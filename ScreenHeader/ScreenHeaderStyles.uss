@@ -1,0 +1,101 @@
+.screenHeaderDemo__screen {
+	flex-grow: 1;
+	background-color: rgba(9, 15, 27, 1);
+}
+
+/* Header bar surface */
+.screenHeaderDemo__header {
+	background-color: rgba(20, 28, 44, 0.94);
+	border-bottom-width: 1px;
+	border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.screenHeaderDemo__header .screenHeader__title {
+	color: rgba(255, 255, 255, 1);
+}
+
+/* Back button (action 1) — left edge, ChevronLeft glyph */
+.screenHeaderDemo__header .screenHeader__action1Button .toggleButton__image {
+	background-image: url("project://database/Packages/com.unity.uitoolkitextensions/Runtime/Assets/Icons/ChevronLeft.svg");
+	-unity-background-image-tint-color: rgba(236, 240, 252, 1);
+}
+
+/* Info button (action 3) — right edge, sits to the left of the sound toggle */
+.screenHeaderDemo__header .screenHeader__action3Button.toggleButton {
+	right: 92px;
+}
+
+.screenHeaderDemo__header .screenHeader__action3Button .toggleButton__image {
+	background-image: url("project://database/Packages/com.unity.uitoolkitextensions/Runtime/Assets/Icons/Information-icon.svg");
+	-unity-background-image-tint-color: rgba(236, 240, 252, 1);
+}
+
+/* Sound toggle (action 4) — override the control's default left placement to the right edge */
+.screenHeaderDemo__header .screenHeader__action4Toggle.toggleButton {
+	left: auto;
+	right: 16px;
+}
+
+/* Unselected = sound on */
+.screenHeaderDemo__header .screenHeader__action4Toggle .toggleButton__image {
+	background-image: url("project://database/Packages/com.unity.uitoolkitextensions/Runtime/Assets/Icons/Volume-on.svg");
+	-unity-background-image-tint-color: rgba(124, 230, 200, 1);
+}
+
+/* Selected = muted */
+.screenHeaderDemo__header .screenHeader__action4Toggle.toggleButton--selected .toggleButton__image {
+	background-image: url("project://database/Packages/com.unity.uitoolkitextensions/Runtime/Assets/Icons/Volume-off.svg");
+	-unity-background-image-tint-color: rgba(255, 138, 138, 1);
+}
+
+/* Body */
+.screenHeaderDemo__body {
+	flex-grow: 1;
+	align-items: center;
+	justify-content: flex-start;
+	padding-left: 28px;
+	padding-right: 28px;
+	padding-top: 40px;
+}
+
+.screenHeaderDemo__card {
+	width: 100%;
+	max-width: 580px;
+	padding-left: 28px;
+	padding-right: 28px;
+	padding-top: 28px;
+	padding-bottom: 28px;
+	background-color: rgba(20, 28, 44, 0.94);
+	border-width: 1px;
+	border-color: rgba(255, 255, 255, 0.08);
+	border-radius: 28px;
+}
+
+.screenHeaderDemo__eyebrow {
+	font-size: 13px;
+	color: rgba(132, 173, 255, 1);
+	-unity-font-style: bold;
+	margin-bottom: 12px;
+}
+
+.screenHeaderDemo__title {
+	font-size: 30px;
+	color: rgba(255, 255, 255, 1);
+	-unity-font-style: bold;
+	margin-bottom: 10px;
+	white-space: normal;
+}
+
+.screenHeaderDemo__instruction {
+	font-size: 15px;
+	color: rgba(202, 211, 232, 0.9);
+	margin-bottom: 22px;
+	white-space: normal;
+}
+
+.screenHeaderDemo__status {
+	font-size: 14px;
+	color: rgba(124, 230, 200, 1);
+	-unity-font-style: bold;
+	white-space: normal;
+}

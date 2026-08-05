@@ -1,0 +1,212 @@
+.registrationForm__screen {
+	flex-grow: 1;
+	align-items: center;
+	justify-content: center;
+	padding-left: 28px;
+	padding-right: 28px;
+	padding-top: 48px;
+	padding-bottom: 48px;
+	background-color: rgba(9, 15, 27, 1);
+}
+
+.registrationForm__card {
+	width: 100%;
+	max-width: 580px;
+	padding-left: 28px;
+	padding-right: 28px;
+	padding-top: 34px;
+	padding-bottom: 32px;
+	background-color: rgba(20, 28, 44, 0.94);
+	border-width: 1px;
+	border-color: rgba(255, 255, 255, 0.08);
+	border-radius: 28px;
+}
+
+.registrationForm__eyebrow {
+	font-size: 13px;
+	color: rgba(132, 173, 255, 1);
+	-unity-font-style: bold;
+	margin-bottom: 12px;
+}
+
+.registrationForm__formContainer {
+	flex-direction: column;
+}
+
+.registrationForm__title {
+	font-size: 30px;
+	color: rgba(255, 255, 255, 1);
+	-unity-font-style: bold;
+	margin-bottom: 10px;
+	white-space: normal;
+}
+
+.registrationForm__subtitle {
+	font-size: 15px;
+	color: rgba(202, 211, 232, 0.9);
+	margin-bottom: 28px;
+	white-space: normal;
+}
+
+.registrationForm__nameField,
+.registrationForm__emailField,
+.registrationForm__passwordField {
+	margin-bottom: 16px;
+}
+
+.registrationForm__formContainer .pillInputField__label {
+	font-size: 12px;
+	color: rgba(173, 183, 210, 0.85);
+	-unity-text-align: upper-left;
+	margin-left: 4px;
+	margin-bottom: 6px;
+}
+
+.registrationForm__formContainer .pillInputField__input {
+	height: 52px;
+	justify-content: center;
+	background-color: rgba(255, 255, 255, 0.04);
+	border-width: 1px;
+	border-color: rgba(255, 255, 255, 0.14);
+	border-radius: 14px;
+}
+
+.registrationForm__formContainer .pillInputField__input .unity-base-text-field__input,
+.registrationForm__formContainer .pillInputField__input .unity-text-field__input {
+	flex-grow: 1;
+	background-color: rgba(0, 0, 0, 0);
+	border-width: 0;
+	margin: 0;
+	padding-left: 16px;
+	padding-right: 16px;
+	-unity-text-align: middle-left;
+}
+
+.registrationForm__formContainer .pillInputField__input .unity-text-field__placeholder,
+.registrationForm__formContainer .pillInputField__input .unity-base-text-field__placeholder {
+	color: rgba(190, 200, 225, 0.9);
+	-unity-text-align: middle-left;
+}
+
+.registrationForm__field--error .pillInputField__input {
+	background-color: rgba(120, 36, 56, 0.45);
+	border-color: rgba(232, 69, 96, 0.85);
+}
+
+.registrationForm__sectionLabel {
+	font-size: 12px;
+	color: rgba(173, 183, 210, 0.85);
+	margin-bottom: 6px;
+}
+
+.registrationForm__bioField {
+	height: 96px;
+	margin-bottom: 16px;
+	background-color: rgba(255, 255, 255, 0.04);
+	border-width: 1px;
+	border-color: rgba(255, 255, 255, 0.14);
+	border-radius: 14px;
+	overflow: hidden;
+}
+
+.registrationForm__bioField .roundedInputField__textField,
+.registrationForm__bioField .roundedInputField__input,
+.registrationForm__bioField .unity-base-text-field__input {
+	background-color: rgba(0, 0, 0, 0);
+	border-width: 0;
+}
+
+.registrationForm__bioField .roundedInputField__input,
+.registrationForm__bioField .unity-base-text-field__input {
+	padding-left: 16px;
+	padding-right: 16px;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	-unity-text-align: upper-left;
+}
+
+.registrationForm__bioField .roundedInputField__placeholder {
+	color: rgba(190, 200, 225, 0.9);
+	padding-left: 16px;
+	padding-top: 12px;
+	-unity-text-align: upper-left;
+}
+
+.registrationForm__categorySelector {
+	margin-bottom: 32px;
+}
+
+.registrationForm__categorySelector .pillSelector__label {
+	font-size: 12px;
+	color: rgba(173, 183, 210, 0.85);
+	-unity-text-align: upper-left;
+	margin-left: 4px;
+	margin-bottom: 6px;
+}
+
+.registrationForm__categorySelector .pillSelector__container {
+	height: 52px;
+	align-items: center;
+	background-color: rgba(255, 255, 255, 0.04);
+	border-width: 1px;
+	border-color: rgba(255, 255, 255, 0.14);
+	border-radius: 14px;
+	padding-left: 16px;
+	padding-right: 14px;
+}
+
+.registrationForm__categorySelector .pillSelector__clickableLabel {
+	font-size: 15px;
+	color: rgba(255, 255, 255, 1);
+	-unity-text-align: middle-left;
+}
+
+.registrationForm__submitButton {
+	height: 52px;
+	margin-bottom: 16px;
+}
+
+.registrationForm__successContainer {
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-top: 20px;
+	padding-bottom: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+}
+
+.registrationForm__successIcon {
+	width: 72px;
+	height: 72px;
+	border-top-left-radius: 36px;
+	border-top-right-radius: 36px;
+	border-bottom-left-radius: 36px;
+	border-bottom-right-radius: 36px;
+	background-color: rgba(46, 204, 112, 1);
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 24px;
+}
+
+.registrationForm__successCheck {
+	font-size: 36px;
+	color: rgba(255, 255, 255, 1);
+	-unity-font-style: bold;
+}
+
+.registrationForm__successTitle {
+	font-size: 26px;
+	color: rgba(255, 255, 255, 1);
+	-unity-font-style: bold;
+	margin-bottom: 12px;
+	-unity-text-align: middle-center;
+}
+
+.registrationForm__successMessage {
+	font-size: 15px;
+	color: rgba(173, 183, 210, 0.85);
+	-unity-text-align: middle-center;
+	white-space: normal;
+}

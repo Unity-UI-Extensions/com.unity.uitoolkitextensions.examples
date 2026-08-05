@@ -1,0 +1,121 @@
+.notificationListDemo__screen {
+	flex-grow: 1;
+	align-items: center;
+	justify-content: center;
+	padding-left: 28px;
+	padding-right: 28px;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background-color: rgba(9, 15, 27, 1);
+}
+
+/* Non-clipping wrapper that anchors the absolutely-positioned badge to the card. */
+.notificationListDemo__cardWrap {
+	width: 100%;
+	max-width: 580px;
+	flex-grow: 1;
+	max-height: 760px;
+	flex-direction: column;
+	position: relative;
+}
+
+.notificationListDemo__card {
+	flex-grow: 1;
+	min-height: 0;
+	flex-direction: column;
+	padding-left: 28px;
+	padding-right: 28px;
+	padding-top: 28px;
+	padding-bottom: 28px;
+	background-color: rgba(20, 28, 44, 0.94);
+	border-width: 1px;
+	border-color: rgba(255, 255, 255, 0.08);
+	border-radius: 28px;
+}
+
+.notificationListDemo__eyebrow {
+	font-size: 13px;
+	color: rgba(132, 173, 255, 1);
+	-unity-font-style: bold;
+	margin-bottom: 12px;
+}
+
+.notificationListDemo__title {
+	font-size: 24px;
+	color: rgba(255, 255, 255, 1);
+	-unity-font-style: bold;
+	margin-bottom: 8px;
+}
+
+/* Drawn as an absolute overlay on top of the panel. The badge is a sibling of the
+   card (not a child), so the card's rounded corners can never clip it. */
+.notificationListDemo__badge {
+	position: absolute;
+	top: 16px;
+	right: 16px;
+}
+
+.notificationListDemo__instruction {
+	font-size: 13px;
+	color: rgba(202, 211, 232, 0.9);
+	margin-bottom: 16px;
+	white-space: normal;
+}
+
+.notificationListDemo__list {
+	flex-grow: 1;
+	min-height: 0;
+	margin-bottom: 16px;
+}
+
+.notificationListDemo__list .elasticListView__emptyLabel {
+	font-size: 15px;
+	color: rgba(202, 211, 232, 0.7);
+}
+
+.notificationListDemo__item {
+	flex-direction: row;
+	align-items: center;
+	background-color: rgba(255, 255, 255, 0.04);
+	border-radius: 14px;
+	padding-left: 14px;
+	padding-right: 14px;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+
+.notificationListDemo__itemAccent {
+	width: 4px;
+	align-self: stretch;
+	border-radius: 2px;
+	margin-right: 12px;
+	flex-shrink: 0;
+}
+
+.notificationListDemo__itemText {
+	flex-grow: 1;
+	flex-direction: column;
+}
+
+.notificationListDemo__itemMessage {
+	font-size: 14px;
+	color: rgba(236, 240, 252, 1);
+	white-space: normal;
+}
+
+.notificationListDemo__itemMeta {
+	font-size: 11px;
+	color: rgba(150, 160, 185, 1);
+	margin-top: 3px;
+}
+
+.notificationListDemo__bottomBar {
+	align-items: center;
+}
+
+.notificationListDemo__addButton {
+	height: 52px;
+	align-self: stretch;
+}

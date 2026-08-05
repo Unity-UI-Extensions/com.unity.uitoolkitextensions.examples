@@ -1,0 +1,102 @@
+/* ============================================================
+   SampleStyles.uss
+   Shared styles for all UI Toolkit Extensions sample scenes.
+   Dark-themed demo environment.
+   ============================================================ */
+
+.sample-root {
+    flex-grow: 1;
+    flex-direction: column;
+    background-color: #1a1a2e;
+    padding: 0;
+}
+
+.sample-header {
+    background-color: #16213e;
+    padding: 16px;
+}
+
+.sample-title {
+    font-size: 22px;
+    color: #e94560;
+    -unity-text-align: middle-center;
+    -unity-font-style: bold;
+}
+
+.sample-subtitle {
+    font-size: 13px;
+    color: #a8a8b3;
+    -unity-text-align: middle-center;
+}
+
+.sample-content {
+    flex-grow: 1;
+    flex-direction: column;
+    padding: 16px;
+}
+
+.sample-footer {
+    background-color: #16213e;
+    padding: 12px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sample-label {
+    font-size: 14px;
+    color: #e2e2e2;
+}
+
+.sample-status {
+    font-size: 12px;
+    color: #a8a8b3;
+    -unity-text-align: middle-center;
+    margin-top: 8px;
+}
+
+.sample-page {
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.sample-page--blue {
+    background-color: #0f3460;
+}
+
+.sample-page--teal {
+    background-color: #1a4a4a;
+}
+
+.sample-page--purple {
+    background-color: #2a1a4a;
+}
+
+.sample-page--green {
+    background-color: #1a4a2a;
+}
+
+.sample-page--warm {
+    background-color: #4a2a1a;
+}
+
+.sample-swatch {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    margin: 8px;
+}
+
+.sample-divider {
+    height: 1px;
+    background-color: #333333;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.sample-button-row {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 8px;
+}

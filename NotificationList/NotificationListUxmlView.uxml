@@ -1,0 +1,22 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:ext="UnityUIToolkit.Extensions" editor-extension-mode="False">
+    <Style src="project://database/Packages/com.unity.uitoolkitextensions/Runtime/Resources/UIToolkitExtensions/UIToolkitExtensionsControlStyles.uss" />
+    <Style src="NotificationListStyles.uss" />
+
+    <ui:VisualElement class="notificationListDemo__screen">
+        <ui:VisualElement class="notificationListDemo__cardWrap">
+            <ui:VisualElement class="notificationListDemo__card">
+                <ui:Label text="Toolkit Sample" class="notificationListDemo__eyebrow" />
+                <ui:Label text="Notifications" class="notificationListDemo__title" />
+
+                <ui:Label text="Add notifications to grow the list and bump the unread badge. Swipe up past the bottom to load more (best on device). Tap the badge to mark all read." class="notificationListDemo__instruction" />
+
+                <ext:ElasticListView name="list" class="notificationListDemo__list" empty-text="You're all caught up." />
+
+                <ui:VisualElement class="notificationListDemo__bottomBar">
+                    <ext:PillButton name="add-button" class="notificationListDemo__addButton" text="Add Notification" inner-color="#4A90E2" outer-color="#7B68EE" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ext:NotificationBadge name="badge" class="notificationListDemo__badge" count="0" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

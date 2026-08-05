@@ -1,0 +1,18 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:ext="UnityUIToolkit.Extensions" editor-extension-mode="False">
+    <Style src="project://database/Packages/com.unity.uitoolkitextensions/Runtime/Resources/UIToolkitExtensions/UIToolkitExtensionsControlStyles.uss" />
+    <Style src="ScreenHeaderStyles.uss" />
+
+    <ui:VisualElement class="screenHeaderDemo__screen">
+        <ext:ScreenHeader name="screen-header" class="screenHeaderDemo__header" title="header"
+            show-action1="true" show-action2="false" show-action3="true" show-action4-toggle="true" />
+
+        <ui:VisualElement class="screenHeaderDemo__body">
+            <ui:VisualElement class="screenHeaderDemo__card">
+                <ui:Label text="Toolkit Sample" class="screenHeaderDemo__eyebrow" />
+                <ui:Label text="Screen Header" class="screenHeaderDemo__title" />
+                <ui:Label text="A configurable top bar with edge action buttons. Tap the back or info buttons, or flip the sound toggle, to see the header report each interaction below." class="screenHeaderDemo__instruction" />
+                <ui:Label name="status-label" text="Interact with the header above." class="screenHeaderDemo__status" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

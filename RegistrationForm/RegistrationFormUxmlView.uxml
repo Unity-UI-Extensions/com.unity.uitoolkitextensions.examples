@@ -1,0 +1,33 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:ext="UnityUIToolkit.Extensions" editor-extension-mode="False">
+    <Style src="project://database/Packages/com.unity.uitoolkitextensions/Runtime/Resources/UIToolkitExtensions/UIToolkitExtensionsControlStyles.uss" />
+    <Style src="RegistrationFormStyles.uss" />
+
+    <ui:VisualElement name="screen" class="registrationForm__screen">
+        <ui:VisualElement name="card" class="registrationForm__card">
+            <ui:Label text="Toolkit Sample" class="registrationForm__eyebrow" />
+            <ui:Label text="Registration Form" class="registrationForm__title" />
+            <ui:Label text="Complete the sample form below to review the shared example card style in a more complex layout." class="registrationForm__subtitle" />
+
+            <ui:VisualElement name="form-container" class="registrationForm__formContainer">
+                <ext:PillInputField name="name-field" class="registrationForm__nameField" label="Full Name" placeholder="Your full name" />
+                <ext:PillInputField name="email-field" class="registrationForm__emailField" label="Email Address" placeholder="you@example.com" keyboard-type="EmailAddress" />
+                <ext:PillInputField name="password-field" class="registrationForm__passwordField" label="Password" placeholder="Min. 6 characters" password-mode="true" max-length="64" />
+
+                <ui:Label text="Bio (optional)" class="registrationForm__sectionLabel" />
+                <ext:RoundedInputField name="bio-field" class="registrationForm__bioField" placeholder="Tell us a little about yourself…" multiline="true" max-length="280" />
+
+                <ext:PillSelector name="category-selector" class="registrationForm__categorySelector" label="Category" value="Fitness" />
+
+                <ext:PillButton name="submit-button" class="registrationForm__submitButton" text="Create Account" inner-color="#4A90E2" outer-color="#7B68EE" />
+            </ui:VisualElement>
+
+            <ui:VisualElement name="success-container" class="registrationForm__successContainer">
+                <ui:VisualElement class="registrationForm__successIcon">
+                    <ui:Label text="&#10003;" class="registrationForm__successCheck" />
+                </ui:VisualElement>
+                <ui:Label text="Account Created!" class="registrationForm__successTitle" />
+                <ui:Label text="Welcome aboard! Your account has been successfully created. You can now explore all features." class="registrationForm__successMessage" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,122 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:ext="UnityUIToolkit.Extensions" editor-extension-mode="False">
+    <Style src="project://database/Packages/com.unity.uitoolkitextensions/Runtime/Resources/UIToolkitExtensions/UIToolkitExtensionsControlStyles.uss" />
+    <Style src="StepWizardStyles.uss" />
+
+    <ui:VisualElement name="screen" class="stepWizard__screen">
+        <ui:VisualElement name="card" class="stepWizard__card">
+            <!-- Non-shrinking header: tall step panels can never compress the stepper or progress bar. -->
+            <ui:VisualElement name="header" class="stepWizard__header">
+                <ui:Label text="Toolkit Sample" class="stepWizard__eyebrow" />
+                <ui:Label text="Step Wizard Demo" class="stepWizard__title" />
+                <ui:Label text="Move through the sample steps below, adjust your preferences, and finish with a compact summary." class="stepWizard__subtitle" />
+                <ui:Label name="step-counter" class="stepWizard__counter" />
+
+                <ui:VisualElement name="stepper-wrapper" class="stepWizard__stepperWrapper">
+                    <ext:QuadrantStepper name="stepper" class="stepWizard__stepper" options="About,Goals,Settings,Done" />
+                </ui:VisualElement>
+
+                <ui:VisualElement name="progress-wrapper" class="stepWizard__progressWrapper">
+                    <ext:StepProgressBar name="progress-bar" class="stepWizard__progressBar" inner-color="#4A90E2" outer-color="#7B68EE" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:VisualElement name="content-area" class="stepWizard__content">
+            <ui:VisualElement name="panel-0" class="stepWizard__panel" style="display: none;">
+                <ui:Label text="About You" class="stepWizard__panelHeading" />
+                <ui:Label text="Tell us a bit about yourself so we can personalise your experience." class="stepWizard__panelDescription" />
+                <ui:VisualElement class="stepWizard__fieldRow">
+                    <ui:Label text="Full Name" class="stepWizard__fieldLabel" />
+                    <ext:RoundedInputField class="stepWizard__field" placeholder="e.g. Alex Johnson" />
+                </ui:VisualElement>
+                <ui:VisualElement class="stepWizard__fieldRow">
+                    <ui:Label text="Role" class="stepWizard__fieldLabel" />
+                    <ext:RoundedInputField class="stepWizard__field" placeholder="e.g. Athlete, Coach, Student…" />
+                </ui:VisualElement>
+                <ui:Label text="This helps us show you the most relevant content." class="stepWizard__hint" />
+            </ui:VisualElement>
+
+            <ui:VisualElement name="panel-1" class="stepWizard__panel" style="display: none;">
+                <ui:Label text="Your Goals" class="stepWizard__panelHeading" />
+                <ui:Label text="Pick the goals that matter most to you right now." class="stepWizard__panelDescription" />
+                <ui:VisualElement class="stepWizard__goalCard">
+                    <ui:VisualElement class="stepWizard__goalCheckbox" />
+                    <ui:Label text="Improve fitness &amp; strength" class="stepWizard__goalText" />
+                </ui:VisualElement>
+                <ui:VisualElement class="stepWizard__goalCard">
+                    <ui:VisualElement class="stepWizard__goalCheckbox" />
+                    <ui:Label text="Eat healthier every day" class="stepWizard__goalText" />
+                </ui:VisualElement>
+                <ui:VisualElement class="stepWizard__goalCard">
+                    <ui:VisualElement class="stepWizard__goalCheckbox" />
+                    <ui:Label text="Reduce stress and anxiety" class="stepWizard__goalText" />
+                </ui:VisualElement>
+                <ui:VisualElement class="stepWizard__goalCard">
+                    <ui:VisualElement class="stepWizard__goalCheckbox" />
+                    <ui:Label text="Build better sleep habits" class="stepWizard__goalText" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:VisualElement name="panel-2" class="stepWizard__panel" style="display: none;">
+                <ui:Label text="Preferences" class="stepWizard__panelHeading" />
+                <ui:Label text="Configure notifications and privacy to suit your preferences." class="stepWizard__panelDescription" />
+                <ui:VisualElement class="stepWizard__toggleRow">
+                    <ui:VisualElement class="stepWizard__toggleText">
+                        <ui:Label text="Push Notifications" class="stepWizard__toggleLabel" />
+                        <ui:Label text="Receive reminders and tips" class="stepWizard__toggleDetail" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="stepWizard__toggleIndicator" />
+                </ui:VisualElement>
+                <ui:VisualElement class="stepWizard__toggleRow">
+                    <ui:VisualElement class="stepWizard__toggleText">
+                        <ui:Label text="Weekly Summary" class="stepWizard__toggleLabel" />
+                        <ui:Label text="Get a progress report each Monday" class="stepWizard__toggleDetail" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="stepWizard__toggleIndicator" />
+                </ui:VisualElement>
+                <ui:VisualElement class="stepWizard__toggleRow">
+                    <ui:VisualElement class="stepWizard__toggleText">
+                        <ui:Label text="Personalised Ads" class="stepWizard__toggleLabel" />
+                        <ui:Label text="Help support the app" class="stepWizard__toggleDetail" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="stepWizard__toggleIndicator" />
+                </ui:VisualElement>
+                <ui:VisualElement class="stepWizard__toggleRow">
+                    <ui:VisualElement class="stepWizard__toggleText">
+                        <ui:Label text="Data Sharing" class="stepWizard__toggleLabel" />
+                        <ui:Label text="Anonymous usage analytics" class="stepWizard__toggleDetail" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="stepWizard__toggleIndicator" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:VisualElement name="panel-3" class="stepWizard__panel" style="display: none;">
+                <ui:Label text="All Done!" class="stepWizard__panelHeading" />
+                <ui:Label text="You're all set! Review your choices below before finishing." class="stepWizard__panelDescription" />
+                <ui:VisualElement class="stepWizard__summaryBox">
+                    <ui:VisualElement class="stepWizard__summaryRow">
+                        <ui:Label text="Steps completed" class="stepWizard__summaryKey" />
+                        <ui:Label text="4 / 4" class="stepWizard__summaryValue" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="stepWizard__summaryRow">
+                        <ui:Label text="Profile" class="stepWizard__summaryKey" />
+                        <ui:Label text="Ready" class="stepWizard__summaryValue" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="stepWizard__summaryRow">
+                        <ui:Label text="Goals" class="stepWizard__summaryKey" />
+                        <ui:Label text="Selected" class="stepWizard__summaryValue" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="stepWizard__summaryRow">
+                        <ui:Label text="Preferences" class="stepWizard__summaryKey" />
+                        <ui:Label text="Saved" class="stepWizard__summaryValue" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:VisualElement name="nav-bar" class="stepWizard__navBar">
+                <ext:PillButton name="back-button" class="stepWizard__navButton" text="Back" inner-color="#465062" outer-color="#5C667A" />
+                <ext:PillButton name="next-button" class="stepWizard__navButton" text="Next" inner-color="#4A90E2" outer-color="#7B68EE" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

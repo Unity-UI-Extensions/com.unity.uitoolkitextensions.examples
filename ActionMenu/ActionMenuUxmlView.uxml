@@ -1,0 +1,39 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:ext="UnityUIToolkit.Extensions" editor-extension-mode="False">
+    <!--
+      UXML version of the ActionMenu demo. Mirrors ActionMenuDemo.cs but declares the
+      layout here; ActionMenuUxmlBinder.cs only wires behaviour. DropDownMenuControl is
+      purely programmatic (not a [UxmlElement]), so it appears in neither file's markup —
+      the binder constructs it and opens it from the ··· triggers declared below.
+      PillButton is a [UxmlElement] type from the UnityUIToolkit.Extensions namespace
+      (the xmlns:ext prefix above).
+    -->
+    <Style src="project://database/Packages/com.unity.uitoolkitextensions/Runtime/Styles/UIToolkitExtensionsControlStyles.uss" />
+    <Style src="ActionMenuStyles.uss" />
+
+    <ui:VisualElement name="screen" class="actionMenuExample__screen">
+        <ui:VisualElement name="card" class="actionMenuExample__card">
+            <ui:Label text="Toolkit Sample" class="actionMenuExample__eyebrow" />
+            <ui:Label text="ACTION MENU" class="actionMenuExample__title" />
+            <ui:Label text="Each item hides its actions behind a ··· overflow menu. Choosing an option runs that option's callback; tapping the backdrop dismisses the menu without acting." class="actionMenuExample__description" />
+
+            <ui:VisualElement name="item-list" class="actionMenuExample__itemList">
+                <ui:VisualElement class="actionMenuExample__itemRow">
+                    <ui:Label text="Quarterly report.pdf" class="actionMenuExample__itemLabel" />
+                    <ui:Label text="···" class="actionMenuExample__itemMenuButton" />
+                </ui:VisualElement>
+                <ui:VisualElement class="actionMenuExample__itemRow">
+                    <ui:Label text="Team photo.png" class="actionMenuExample__itemLabel" />
+                    <ui:Label text="···" class="actionMenuExample__itemMenuButton" />
+                </ui:VisualElement>
+                <ui:VisualElement class="actionMenuExample__itemRow">
+                    <ui:Label text="Product roadmap.fig" class="actionMenuExample__itemLabel" />
+                    <ui:Label text="···" class="actionMenuExample__itemMenuButton" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ext:PillButton name="card-actions-button" class="actionMenuExample__centeredButton" text="Card actions" inner-color="#4A90E2" outer-color="#7B68EE" />
+
+            <ui:Label name="status-label" text="Open an item's ··· menu, or the card actions menu." class="actionMenuExample__status" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
