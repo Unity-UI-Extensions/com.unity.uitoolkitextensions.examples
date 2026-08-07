@@ -102,7 +102,7 @@
 .imageCropOverlayDemo__buttonRow {
 	flex-direction: row;
 	justify-content: space-between;
-	gap: 14px;
+	top: 14px;
 	margin-bottom: 16px;
 }
 
