@@ -44,7 +44,7 @@ namespace UnityUIToolkit.Extensions.Examples
             scroll.style.flexGrow = 1;
             page.Stage.Add(scroll);
 
-            Add(scroll, "Camera", "REQUIRED", "Explorer places content in the world through your camera.", new StatusChip("Allowed", StatusState.Ok));
+            Add(scroll, "Camera", "REQUIRED", "The app places content in the world through your camera.", new StatusChip("Allowed", StatusState.Ok));
             Add(scroll, "Location", "REQUIRED", "Used to find experiences near you and to position content.", new StatusChip("Needed", StatusState.Warn));
             Add(scroll, "Microphone", "OPTIONAL", "Lets you talk to characters. You can type instead.", new StatusChip("Skipped", StatusState.Info));
         }

@@ -72,7 +72,7 @@ namespace UnityUIToolkit.Extensions.Examples
             page.AddButton(row2, "Required", () => Run(new DialogOptions
             {
                 Title = "Camera access needed",
-                Body = "Explorer places content in the world through your camera.",
+                Body = "The app places content in the world through your camera.",
                 PrimaryText = "Open settings",
                 SecondaryText = "Not now",
                 Dismissible = false,

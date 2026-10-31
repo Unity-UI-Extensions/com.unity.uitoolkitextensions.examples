@@ -50,7 +50,7 @@ namespace UnityUIToolkit.Extensions.Examples
             var settings = drawer.AddSection("SETTINGS");
             settings.Add(new SettingsRow("Captions", trailingMode: SettingsRowTrailing.Switch));
             settings.Add(new SettingsRow("Language") { Trailing = SettingsRowTrailing.Value, ValueText = "English (UK)" });
-            settings.Add(new SettingsRow("About Explorer") { ShowDivider = false });
+            settings.Add(new SettingsRow("About this app") { ShowDivider = false });
 
             root.Add(drawer);
             root.RegisterCallback<KeyDownEvent>(evt =>
