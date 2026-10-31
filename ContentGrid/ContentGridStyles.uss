@@ -1,0 +1,6 @@
+/* ContentGrid sample: layout only; the grid styles itself from ThemeTokens. */
+
+.contentGridDemo__grid {
+    flex-grow: 1;
+    margin-top: var(--space-3);
+}

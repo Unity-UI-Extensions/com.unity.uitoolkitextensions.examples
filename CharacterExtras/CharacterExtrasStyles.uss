@@ -1,0 +1,20 @@
+/* CharacterExtras sample: layout only; the components style themselves from ThemeTokens. */
+
+.characterDemo__row {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: var(--space-4);
+}
+
+.characterDemo__row > .avatarPortrait {
+    margin-right: var(--space-3);
+}
+
+.characterDemo__progress {
+    margin-bottom: var(--space-4);
+}
+
+.characterDemo__shutter {
+    align-self: center;
+    margin-top: var(--space-6);
+}

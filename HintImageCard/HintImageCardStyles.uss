@@ -1,0 +1,17 @@
+/* HintImageCard sample: layout only; the components style themselves from ThemeTokens. */
+
+.hintDemo__host {
+    margin-top: var(--space-5);
+    padding: var(--space-4);
+    background-color: var(--surface-raised);
+    border-width: 1px;
+    border-color: var(--surface-border);
+    border-radius: var(--radius-card);
+}
+
+.hintDemo__heading {
+    margin-bottom: var(--space-2);
+    font-size: var(--text-micro);
+    letter-spacing: 2px;
+    color: var(--surface-muted);
+}

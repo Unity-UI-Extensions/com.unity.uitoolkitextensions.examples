@@ -1,0 +1,5 @@
+/* SkeletonTile sample: layout only; the components style themselves from ThemeTokens. */
+
+.skeletonDemo__stage {
+    margin-top: var(--space-4);
+}

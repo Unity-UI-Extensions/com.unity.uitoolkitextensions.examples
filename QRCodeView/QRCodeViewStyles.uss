@@ -1,0 +1,17 @@
+/* QRCodeView sample: layout only; the components style themselves from ThemeTokens. */
+
+.qrDemo__card {
+    align-self: center;
+    align-items: center;
+    padding: var(--space-4);
+    background-color: var(--c-page-card);
+    border-radius: var(--radius-card);
+}
+
+.qrDemo__caption {
+    margin-top: var(--space-3);
+    font-size: var(--text-caption);
+    color: var(--c-page-muted);
+    -unity-text-align: middle-center;
+    white-space: normal;
+}

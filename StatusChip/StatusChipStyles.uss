@@ -1,0 +1,11 @@
+/* StatusChip sample: layout only; the chips style themselves from ThemeTokens. */
+
+.statusChipDemo__gallery {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.statusChipDemo__gallery > .statusChip {
+    margin-right: var(--space-2);
+    margin-bottom: var(--space-2);
+}

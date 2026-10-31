@@ -1,0 +1,7 @@
+/* ProgressRing sample: layout only; the rings style themselves from ThemeTokens. */
+
+.progressRingDemo__row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}

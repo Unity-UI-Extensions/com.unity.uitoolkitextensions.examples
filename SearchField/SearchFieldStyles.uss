@@ -1,0 +1,14 @@
+/* SearchField sample: result rows only; the components style themselves from ThemeTokens. */
+
+.searchDemo__results {
+    margin-top: var(--space-4);
+}
+
+.searchDemo__row {
+    padding-top: var(--space-3);
+    padding-bottom: var(--space-3);
+    font-size: var(--text-body);
+    color: var(--c-fg);
+    border-bottom-width: 1px;
+    border-bottom-color: var(--c-divider);
+}

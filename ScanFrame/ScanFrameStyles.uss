@@ -1,0 +1,13 @@
+/* ScanFrame sample: layout only; the components style themselves from ThemeTokens. */
+
+.scanFrameDemo__stage {
+    min-height: 360px;
+}
+
+.scanFrameDemo__marker {
+    position: absolute;
+    width: 120px;
+    height: 150px;
+    background-color: rgb(242, 237, 228);
+    border-radius: 4px;
+}

@@ -1,0 +1,5 @@
+/* ScrollingTabs sample: layout only; the rows style themselves from ThemeTokens. */
+
+.scrollingTabsDemo__chips {
+    margin-top: var(--space-4);
+}

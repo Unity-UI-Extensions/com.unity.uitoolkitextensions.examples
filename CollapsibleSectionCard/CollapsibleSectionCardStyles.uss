@@ -1,0 +1,8 @@
+/* CollapsibleSection card sample: the icon tile only; the section styles itself from ThemeTokens. */
+
+.collapsibleCardDemo__tile {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    background-color: var(--c-surface-2);
+}

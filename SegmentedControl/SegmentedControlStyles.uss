@@ -1,0 +1,13 @@
+/* SegmentedControl sample: layout only; the control styles itself from ThemeTokens. */
+
+.segmentedDemo__control {
+    margin-bottom: var(--space-4);
+}
+
+.segmentedDemo__lightCard {
+    background-color: var(--surface-bg);
+    padding-top: var(--space-4);
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+    border-radius: var(--radius-card);
+}

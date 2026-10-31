@@ -1,0 +1,8 @@
+/* SettingsRow sample: card layout only; the rows style themselves from ThemeTokens. */
+
+.settingsRowDemo__card {
+    background-color: var(--surface-bg);
+    border-radius: var(--radius-card);
+    margin-bottom: var(--space-4);
+    overflow: hidden;
+}

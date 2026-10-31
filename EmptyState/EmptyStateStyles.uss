@@ -1,0 +1,7 @@
+/* EmptyState sample: card layout only; the empty states style themselves from ThemeTokens. */
+
+.emptyStateDemo__card {
+    margin-top: var(--space-4);
+    background-color: var(--surface-bg);
+    border-radius: var(--radius-card);
+}

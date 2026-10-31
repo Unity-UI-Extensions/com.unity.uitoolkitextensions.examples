@@ -1,0 +1,5 @@
+/* GestureHint sample: layout only; the hints style themselves from ThemeTokens. */
+
+.gestureHintDemo__mouse {
+    margin-top: var(--space-6);
+}

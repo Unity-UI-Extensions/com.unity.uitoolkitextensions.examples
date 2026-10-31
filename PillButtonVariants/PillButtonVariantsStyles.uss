@@ -1,0 +1,13 @@
+/* PillButton variants sample: layout only; the buttons style themselves from ThemeTokens. */
+
+.pillVariantsDemo__row {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: var(--space-3);
+}
+
+.pillVariantsDemo__button {
+    flex-grow: 1;
+    flex-basis: 0;
+    margin-right: var(--space-2);
+}

@@ -1,0 +1,9 @@
+/* ToolRail sample: layout only; the rails and hint style themselves from ThemeTokens. */
+
+.toolRailDemo__hint {
+    margin-bottom: var(--space-3);
+}
+
+.toolRailDemo__modes {
+    margin-top: var(--space-6);
+}

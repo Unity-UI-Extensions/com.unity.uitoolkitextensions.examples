@@ -1,0 +1,14 @@
+/* ThemedVariants sample: card layout only; the controls style themselves from ThemeTokens. */
+
+.themedDemo__card {
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-4);
+    background-color: var(--surface-bg);
+    border-radius: var(--radius-card);
+}
+
+.themedDemo__field {
+    margin-top: var(--space-3);
+    margin-left: var(--space-4);
+    margin-right: var(--space-4);
+}
