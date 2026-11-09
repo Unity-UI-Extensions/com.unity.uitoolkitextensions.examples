@@ -6,7 +6,7 @@
 //   same GameObject via GetComponent<UIDocument>(), so no manual assignment is needed.
 //      - A simulated 70 second guide: the demo plays the role of the audio source, answers
 //        the player's requests and reports the position every frame.
-//      - Drag the scrubber, skip 15 seconds, loop, change the rate; the transcript line
+//      - Drag the scrubber, skip 15 seconds, loop, mute, change the rate; the transcript line
 //        follows the position. At the end the play button offers a replay.
 
 using UnityEngine;
@@ -39,7 +39,7 @@ namespace UnityUIToolkit.Extensions.Examples
                 "Controls for a guide or a video. The owner reports the state and answers the requests.");
             page.Finish();
 
-            player = new AudioGuidePlayer { TitleText = "Blade inspection", Duration = Length, ShowSkip = true };
+            player = new AudioGuidePlayer { TitleText = "Blade inspection", Duration = Length, ShowSkip = true, ShowMute = true };
             player.SetCues(new[]
             {
                 new TranscriptCue(0f, "Welcome to the turbine hall."),
@@ -53,6 +53,7 @@ namespace UnityUIToolkit.Extensions.Examples
             player.SeekRequested += seconds => { position = seconds; page.Write($"Seek to {AudioGuidePlayer.FormatTime(seconds)}"); };
             player.SkipRequested += delta => position = Mathf.Clamp(position + delta, 0f, Length);
             player.LoopToggled += on => page.Write($"Loop {(on ? "on" : "off")}");
+            player.MuteToggled += muted => page.Write(muted ? "Muted" : "Sound on");
             player.RateChanged += rate => page.Write($"Rate {rate}x");
             page.Stage.Add(player);
         }
